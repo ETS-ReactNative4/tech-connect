@@ -1,19 +1,41 @@
 import React from 'react';
-import { StyleSheet, Text, View, TextInput, Button, TouchableHighlight } from 'react-native';
+import { StyleSheet, Text, View, TextInput, Button, TouchableHighlight, TouchableOpacity } from 'react-native';
 
 
 
 export default class Login extends React.Component {
+  constructor() {
+    super()
+    this.state = {
+      register: false
+    }
+  }
+
+  toggleRegister = () => {
+    this.setState({
+      register: !this.state.register
+    })
+  }
+
   render() {
+    const btnText = this.state.register ? 'REGISTER' : 'SIGN IN'
+    const toggleText = this.state.register ? 'Sign In' : 'Register'
+    
     return (
       <View style={styles.container}>
         <Text>Tech Connect</Text>
         <TextInput placeholder="Email" style={styles.input} />
-        <TextInput placeholder="Password" style={styles.input} />
+        <TextInput placeholder="Password" style={styles.input} /> 
+        {
+          this.state.register && <TextInput placeholder="Confirm Password" style={styles.input} /> 
+        }
         <TouchableHighlight style={styles.button}>
-          <Button title="Sign In" color='#E8FDFF' />
+          <Button title={btnText} color='#E8FDFF'/>
         </TouchableHighlight>
-        <Text style={styles.text}>Register if you do not have an account</Text>
+        <TouchableOpacity onPress={this.toggleRegister}>
+          <Text style={styles.text}>{toggleText}</Text>
+        </TouchableOpacity>
+        <Text style={styles.text} >if you do not have an account</Text>
       </View>
     );
   }
@@ -45,4 +67,3 @@ const styles = StyleSheet.create({
     width: 140
   }
 });
-
