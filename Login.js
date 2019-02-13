@@ -20,7 +20,7 @@ export default class Login extends React.Component {
   render() {
     const btnText = this.state.register ? 'REGISTER' : 'SIGN IN'
     const toggleText = this.state.register ? 'Sign In' : 'Register'
-    
+
     return (
       <View style={styles.container}>
         <Text>Tech Connect</Text>
@@ -32,10 +32,12 @@ export default class Login extends React.Component {
         <TouchableHighlight style={styles.button}>
           <Button title={btnText} color='#E8FDFF'/>
         </TouchableHighlight>
-        <TouchableOpacity onPress={this.toggleRegister}>
-          <Text style={styles.text}>{toggleText}</Text>
-        </TouchableOpacity>
-        <Text style={styles.text} >if you do not have an account</Text>
+        <View style={styles.textContainer}>
+          <TouchableOpacity onPress={this.toggleRegister} >
+            <Text style={[styles.text, {textDecorationLine: 'underline'}]}>{toggleText}</Text>
+          </TouchableOpacity>
+          <Text style={styles.text} > if you do not have an account</Text>
+        </View>
       </View>
     );
   }
@@ -49,8 +51,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   text: {
-    color: '#E8FDFF'
-    
+    color: '#E8FDFF',
   },
   input: {
     backgroundColor: '#E8FDFF',
@@ -65,5 +66,9 @@ const styles = StyleSheet.create({
     borderRadius: 25,
     height: 40,
     width: 140
+  },
+  textContainer: {
+    display: 'flex',
+    flexDirection: 'row'
   }
 });
