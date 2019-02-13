@@ -7,7 +7,10 @@ export default class Login extends React.Component {
   constructor() {
     super()
     this.state = {
-      register: false
+      register: false,
+      email: '',
+      password: '',
+      confirmPassword: ''
     }
   }
 
@@ -24,10 +27,10 @@ export default class Login extends React.Component {
     return (
       <View style={styles.container}>
         <Text>Tech Connect</Text>
-        <TextInput placeholder="Email" style={styles.input} />
-        <TextInput placeholder="Password" secureTextEntry={true} style={styles.input} /> 
+        <TextInput placeholder="Email" style={styles.input} name='email' onChangeText={(text) => this.setState({email: text})} />
+        <TextInput placeholder="Password" secureTextEntry={true} style={styles.input} name='password' onChangeText={(text) => this.setState({password: text})} /> 
         {
-          this.state.register && <TextInput placeholder="Confirm Password" secureTextEntry={true} style={styles.input} /> 
+          this.state.register && <TextInput placeholder="Confirm Password" secureTextEntry={true} style={styles.input} onChangeText={(text) => this.setState({confirmPassword: text})}/> 
         }
         <TouchableHighlight style={styles.button}>
           <Button title={btnText} color='#E8FDFF'/>
