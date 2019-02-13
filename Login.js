@@ -25,9 +25,9 @@ export default class Login extends React.Component {
       <View style={styles.container}>
         <Text>Tech Connect</Text>
         <TextInput placeholder="Email" style={styles.input} />
-        <TextInput placeholder="Password" style={styles.input} /> 
+        <TextInput placeholder="Password" secureTextEntry={true} style={styles.input} /> 
         {
-          this.state.register && <TextInput placeholder="Confirm Password" style={styles.input} /> 
+          this.state.register && <TextInput placeholder="Confirm Password" secureTextEntry={true} style={styles.input} /> 
         }
         <TouchableHighlight style={styles.button}>
           <Button title={btnText} color='#E8FDFF'/>
