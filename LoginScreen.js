@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, TextInput, Button, TouchableHighlight, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux'
 import { createUser } from './thunks/createUser'
+import { loginUser } from './thunks/loginUser'
 
 
 
@@ -24,17 +25,23 @@ export class LoginScreen extends React.Component {
 
   handleSubmit = async () => {
     const { email, password, password_confirmation } = this.state
-    const userInfo = { email, password, password_confirmation }
+    const createInfo = { email, password, password_confirmation }
+    const loginInfo = { email, password }
 
     if (this.state.register) {
-      await this.props.createUser(userInfo)
+      await this.props.createUser(createInfo)
+      this.handleUpdateProfile()
+    } else {
+      await this.props.loginUser(loginInfo)
       this.handleUpdateProfile()
     }
   }
 
   handleUpdateProfile = () => {
-    if (this.props.error === '') {
+    if (this.props.error === '' && this.state.register) {
       this.props.navigation.navigate('Profile')
+    } else if (this.props.error === '') {
+      this.props.navigation.navigate('Home')
     }
   }
 
@@ -60,7 +67,6 @@ export class LoginScreen extends React.Component {
           </TouchableOpacity>
           <Text style={styles.text} > if you do not have an account</Text>
         </View>
-        { this.props.user && <Text>{this.props.user.email}</Text> }
       </View>
     );
   }
@@ -74,7 +80,8 @@ export const mapStateToProps = (state) => ({
 })
 
 export const mapDispatchToProps = (dispatch) => ({
-  createUser: (user) => dispatch(createUser(user))
+  createUser: (user) => dispatch(createUser(user)),
+  loginUser: (user) => dispatch(loginUser(user))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginScreen)
