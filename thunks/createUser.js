@@ -1,4 +1,4 @@
-import { isLoading, hasErrored, loginUser } from '../actions'
+import { isLoading, hasErrored, logInUser } from '../actions'
 
 export const createUser = (user) => {
 
@@ -15,17 +15,18 @@ export const createUser = (user) => {
       })
 
       if (!response.ok) {
-        throw Error(response.statusText)
+        const errorText = await response.json()
+        throw Error(errorText.error)
       }
 
       dispatch(isLoading(false))
-      const newUser = await response.json();
+      const newUser = await response.json()
       const loggedInUser = {
         email: user.email,
         id: newUser.data.id,
         api_key: newUser.data.attributes.api_key,
       }
-      dispatch(loginUser(loggedInUser))
+      dispatch(logInUser(loggedInUser))
       dispatch(hasErrored(''))
     } catch(err) {
       dispatch(hasErrored(err.message))
