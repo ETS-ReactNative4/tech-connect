@@ -14,7 +14,7 @@ const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk
 const AppNavigator = createStackNavigator(
   {
     Login: LoginScreen,
-    Profile: ProfileScreen
+    Profile: ProfileScreen,
   },
   {
     headerMode: 'none',

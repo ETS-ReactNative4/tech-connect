@@ -22,12 +22,19 @@ export class LoginScreen extends React.Component {
     })
   }
 
-  handleSubmit = () => {
+  handleSubmit = async () => {
     const { email, password, password_confirmation } = this.state
     const userInfo = { email, password, password_confirmation }
 
     if (this.state.register) {
-      this.props.createUser(userInfo)
+      await this.props.createUser(userInfo)
+      this.handleUpdateProfile()
+    }
+  }
+
+  handleUpdateProfile = () => {
+    if (this.props.error === '') {
+      this.props.navigation.navigate('Profile')
     }
   }
 
