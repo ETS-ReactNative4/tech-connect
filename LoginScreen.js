@@ -1,9 +1,11 @@
 import React from 'react';
 import { StyleSheet, Text, View, TextInput, Button, TouchableHighlight, TouchableOpacity } from 'react-native';
+import { connect } from 'react-redux'
+import { createUser } from './thunks/createUser'
 
 
 
-export default class Login extends React.Component {
+export class LoginScreen extends React.Component {
   constructor() {
     super()
     this.state = {
@@ -20,9 +22,21 @@ export default class Login extends React.Component {
     })
   }
 
+  handleSubmit = () => {
+    const { email, password, confirmPassword } = this.state
+    const userInfo = {
+      email, password, confirmPassword
+    }
+
+    if (this.state.register) {
+      this.props.createUser(userInfo)
+    }
+  }
+
   render() {
     const btnText = this.state.register ? 'REGISTER' : 'SIGN IN'
     const toggleText = this.state.register ? 'Sign In' : 'Register'
+
 
     return (
       <View style={styles.container}>
@@ -33,7 +47,7 @@ export default class Login extends React.Component {
           this.state.register && <TextInput placeholder="Confirm Password" secureTextEntry={true} style={styles.input} onChangeText={(text) => this.setState({confirmPassword: text})}/> 
         }
         <TouchableHighlight style={styles.button}>
-          <Button title={btnText} color='#E8FDFF'/>
+          <Button title={btnText} color='#E8FDFF' onPress={this.handleSubmit}/>
         </TouchableHighlight>
         <View style={styles.textContainer}>
           <TouchableOpacity onPress={this.toggleRegister} >
@@ -41,10 +55,25 @@ export default class Login extends React.Component {
           </TouchableOpacity>
           <Text style={styles.text} > if you do not have an account</Text>
         </View>
+        { this.props.user && <Text>{this.props.user.email}</Text> }
       </View>
     );
   }
 }
+
+
+export const mapStateToProps = (state) => ({
+  user: state.user,
+  isLoading: state.isLoading,
+  error: state.error
+})
+
+export const mapDispatchToProps = (dispatch) => ({
+  createUser: (user) => dispatch(createUser(user))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(LoginScreen)
+
 
 const styles = StyleSheet.create({
   container: {
