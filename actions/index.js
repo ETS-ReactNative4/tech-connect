@@ -1,4 +1,4 @@
-export const loginUser = (user) => ({
+export const logInUser = (user) => ({
   type: 'LOG_IN',
   user
 })
@@ -7,7 +7,7 @@ export const logoutUser = () => ({
   type: 'LOG_OUT'
 })
 
-export const updateUser = (user) => ({
+export const updateUserAction = (user) => ({
   type: 'UPDATE_USER',
   user
 })
