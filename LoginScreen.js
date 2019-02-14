@@ -6,13 +6,13 @@ import { createUser } from './thunks/createUser'
 
 
 export class LoginScreen extends React.Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
       register: false,
       email: '',
       password: '',
-      confirmPassword: ''
+      password_confirmation: ''
     }
   }
 
@@ -23,10 +23,8 @@ export class LoginScreen extends React.Component {
   }
 
   handleSubmit = () => {
-    const { email, password, confirmPassword } = this.state
-    const userInfo = {
-      email, password, confirmPassword
-    }
+    const { email, password, password_confirmation } = this.state
+    const userInfo = { email, password, password_confirmation }
 
     if (this.state.register) {
       this.props.createUser(userInfo)
@@ -44,7 +42,7 @@ export class LoginScreen extends React.Component {
         <TextInput placeholder="Email" style={styles.input} name='email' onChangeText={(text) => this.setState({email: text})} />
         <TextInput placeholder="Password" secureTextEntry={true} style={styles.input} name='password' onChangeText={(text) => this.setState({password: text})} /> 
         {
-          this.state.register && <TextInput placeholder="Confirm Password" secureTextEntry={true} style={styles.input} onChangeText={(text) => this.setState({confirmPassword: text})}/> 
+          this.state.register && <TextInput placeholder="Confirm Password" secureTextEntry={true} style={styles.input} onChangeText={(text) => this.setState({password_confirmation: text})}/> 
         }
         <TouchableHighlight style={styles.button}>
           <Button title={btnText} color='#E8FDFF' onPress={this.handleSubmit}/>
