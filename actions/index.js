@@ -8,7 +8,7 @@ export const logoutUser = () => ({
 })
 
 export const updateUser = (user) => ({
-  type: 'UDPATE_USER',
+  type: 'UPDATE_USER',
   user
 })
 
