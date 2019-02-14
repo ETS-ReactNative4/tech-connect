@@ -1,6 +1,7 @@
 import { isLoading, hasErrored, loginUser } from '../actions'
 
 export const createUser = (user) => {
+
   const url = 'https://tech-connect-be.herokuapp.com/api/v1/users'
   return async (dispatch) => {
     try {
@@ -12,9 +13,11 @@ export const createUser = (user) => {
         },
         body: JSON.stringify(user)
       })
+
       if (!response.ok) {
         throw Error(response.statusText)
       }
+
       dispatch(isLoading(false))
       const newUser = await response.json();
       const loggedInUser = {
