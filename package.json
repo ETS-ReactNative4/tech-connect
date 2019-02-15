@@ -41,7 +41,11 @@
       "node_modules/(?!react-native|expo-react-native-adapter|react-navigation-stack|@react-navigation)"
     ],
     "collectCoverageFrom": [
-      "components/*.{js,jsx}"
+      "**/*.{js,jsx}",
+      "!/node_modules/",
+      "!src/index.js",
+      "!src/serviceWorker.js",
+      "!src/reducers/index.js"
     ]
   },
   "private": true
