@@ -5,7 +5,6 @@ import { createUser } from './thunks/createUser'
 import { loginUser } from './thunks/loginUser'
 
 
-
 export class LoginScreen extends React.Component {
   constructor(props) {
     super(props)
