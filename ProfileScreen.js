@@ -45,12 +45,13 @@ export class ProfileScreen extends React.Component {
           }
         />
         <Input 
+          onChangeText={(text) => this.setState({phone_number: text})} 
           containerStyle={styles.profileInputContainer} 
           leftIconContainerStyle={styles.icon} 
           inputContainerStyle={styles.profileInput} 
           placeholder="Phone Number"
           leftIcon={
-            <Icon
+            <Icon 
               name='phone'
               size={18}
               color='#4AA9C5'
@@ -58,10 +59,12 @@ export class ProfileScreen extends React.Component {
           }
           />
         <Input 
+          onChangeText={(text) => this.setState({location: text})} 
           containerStyle={styles.profileInputContainer} 
           leftIconContainerStyle={styles.icon} 
           inputContainerStyle={styles.profileInput} 
           placeholder="Location"
+          value={this.state.location}
           leftIcon={
             <Icon
               name='map-pin'
@@ -71,6 +74,7 @@ export class ProfileScreen extends React.Component {
           }
         />
         <Input 
+          onChangeText={(text) => this.setState({position: text})} 
           containerStyle={styles.profileInputContainer} 
           leftIconContainerStyle={styles.icon} 
           inputContainerStyle={styles.profileInput} 
@@ -84,6 +88,7 @@ export class ProfileScreen extends React.Component {
           }
         />
         <Input 
+          onChangeText={(text) => this.setState({employer: text})} 
           containerStyle={styles.profileInputContainer} 
           leftIconContainerStyle={styles.icon} 
           inputContainerStyle={styles.profileInput} 
@@ -97,6 +102,7 @@ export class ProfileScreen extends React.Component {
           }
         />
         <Input 
+          onChangeText={(text) => this.setState({github: text})} 
           containerStyle={styles.profileInputContainer} 
           leftIconContainerStyle={styles.icon} 
           inputContainerStyle={styles.profileInput} 
@@ -110,6 +116,7 @@ export class ProfileScreen extends React.Component {
           }
         />
         <Input 
+          onChangeText={(text) => this.setState({linkedin: text})} 
           containerStyle={styles.profileInputContainer} 
           leftIconContainerStyle={styles.icon} 
           inputContainerStyle={styles.profileInput} 
@@ -123,6 +130,7 @@ export class ProfileScreen extends React.Component {
           }
         />
         <Input 
+          onChangeText={(text) => this.setState({bio: text})} 
           containerStyle={styles.profileInputContainer} 
           leftIconContainerStyle={styles.icon} 
           inputContainerStyle={styles.profileInput} 
