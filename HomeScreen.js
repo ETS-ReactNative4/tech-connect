@@ -112,5 +112,11 @@ const styles = StyleSheet.create({
     shadowRadius: 10,
     shadowColor: 'black',
     shadowOpacity: .5,
+    width: '100%',
+    backgroundColor: 'blue'
   }
 })
+
+
+
+
