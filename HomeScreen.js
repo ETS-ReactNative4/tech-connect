@@ -3,9 +3,8 @@ import { StyleSheet, Text, View, Button, TouchableHighlight, Image } from 'react
 import { connect } from 'react-redux';
 import { LinearGradient } from 'expo'
 import SuggestedConnection from './SuggestedConnection.js' 
-import { StyleSheet, Text, View, Button, TouchableHighlight } from 'react-native';
 import NavigationBar from './NavigationBar'
-export default class HomeScreen extends React.Component {
+export class HomeScreen extends React.Component {
   constructor(props) {
     super(props)
   }
@@ -14,8 +13,10 @@ export default class HomeScreen extends React.Component {
 
     return (
       <View style={styles.container}>
-        <Text style={styles.name}>{this.props.user.name}</Text>
-        <Text style={styles.position}>{this.props.user.position.job_title}</Text>
+        {/* <Text style={styles.name}>{this.props.user.name}</Text>
+        <Text style={styles.position}>{this.props.user.position.job_title}</Text> */}
+        <Text style={styles.name}>Nameeeeee</Text>
+        <Text style={styles.position}>Positionnnnn</Text>
         <View style={styles.imageContainer}>
           <Image source={require('./profile-pic.jpeg')} style={styles.profilePic} />
         </View>
@@ -51,7 +52,8 @@ const styles = StyleSheet.create({
     alignItems: 'stretch',
     flexDirection: 'column',
     height: '100%',
-    width: '100%'
+    width: '100%',
+    paddingTop: 20
   },
   gradientContainer: {
     shadowOffset: {  width: 0,  height: 2  },
@@ -62,7 +64,7 @@ const styles = StyleSheet.create({
   circle: {
     position: 'absolute',
     top: -690,
-    left: -110,
+    left: -90,
     height: 600,
     width: 600
   },
@@ -87,6 +89,7 @@ const styles = StyleSheet.create({
   },
   name: {
     marginTop: 20,
+    marginLeft: 20,
     position: 'relative',
     zIndex: 20000,
     color: 'white',
@@ -94,6 +97,7 @@ const styles = StyleSheet.create({
   },
   position: {
     marginTop: 5,
+    marginLeft: 20,
     position: 'relative',
     zIndex: 20000,
     color: 'white',
@@ -102,7 +106,8 @@ const styles = StyleSheet.create({
   suggestedTitle: {
     color: '#4AA9C5',
     fontSize: 20,
-    marginBottom: 10
+    marginBottom: 10,
+    marginLeft: 20,
   },
   suggestedConnections: {
     display: 'flex',
