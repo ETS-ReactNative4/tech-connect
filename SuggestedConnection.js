@@ -20,7 +20,7 @@ export default class SuggestedConnection extends Component {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: '#4AA9C5',
-    height: 126,
+    height: 110,
     shadowOffset: {  width: 2,  height: 2 },
     shadowRadius: 4,
     shadowColor: 'black',
@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 20,
     borderBottomRightRadius: 6,
     borderBottomLeftRadius: 6,
-    marginBottom: 10,
+    marginBottom: 15,
   },
   picture: {
     height: 90,
@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     position: 'absolute',
     left: -40,
-    top: 18
+    top: 10
   },
   name: {
     marginLeft: 60,
@@ -56,8 +56,8 @@ const styles = StyleSheet.create({
   connectBtn: {
     position: 'absolute',
     right: -30,
-    top: 45,
-    backgroundColor: 'purple',
+    top: 35,
+    backgroundColor: '#93548F',
     paddingRight: 10,
     paddingLeft: 10,
     borderRadius: 20,

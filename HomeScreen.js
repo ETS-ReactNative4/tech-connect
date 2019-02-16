@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button, TouchableHighlight, Image } from 'react-native';
 import { connect } from 'react-redux';
+import { LinearGradient } from 'expo'
 import SuggestedConnection from './SuggestedConnection.js' 
 
 export class HomeScreen extends React.Component {
@@ -17,7 +18,12 @@ export class HomeScreen extends React.Component {
         <View style={styles.imageContainer}>
           <Image source={require('./profile-pic.jpeg')} style={styles.profilePic} />
         </View>
-        <View style={styles.circle}/>
+        <View style={styles.gradientContainer}>
+          <LinearGradient
+            colors={['#4AA9C5', '#6383C1', '#93548F']}
+            start={[ 0.4, 0.7 ]}
+            style={[styles.circle, { borderRadius: 300 }]} />
+        </View>
         <View styles={styles.suggestedConnections}>
           <Text style={styles.suggestedTitle}>Suggested Connections</Text>
           <SuggestedConnection />
@@ -46,18 +52,18 @@ const styles = StyleSheet.create({
     height: '100%',
     width: '100%'
   },
-  circle: {
-    position: 'absolute',
-    top: -380,
-    left: -93,
-    height: 600,
-    width: 600,
-    borderRadius: 300,
-    backgroundColor: '#4AA9C5',
+  gradientContainer: {
     shadowOffset: {  width: 0,  height: 2  },
     shadowRadius: 10,
     shadowColor: 'black',
     shadowOpacity: .5,
+  },
+  circle: {
+    position: 'absolute',
+    top: -690,
+    left: -110,
+    height: 600,
+    width: 600
   },
   imageContainer: {
     display: 'flex',
@@ -67,6 +73,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     zIndex: 200000,
     marginBottom: 20,
+    shadowOffset: {  width: 5,  height: 5},
+    shadowRadius: 5,
+    shadowColor: 'black',
+    shadowOpacity: .5,
   },
   profilePic: {
     height: 180,
