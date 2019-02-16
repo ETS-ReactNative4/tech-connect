@@ -8,7 +8,6 @@ import ModalSelector from 'react-native-modal-selector'
 import { getLocations, getPositions, getEmployers } from './apiCalls'
 
 
-
 export class ProfileScreen extends React.Component {
   constructor() {
     super()
@@ -18,9 +17,9 @@ export class ProfileScreen extends React.Component {
       linkedin: '',
       github: '',
       phone_number: '',
-      location: 'Denver,CO',
+      location: 'Denver',
       employer: 'Turing',
-      position: 'Employee',
+      position: 'Unemployed',
       locations: [],
       employers: [],
       position: []
@@ -35,8 +34,8 @@ export class ProfileScreen extends React.Component {
   }
 
 
-  handleSave = () => {
-    this.props.updateUser({...this.state, api_key: this.props.user.api_key})
+  handleSave = async () => {
+    await this.props.updateUser({...this.state, api_key: this.props.user.api_key})
     this.props.navigation.navigate('Home')
   }
 
@@ -201,17 +200,17 @@ export const mapStateToProps = (state) => ({
 })
 
 export const mapDispatchToProps = (dispatch) => ({
-  updateUser: (user) => dispatch(updateUser(user))
+  updateUser: (user) => dispatch(updateUser(user)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProfileScreen)
 
 
-
 const styles = StyleSheet.create({
   container: {
-    position: 'absolute',
-    bottom: 20
+    flex: 1,
+    alignItems: 'center', 
+    justifyContent: 'center',
   },
   title: {
     marginBottom: 20,
