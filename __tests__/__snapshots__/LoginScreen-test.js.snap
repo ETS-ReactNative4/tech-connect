@@ -1,0 +1,325 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoginScreen renders the snapshot 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#4AA9C5",
+      "flex": 1,
+      "justifyContent": "center",
+    }
+  }
+>
+  <Text>
+    Tech Connect
+  </Text>
+  <TextInput
+    allowFontScaling={true}
+    name="email"
+    onChangeText={[Function]}
+    placeholder="Email"
+    style={
+      Object {
+        "backgroundColor": "#E8FDFF",
+        "borderRadius": 20,
+        "height": 45,
+        "margin": 10,
+        "padding": 10,
+        "width": 300,
+      }
+    }
+    underlineColorAndroid="transparent"
+  />
+  <TextInput
+    allowFontScaling={true}
+    name="password"
+    onChangeText={[Function]}
+    placeholder="Password"
+    secureTextEntry={true}
+    style={
+      Object {
+        "backgroundColor": "#E8FDFF",
+        "borderRadius": 20,
+        "height": 45,
+        "margin": 10,
+        "padding": 10,
+        "width": 300,
+      }
+    }
+    underlineColorAndroid="transparent"
+  />
+  <View
+    accessible={true}
+    isTVSelectable={true}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "backgroundColor": "#8FC9DB",
+        "borderRadius": 25,
+        "height": 40,
+        "width": 140,
+      }
+    }
+  >
+    <View
+      accessibilityRole="button"
+      accessibilityStates={Array []}
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {},
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#007AFF",
+                "fontSize": 18,
+                "padding": 8,
+                "textAlign": "center",
+              },
+              Object {
+                "color": "#E8FDFF",
+              },
+            ]
+          }
+        >
+          SIGN IN
+        </Text>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "display": "flex",
+        "flexDirection": "row",
+      }
+    }
+  >
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#E8FDFF",
+            },
+            Object {
+              "textDecorationLine": "underline",
+            },
+          ]
+        }
+      >
+        Register
+      </Text>
+    </View>
+    <Text
+      style={
+        Object {
+          "color": "#E8FDFF",
+        }
+      }
+    >
+       if you do not have an account
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`renders the snapshot 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#4AA9C5",
+      "flex": 1,
+      "justifyContent": "center",
+    }
+  }
+>
+  <Text>
+    Tech Connect
+  </Text>
+  <TextInput
+    allowFontScaling={true}
+    name="email"
+    onChangeText={[Function]}
+    placeholder="Email"
+    style={
+      Object {
+        "backgroundColor": "#E8FDFF",
+        "borderRadius": 20,
+        "height": 45,
+        "margin": 10,
+        "padding": 10,
+        "width": 300,
+      }
+    }
+    underlineColorAndroid="transparent"
+  />
+  <TextInput
+    allowFontScaling={true}
+    name="password"
+    onChangeText={[Function]}
+    placeholder="Password"
+    secureTextEntry={true}
+    style={
+      Object {
+        "backgroundColor": "#E8FDFF",
+        "borderRadius": 20,
+        "height": 45,
+        "margin": 10,
+        "padding": 10,
+        "width": 300,
+      }
+    }
+    underlineColorAndroid="transparent"
+  />
+  <View
+    accessible={true}
+    isTVSelectable={true}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "backgroundColor": "#8FC9DB",
+        "borderRadius": 25,
+        "height": 40,
+        "width": 140,
+      }
+    }
+  >
+    <View
+      accessibilityRole="button"
+      accessibilityStates={Array []}
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {},
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#007AFF",
+                "fontSize": 18,
+                "padding": 8,
+                "textAlign": "center",
+              },
+              Object {
+                "color": "#E8FDFF",
+              },
+            ]
+          }
+        >
+          SIGN IN
+        </Text>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "display": "flex",
+        "flexDirection": "row",
+      }
+    }
+  >
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#E8FDFF",
+            },
+            Object {
+              "textDecorationLine": "underline",
+            },
+          ]
+        }
+      >
+        Register
+      </Text>
+    </View>
+    <Text
+      style={
+        Object {
+          "color": "#E8FDFF",
+        }
+      }
+    >
+       if you do not have an account
+    </Text>
+  </View>
+</View>
+`;
