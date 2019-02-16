@@ -13,10 +13,8 @@ export class HomeScreen extends React.Component {
 
     return (
       <View style={styles.container}>
-        {/* <Text style={styles.name}>{this.props.user.name}</Text>
-        <Text style={styles.position}>{this.props.user.position.job_title}</Text> */}
-        <Text style={styles.name}>Nameeeeee</Text>
-        <Text style={styles.position}>Positionnnnn</Text>
+        <Text style={styles.name}>{this.props.user.name}</Text>
+        <Text style={styles.position}>{this.props.user.position.job_title}</Text>
         <View style={styles.imageContainer}>
           <Image source={require('./profile-pic.jpeg')} style={styles.profilePic} />
         </View>
