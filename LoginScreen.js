@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, TextInput, Button, TouchableHighlight, Touchabl
 import { connect } from 'react-redux'
 import { createUser } from './thunks/createUser'
 import { loginUser } from './thunks/loginUser'
+import NavigationBar from './NavigationBar'
 
 
 export class LoginScreen extends React.Component {

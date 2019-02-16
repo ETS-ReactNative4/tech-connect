@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, Button, TouchableHighlight, Image } from 'react
 import { connect } from 'react-redux';
 import { LinearGradient } from 'expo'
 import SuggestedConnection from './SuggestedConnection.js' 
-
+import NavigationBar from './NavigationBar'
 export class HomeScreen extends React.Component {
   constructor(props) {
     super(props)
@@ -30,6 +30,7 @@ export class HomeScreen extends React.Component {
           <SuggestedConnection />
           <SuggestedConnection />
         </View>
+        <NavigationBar />
       </View>
     )
   }
@@ -48,9 +49,9 @@ const styles = StyleSheet.create({
     alignItems: 'flex-start',
     alignItems: 'stretch',
     flexDirection: 'column',
-    padding: 20,
     height: '100%',
-    width: '100%'
+    width: '100%',
+    paddingTop: 20
   },
   gradientContainer: {
     shadowOffset: {  width: 0,  height: 2  },
@@ -61,7 +62,7 @@ const styles = StyleSheet.create({
   circle: {
     position: 'absolute',
     top: -690,
-    left: -110,
+    left: -90,
     height: 600,
     width: 600
   },
@@ -86,6 +87,7 @@ const styles = StyleSheet.create({
   },
   name: {
     marginTop: 20,
+    marginLeft: 20,
     position: 'relative',
     zIndex: 20000,
     color: 'white',
@@ -93,6 +95,7 @@ const styles = StyleSheet.create({
   },
   position: {
     marginTop: 5,
+    marginLeft: 20,
     position: 'relative',
     zIndex: 20000,
     color: 'white',
@@ -101,7 +104,8 @@ const styles = StyleSheet.create({
   suggestedTitle: {
     color: '#4AA9C5',
     fontSize: 20,
-    marginBottom: 10
+    marginBottom: 10,
+    marginLeft: 20,
   },
   suggestedConnections: {
     display: 'flex',
@@ -110,5 +114,11 @@ const styles = StyleSheet.create({
     shadowRadius: 10,
     shadowColor: 'black',
     shadowOpacity: .5,
+    width: '100%',
+    backgroundColor: 'blue'
   }
 })
+
+
+
+
