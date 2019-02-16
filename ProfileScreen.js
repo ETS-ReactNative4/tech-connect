@@ -5,6 +5,7 @@ import { Input } from 'react-native-elements';
 import { updateUser } from './thunks/updateUser'
 import { connect } from 'react-redux'
 import ModalSelector from 'react-native-modal-selector'
+import { getLocations, getPositions, getEmployers } from './apiCalls'
 
 
 
@@ -20,25 +21,19 @@ export class ProfileScreen extends React.Component {
       location: 'Denver,CO',
       employer: 'Turing',
       position: 'Employee',
-      locations: []
+      locations: [],
+      employers: [],
+      position: []
     }
   }
 
-  componentDidMount() {
-    this.getLocations()
+  async componentDidMount() {
+    const locations = await getLocations()
+    const positions = await getPositions()
+    const employers = await getEmployers()
+    this.setState({ locations, employers, positions })
   }
 
-
-  getLocations = async () => {
-    console.log(this.locationData)
-    const url = 'https://tech-connect-be.herokuapp.com/api/v1/locations'
-    const response = await fetch(url)
-    const locationData = await response.json()
-    const locations = locationData.data.map(location => {
-      return {label: location.attributes.city}
-    })
-    this.setState({ locations })
-  }
 
   handleSave = () => {
     this.props.updateUser({...this.state, api_key: this.props.user.api_key})
@@ -102,36 +97,50 @@ export class ProfileScreen extends React.Component {
           value={this.state.location} />
         </ModalSelector>
 
-        <Input 
-          onChangeText={(text) => this.setState({position: text})} 
-          containerStyle={styles.profileInputContainer} 
-          leftIconContainerStyle={styles.icon} 
-          inputContainerStyle={styles.profileInput} 
+        <ModalSelector
+          optionTextStyle={{color: '#4AA9C5', fontSize: 20}}
+          data={this.state.positions}
+          initValue="Select something!"
+          cancelButtonAccessibilityLabel={'Cancel Button'}
+          onChange={(option)=>{ this.setState({position: option.label})}}>
+          <Input
+            containerStyle={styles.profileInputContainer} 
+            leftIconContainerStyle={styles.icon} 
+            inputContainerStyle={styles.profileInput} 
+            leftIcon={
+              <Icon
+                name='briefcase'
+                size={18}
+                color='#4AA9C5'
+              />
+            }
+          editable={false}
           placeholder="Position"
-          value={this.state.position}
-          leftIcon={
-            <Icon
-              name='briefcase'
-              size={18}
-              color='#4AA9C5'
-            />
-          }
-        />
-        <Input 
-          onChangeText={(text) => this.setState({employer: text})} 
-          containerStyle={styles.profileInputContainer} 
-          leftIconContainerStyle={styles.icon} 
-          inputContainerStyle={styles.profileInput} 
-          placeholder="Company"
-          value={this.state.employer}
-          leftIcon={
-            <Icon
-              name='home'
-              size={18}
-              color='#4AA9C5'
-            />
-          }
-        />
+          value={this.state.position} />
+        </ModalSelector>
+
+        <ModalSelector
+          optionTextStyle={{color: '#4AA9C5', fontSize: 20}}
+          data={this.state.employers}
+          initValue="Select something!"
+          cancelButtonAccessibilityLabel={'Cancel Button'}
+          onChange={(option)=>{ this.setState({employer: option.label})}}>
+          <Input
+            containerStyle={styles.profileInputContainer} 
+            leftIconContainerStyle={styles.icon} 
+            inputContainerStyle={styles.profileInput} 
+            leftIcon={
+              <Icon
+                name='home'
+                size={18}
+                color='#4AA9C5'
+              />
+            }
+          editable={false}
+          placeholder="Employer"
+          value={this.state.employer} />
+        </ModalSelector>
+
         <Input 
           onChangeText={(text) => this.setState({github: text})} 
           containerStyle={styles.profileInputContainer} 
