@@ -2,7 +2,6 @@ import React from 'react';
 import LoginScreen from './LoginScreen'
 import ProfileScreen from './ProfileScreen'
 import HomeScreen from './HomeScreen'
-import { StyleSheet, Text, View } from 'react-native';
 import { createStackNavigator, createAppContainer } from "react-navigation";
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware } from 'redux';
