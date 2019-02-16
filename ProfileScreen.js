@@ -1,9 +1,11 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button, TouchableHighlight } from 'react-native';
+import { StyleSheet, Text, TextInput, View, Button, TouchableHighlight } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 import { Input } from 'react-native-elements';
 import { updateUser } from './thunks/updateUser'
 import { connect } from 'react-redux'
+import ModalSelector from 'react-native-modal-selector'
+import { getLocations, getPositions, getEmployers } from './apiCalls'
 
 
 export class ProfileScreen extends React.Component {
@@ -15,27 +17,39 @@ export class ProfileScreen extends React.Component {
       linkedin: '',
       github: '',
       phone_number: '',
-      location: 'Denver,CO',
+      location: 'Denver',
       employer: 'Turing',
-      position: 'Employee'
+      position: 'Unemployed',
+      locations: [],
+      employers: [],
+      position: []
     }
   }
 
-  handleSave = () => {
-    this.props.updateUser({...this.state, api_key: this.props.user.api_key})
+  async componentDidMount() {
+    const locations = await getLocations()
+    const positions = await getPositions()
+    const employers = await getEmployers()
+    this.setState({ locations, employers, positions })
+  }
+
+
+  handleSave = async () => {
+    await this.props.updateUser({...this.state, api_key: this.props.user.api_key})
     this.props.navigation.navigate('Home')
   }
 
   render() {
     return (
-
       <View style={styles.container} >
+      <Text style={styles.title}>Update Profile</Text>
         <Input
           onChangeText={(text) => this.setState({name: text})} 
           containerStyle={styles.profileInputContainer} 
           leftIconContainerStyle={styles.icon} 
           inputContainerStyle={styles.profileInput} 
-          placeholder="Name" 
+          placeholder="Name"
+          value={this.state.name}
           leftIcon={
             <Icon
               name='user'
@@ -50,6 +64,7 @@ export class ProfileScreen extends React.Component {
           leftIconContainerStyle={styles.icon} 
           inputContainerStyle={styles.profileInput} 
           placeholder="Phone Number"
+          value={this.state.phone_number}
           leftIcon={
             <Icon 
               name='phone'
@@ -57,56 +72,81 @@ export class ProfileScreen extends React.Component {
               color='#4AA9C5'
             />
           }
-          />
-        <Input 
-          onChangeText={(text) => this.setState({location: text})} 
-          containerStyle={styles.profileInputContainer} 
-          leftIconContainerStyle={styles.icon} 
-          inputContainerStyle={styles.profileInput} 
+        />
+        
+        <ModalSelector
+          optionTextStyle={{color: '#4AA9C5', fontSize: 20}}
+          data={this.state.locations}
+          initValue="Select something!"
+          cancelButtonAccessibilityLabel={'Cancel Button'}
+          onChange={(option)=>{ this.setState({location: option.label})}}>
+          <Input
+            containerStyle={styles.profileInputContainer} 
+            leftIconContainerStyle={styles.icon} 
+            inputContainerStyle={styles.profileInput} 
+            leftIcon={
+              <Icon
+                name='map-pin'
+                size={18}
+                color='#4AA9C5'
+              />
+            }
+          editable={false}
           placeholder="Location"
-          value={this.state.location}
-          leftIcon={
-            <Icon
-              name='map-pin'
-              size={18}
-              color='#4AA9C5'
-            />
-          }
-        />
-        <Input 
-          onChangeText={(text) => this.setState({position: text})} 
-          containerStyle={styles.profileInputContainer} 
-          leftIconContainerStyle={styles.icon} 
-          inputContainerStyle={styles.profileInput} 
+          value={this.state.location} />
+        </ModalSelector>
+
+        <ModalSelector
+          optionTextStyle={{color: '#4AA9C5', fontSize: 20}}
+          data={this.state.positions}
+          initValue="Select something!"
+          cancelButtonAccessibilityLabel={'Cancel Button'}
+          onChange={(option)=>{ this.setState({position: option.label})}}>
+          <Input
+            containerStyle={styles.profileInputContainer} 
+            leftIconContainerStyle={styles.icon} 
+            inputContainerStyle={styles.profileInput} 
+            leftIcon={
+              <Icon
+                name='briefcase'
+                size={18}
+                color='#4AA9C5'
+              />
+            }
+          editable={false}
           placeholder="Position"
-          leftIcon={
-            <Icon
-              name='briefcase'
-              size={18}
-              color='#4AA9C5'
-            />
-          }
-        />
-        <Input 
-          onChangeText={(text) => this.setState({employer: text})} 
-          containerStyle={styles.profileInputContainer} 
-          leftIconContainerStyle={styles.icon} 
-          inputContainerStyle={styles.profileInput} 
-          placeholder="Company"
-          leftIcon={
-            <Icon
-              name='home'
-              size={18}
-              color='#4AA9C5'
-            />
-          }
-        />
+          value={this.state.position} />
+        </ModalSelector>
+
+        <ModalSelector
+          optionTextStyle={{color: '#4AA9C5', fontSize: 20}}
+          data={this.state.employers}
+          initValue="Select something!"
+          cancelButtonAccessibilityLabel={'Cancel Button'}
+          onChange={(option)=>{ this.setState({employer: option.label})}}>
+          <Input
+            containerStyle={styles.profileInputContainer} 
+            leftIconContainerStyle={styles.icon} 
+            inputContainerStyle={styles.profileInput} 
+            leftIcon={
+              <Icon
+                name='home'
+                size={18}
+                color='#4AA9C5'
+              />
+            }
+          editable={false}
+          placeholder="Employer"
+          value={this.state.employer} />
+        </ModalSelector>
+
         <Input 
           onChangeText={(text) => this.setState({github: text})} 
           containerStyle={styles.profileInputContainer} 
           leftIconContainerStyle={styles.icon} 
           inputContainerStyle={styles.profileInput} 
           placeholder="GitHub"
+          value={this.state.github}
           leftIcon={
             <Icon
               name='github'
@@ -121,6 +161,7 @@ export class ProfileScreen extends React.Component {
           leftIconContainerStyle={styles.icon} 
           inputContainerStyle={styles.profileInput} 
           placeholder="LinkedIn"
+          value={this.state.linkedin}
           leftIcon={
             <Icon
               name='linkedin'
@@ -135,6 +176,7 @@ export class ProfileScreen extends React.Component {
           leftIconContainerStyle={styles.icon} 
           inputContainerStyle={styles.profileInput} 
           placeholder="Bio"
+          value={this.state.bio}
           leftIcon={
             <Icon
               name='edit'
@@ -158,17 +200,22 @@ export const mapStateToProps = (state) => ({
 })
 
 export const mapDispatchToProps = (dispatch) => ({
-  updateUser: (user) => dispatch(updateUser(user))
+  updateUser: (user) => dispatch(updateUser(user)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProfileScreen)
 
 
-
 const styles = StyleSheet.create({
   container: {
-    position: 'absolute',
-    bottom: 20
+    flex: 1,
+    alignItems: 'center', 
+    justifyContent: 'center',
+  },
+  title: {
+    marginBottom: 20,
+    fontSize: 20,
+    color: '#4AA9C5'
   },
   profileInputContainer: {
     width: 300,
