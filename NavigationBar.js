@@ -27,9 +27,11 @@ export default class NavigationBar extends Component {
 
 const styles = StyleSheet.create({
   container: {
-
+    flex: 1,
+    justifyContent: 'flex-end',
+    marginBottom: 36
   },
   navElement: {
-    backgroundColor: 'white'
+    backgroundColor: 'white',
   }
 })

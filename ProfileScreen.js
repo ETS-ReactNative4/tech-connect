@@ -167,9 +167,8 @@ export default connect(mapStateToProps, mapDispatchToProps)(ProfileScreen)
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    position: 'absolute',
+    bottom: 20
   },
   profileInputContainer: {
     width: 300,

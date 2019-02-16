@@ -3,8 +3,9 @@ import { StyleSheet, Text, View, Button, TouchableHighlight, Image } from 'react
 import { connect } from 'react-redux';
 import { LinearGradient } from 'expo'
 import SuggestedConnection from './SuggestedConnection.js' 
-
-export class HomeScreen extends React.Component {
+import { StyleSheet, Text, View, Button, TouchableHighlight } from 'react-native';
+import NavigationBar from './NavigationBar'
+export default class HomeScreen extends React.Component {
   constructor(props) {
     super(props)
   }
@@ -30,6 +31,7 @@ export class HomeScreen extends React.Component {
           <SuggestedConnection />
           <SuggestedConnection />
         </View>
+        <NavigationBar />
       </View>
     )
   }
