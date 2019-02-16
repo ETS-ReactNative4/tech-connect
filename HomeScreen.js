@@ -1,15 +1,18 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button, TouchableHighlight } from 'react-native';
+import { connect } from 'react-redux';
 
-
-export default class HomeScreen extends React.Component {
-
+export class HomeScreen extends React.Component {
+  constructor(props) {
+    super(props)
+  }
 
   render() {
+
     return (
       <View style={styles.container}>
-        <Text>Name</Text>
-        <Text>Position</Text>
+        <Text>{this.props.user.name}</Text>
+        <Text>{this.props.user.position.job_title}</Text>
         <View>
           
         </View>
@@ -17,6 +20,12 @@ export default class HomeScreen extends React.Component {
     )
   }
 }
+
+const mapStateToProps = (state) => ({
+  user: state.user
+})
+
+export default connect(mapStateToProps)(HomeScreen)
 
 
 const styles = StyleSheet.create({
