@@ -1,30 +1,27 @@
-getLocations = async () => {
+export const getLocations = async () => {
     const url = 'https://tech-connect-be.herokuapp.com/api/v1/locations'
     const response = await fetch(url)
     const locationData = await response.json()
-    const locations = locationData.data.map(location => {
+    return locationData.data.map(location => {
       return {label: location.attributes.city}
     })
-    this.setState({ locations })
   }
 
-getEmployers = async () => {
+export const getEmployers = async () => {
   const url = 'https://tech-connect-be.herokuapp.com/api/v1/employers'
   const response = await fetch(url)
-  const locationData = await response.json()
-  const locations = locationData.data.map(location => {
+  const employerData = await response.json()
+  return employerData.data.map(location => {
     return {label: location.attributes.name}
   })
-  this.setState({ locations })
 }
 
 
-getPositions = async () => {
+export const getPositions = async () => {
   const url = 'https://tech-connect-be.herokuapp.com/api/v1/positions'
   const response = await fetch(url)
-  const locationData = await response.json()
-  const locations = locationData.data.map(location => {
+  const positionData = await response.json()
+  return positionData.data.map(location => {
     return {label: location.attributes.job_title}
   })
-  this.setState({ locations })
 }
