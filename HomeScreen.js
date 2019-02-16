@@ -50,7 +50,6 @@ const styles = StyleSheet.create({
     alignItems: 'flex-start',
     alignItems: 'stretch',
     flexDirection: 'column',
-    padding: 20,
     height: '100%',
     width: '100%'
   },

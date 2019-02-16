@@ -50,15 +50,16 @@ const styles = StyleSheet.create({
   container: {
     display: 'flex',
     alignItems: 'stretch',
+    justifyContent: 'space-between',
     width: '100%',
     flexDirection: 'row',
     position: 'absolute',
     bottom: 0,
     height: 80,
-    backgroundColor: 'white'
+    backgroundColor: 'white',
+    padding: 20,
   },
   navElement: {
     backgroundColor: 'white',
-    marginRight: 22,
   }
 })
