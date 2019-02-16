@@ -21,6 +21,8 @@ export class HomeScreen extends React.Component {
         <View styles={styles.suggestedConnections}>
           <Text style={styles.suggestedTitle}>Suggested Connections</Text>
           <SuggestedConnection />
+          <SuggestedConnection />
+          <SuggestedConnection />
         </View>
       </View>
     )
@@ -93,6 +95,10 @@ const styles = StyleSheet.create({
   },
   suggestedConnections: {
     display: 'flex',
-    alignItems: 'stretch'
+    alignItems: 'stretch',
+    shadowOffset: {  width: 0,  height: 2 },
+    shadowRadius: 10,
+    shadowColor: 'black',
+    shadowOpacity: .5,
   }
 })
