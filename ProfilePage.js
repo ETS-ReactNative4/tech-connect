@@ -35,6 +35,8 @@ export default class ProfilePage extends Component {
             <Text style={ styles.languages }>Connections</Text>
             <View style={ styles.languageContainer }>
               <Connection />
+              <Connection />
+              <Connection />
             </View>
           </View>
         </View>
@@ -52,7 +54,8 @@ const styles = StyleSheet.create({
     height: '100%',
     width: '100%',
     paddingTop: 20,
-    backgroundColor: '#4AA9C5'
+    backgroundColor: '#4AA9C5',
+    paddingBottom: 20,
   },
   imageContainer: {
     display: 'flex',
@@ -80,6 +83,7 @@ const styles = StyleSheet.create({
     marginRight: 20,
     marginLeft: 20,
     marginTop: -100,
+    paddingBottom: 20,
   },
   about: {
     marginTop: 90,
