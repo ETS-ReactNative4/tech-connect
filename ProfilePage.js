@@ -5,10 +5,10 @@ export default class ProfilePage extends Component {
   render() {
     return (
       <View style={ styles.container }>
-        <View style={styles.profileContainer}>
           <View style={ styles.imageContainer }>
             <Image style={ styles.profilePicture } source={ require('./profile-pic.jpeg') } />
           </View>
+        <View style={styles.profileContainer}>
           <Text>Joe Jonas</Text>
           <Text>Software Developer</Text>
           <Text>Apple</Text>
@@ -61,5 +61,12 @@ const styles = StyleSheet.create({
     width: 180,
     borderRadius: 90,
     zIndex: 20000,
+  },
+  profileContainer: {
+    flex: 1,
+    backgroundColor: 'white',
+    marginRight: 20,
+    marginLeft: 20,
+    marginTop: -80,
   }
 })
