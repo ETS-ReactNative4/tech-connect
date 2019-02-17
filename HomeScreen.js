@@ -1,9 +1,10 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button, TouchableHighlight, Image } from 'react-native';
+import { StyleSheet, Text, View, Image } from 'react-native';
+import { createBottomTabNavigator } from 'react-navigation'
 import { connect } from 'react-redux';
 import { LinearGradient } from 'expo'
+import ProfileScreen from './ProfileScreen'
 import SuggestedConnection from './SuggestedConnection.js' 
-import NavigationBar from './NavigationBar'
 export class HomeScreen extends React.Component {
   constructor(props) {
     super(props)
@@ -30,7 +31,6 @@ export class HomeScreen extends React.Component {
           <SuggestedConnection />
           <SuggestedConnection />
         </View>
-        <NavigationBar />
       </View>
     )
   }
@@ -41,7 +41,6 @@ const mapStateToProps = (state) => ({
 })
 
 export default connect(mapStateToProps)(HomeScreen)
-
 
 const styles = StyleSheet.create({
   container: {
