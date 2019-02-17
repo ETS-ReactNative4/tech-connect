@@ -43,7 +43,6 @@ export class SearchScreen extends React.Component {
         <View styles={styles.suggestedConnections}>
         { userArray }
         </View>
-        <NavigationBar />
       </View>
     )
   }
