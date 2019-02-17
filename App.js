@@ -3,6 +3,7 @@ import LoginScreen from './LoginScreen'
 import ProfileScreen from './ProfileScreen'
 import ProfilePage from './ProfilePage'
 import HomeScreen from './HomeScreen'
+import SearchScreen from './SearchScreen'
 import MessagesScreen from './MessagesScreen'
 import ScheduleScreen from './ScheduleScreen'
 import Icon from 'react-native-vector-icons/Feather';
@@ -53,6 +54,7 @@ const AppNavigator = createStackNavigator(
     NavBar: AppNavBar,
     Profile: ProfileScreen,
     ProfilePage: ProfilePage,
+    Search: SearchScreen,
     Messages: MessagesScreen,
     Schedule: ScheduleScreen
   },
@@ -61,6 +63,7 @@ const AppNavigator = createStackNavigator(
     initialRouteName: "Login"
   }
 )
+
 
 const AppContainer = createAppContainer(AppNavigator)
 export default class App extends React.Component {
@@ -73,3 +76,6 @@ export default class App extends React.Component {
     );
   }
 }
+
+
+
