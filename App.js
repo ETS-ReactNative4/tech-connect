@@ -17,9 +17,7 @@ const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk
 
 const AppNavBar = createBottomTabNavigator(
   {
-    Home: {
-      screen: HomeScreen
-    },
+    Home: HomeScreen,
     Profile: ProfilePage,
     Messages: MessagesScreen,
     Schedule: ScheduleScreen
