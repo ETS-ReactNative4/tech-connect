@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { StyleSheet, Text, View, Image, Button, TouchableHighlight } from 'react-native'
 
+
 export default class SuggestedConnection extends Component {
   render() {
     return (
@@ -8,9 +9,9 @@ export default class SuggestedConnection extends Component {
       <View style={styles.imageContainer}>
         <Image source={require('./profile-pic.jpeg')} style={styles.picture} />
       </View>
-        <Text style={styles.name}>Nick Jonas</Text>
-        <Text style={styles.position}>Singer</Text>
-        <Text style={styles.position}>Denver, CO</Text>
+        <Text style={styles.name}>{ this.props.suggestion.name }</Text>
+        <Text style={styles.position}>{ this.props.suggestion.job_title }</Text>
+        <Text style={styles.position}>{ this.props.suggestion.city }</Text>
         <TouchableHighlight style={styles.connectBtn}>
           <Button title='Connect' color='white' />
         </TouchableHighlight>
