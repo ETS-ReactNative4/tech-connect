@@ -9,6 +9,7 @@ export default class ProfilePage extends Component {
             <Image style={ styles.profilePicture } source={ require('./profile-pic.jpeg') } />
           </View>
         <View style={styles.profileContainer}>
+        <View style={ styles.about }>
           <Text>Joe Jonas</Text>
           <Text>Software Developer</Text>
           <Text>Apple</Text>
@@ -16,6 +17,7 @@ export default class ProfilePage extends Component {
           <TouchableOpacity>
             <Text>Connect</Text>
           </TouchableOpacity>
+        </View>
           <View>
             <Text>Bio</Text>
           </View>
@@ -51,8 +53,8 @@ const styles = StyleSheet.create({
     zIndex: 200000,
     marginBottom: 20,
     marginTop: 20,
-    shadowOffset: {  width: 5,  height: 5},
-    shadowRadius: 5,
+    shadowOffset: {  width: 2,  height: 2},
+    shadowRadius: 20,
     shadowColor: 'black',
     shadowOpacity: .5,
   },
@@ -68,5 +70,10 @@ const styles = StyleSheet.create({
     marginRight: 20,
     marginLeft: 20,
     marginTop: -80,
+  },
+  about: {
+    marginTop: 80,
+    display: 'flex',
+    alignItems: 'center'
   }
 })
