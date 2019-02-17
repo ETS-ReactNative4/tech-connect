@@ -28,7 +28,7 @@ export class SearchScreen extends React.Component {
 
 
   render() {
-    const userArray = this.state.allUsers.length ? this.state.allUsers.map(user => <SuggestedConnection />) : 'hello'
+    const userArray = this.state.allUsers.length && this.state.allUsers.map(user => <SuggestedConnection suggestion={user} />)
     console.log(userArray) 
     return (
       <View style={styles.container}>
@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
     paddingTop: 20
   },
   searchContainer: {
-    marginTop: 5,
+    marginTop: 30,
     marginBottom: 10, 
     backgroundColor: '#ffffff00', 
     borderBottomWidth: 0, 
