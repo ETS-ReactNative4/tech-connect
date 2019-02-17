@@ -60,7 +60,7 @@ const AppNavigator = createStackNavigator(
   },
   {
     headerMode: 'none',
-    initialRouteName: "Profile Page"
+    initialRouteName: "ProfilePage"
   }
 )
 
