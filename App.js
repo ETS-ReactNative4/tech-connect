@@ -2,6 +2,7 @@ import React from 'react';
 import LoginScreen from './LoginScreen'
 import ProfileScreen from './ProfileScreen'
 import HomeScreen from './HomeScreen'
+import SearchScreen from './SearchScreen'
 import { createStackNavigator, createAppContainer } from "react-navigation";
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware } from 'redux';
@@ -15,7 +16,8 @@ const AppNavigator = createStackNavigator(
   {
     Login: LoginScreen,
     Profile: ProfileScreen,
-    Home: HomeScreen
+    Home: HomeScreen,
+    Search: SearchScreen
   },
   {
     headerMode: 'none',
