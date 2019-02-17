@@ -10,6 +10,8 @@ export class ProfilePage extends Component {
   }
 
   render() {
+    const user = this.props.navigation.getParam('user') ? this.props.navigation.getParams('user') : this.props.user
+    
     return (
       <ScrollView>
         <View style={ styles.container }>
@@ -18,17 +20,17 @@ export class ProfilePage extends Component {
           </View>
             <View style={styles.profileContainer}>
             <View style={ styles.about }>
-              <Text style={ styles.name }>{ this.props.user.name }</Text>
-              <Text style={ styles.position }>{ this.props.user.position.job_title }</Text>
-              <Text style={ styles.company }>{ this.props.user.employer.name }</Text>
+              <Text style={ styles.name }>{ user.name }</Text>
+              <Text style={ styles.position }>{ user.position.job_title }</Text>
+              <Text style={ styles.company }>{ user.employer.name }</Text>
               <View style={ styles.locationContainer}>
                 <Icon name='map-pin' size={20} color='#4AA9C5' style={{marginRight: 7}} />
-                <Text style={ styles.location }>{ this.props.user.location.city }</Text>
+                <Text style={ styles.location }>{ user.location.city }</Text>
               </View>
-              <Text style={ styles.bio }>{ this.props.user.bio }</Text>
-              <TouchableHighlight style={styles.connectBtn}>
-                <Button title='Connect' color='white' />
-              </TouchableHighlight>
+              <Text style={ styles.bio }>{ user.bio }</Text>
+              {
+              this.props.user !== user && <TouchableHighlight style={styles.connectBtn}><Button title='Connect' color='white' /></TouchableHighlight>
+              }
             </View>
             <Text style={ styles.languages }>Langauge Interests</Text>
             <View style={ styles.languageContainer }>
