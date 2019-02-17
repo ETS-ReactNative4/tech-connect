@@ -10,24 +10,29 @@ export default class ProfilePage extends Component {
             <Image style={ styles.profilePicture } source={ require('./profile-pic.jpeg') } />
           </View>
         <View style={styles.profileContainer}>
-        <View style={ styles.about }>
-          <Text style={ styles.name }>Joe Jonas</Text>
-          <Text style={ styles.position }>Software Developer</Text>
-          <Text style={ styles.company }>Apple</Text>
-          <View style={ styles.locationContainer}>
-            <Icon name='map-pin' size={20} color='#4AA9C5' style={{marginRight: 7}} />
-            <Text style={ styles.location }>Denver, CO</Text>
+          <View style={ styles.about }>
+            <Text style={ styles.name }>Joe Jonas</Text>
+            <Text style={ styles.position }>Software Developer</Text>
+            <Text style={ styles.company }>Apple</Text>
+            <View style={ styles.locationContainer}>
+              <Icon name='map-pin' size={20} color='#4AA9C5' style={{marginRight: 7}} />
+              <Text style={ styles.location }>Denver, CO</Text>
+            </View>
+            <Text style={ styles.bio }>This is a bio about Joe Jonas. He is a singer. He sings songs. He sings songs while touring the world</Text>
+            <TouchableHighlight style={styles.connectBtn}>
+              <Button title='Connect' color='white' />
+            </TouchableHighlight>
           </View>
-          <Text style={ styles.bio }>This is a bio about Joe Jonas. He is a singer.</Text>
-          <TouchableHighlight style={styles.connectBtn}>
-            <Button title='Connect' color='white' />
-          </TouchableHighlight>
-        </View>
-          <View>
-            <Text>Langauge Interests</Text>
+          <Text style={ styles.languages }>Langauge Interests</Text>
+          <View style={ styles.languageContainer }>
+            <Text style={ styles.language }>React.js</Text>
+            <Text style={ styles.language }>Node.js</Text>
+            <Text style={ styles.language }>Express.js</Text>
+            <Text style={ styles.language }>CSS</Text>
           </View>
-          <View>
-            <Text>Connections</Text>
+          <Text style={ styles.languages }>Connections</Text>
+          <View style={ styles.languageContainer }>
+            <Connection />
           </View>
         </View>
       </View>
@@ -114,5 +119,22 @@ const styles = StyleSheet.create({
     shadowColor: 'black',
     shadowOpacity: .5,
     marginTop: 10,
+  },
+  languages: {
+    marginLeft: 20,
+    marginTop: 15,
+    fontSize: 15,
+  },
+  languageContainer: {
+    backgroundColor: '#4AA9C5',
+    marginTop: 5,
+    marginLeft: 20,
+    marginRight: 20,
+    padding: 10,
+    borderRadius: 5
+  },
+  language: {
+    color: 'white',
+    fontSize: 15,
   }
 })
