@@ -3,11 +3,11 @@ import LoginScreen from './LoginScreen'
 import ProfileScreen from './ProfileScreen'
 import ProfilePage from './ProfilePage'
 import HomeScreen from './HomeScreen'
+import SearchScreen from './SearchScreen'
 import MessagesScreen from './MessagesScreen'
 import ScheduleScreen from './ScheduleScreen'
 import Icon from 'react-native-vector-icons/Feather';
 import { createStackNavigator, createAppContainer, createBottomTabNavigator } from "react-navigation";
-import SearchScreen from './SearchScreen'
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'remote-redux-devtools';
@@ -54,10 +54,9 @@ const AppNavigator = createStackNavigator(
     NavBar: AppNavBar,
     Profile: ProfileScreen,
     ProfilePage: ProfilePage,
+    Search: SearchScreen,
     Messages: MessagesScreen,
-    Schedule: ScheduleScreen,
-    Home: HomeScreen,
-    Search: SearchScreen
+    Schedule: ScheduleScreen
   },
   {
     headerMode: 'none',
@@ -65,8 +64,8 @@ const AppNavigator = createStackNavigator(
   }
 )
 
-const AppContainer = createAppContainer(AppNavigator)
 
+const AppContainer = createAppContainer(AppNavigator)
 export default class App extends React.Component {
     
   render() {
@@ -77,3 +76,6 @@ export default class App extends React.Component {
     );
   }
 }
+
+
+
