@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native'
+import Icon from 'react-native-vector-icons/Feather'
 
 export default class ProfilePage extends Component {
   render() {
@@ -10,10 +11,13 @@ export default class ProfilePage extends Component {
           </View>
         <View style={styles.profileContainer}>
         <View style={ styles.about }>
-          <Text>Joe Jonas</Text>
-          <Text>Software Developer</Text>
-          <Text>Apple</Text>
-          <Text>Denver, CO</Text>
+          <Text style={ styles.name }>Joe Jonas</Text>
+          <Text style={ styles.position }>Software Developer</Text>
+          <Text style={ styles.company }>Apple</Text>
+          <View style={ styles.locationContainer}>
+            <Icon name='map-pin' size={20} color='#4AA9C5' style={{marginRight: 7}} />
+            <Text style={ styles.location }>Denver, CO</Text>
+          </View>
           <TouchableOpacity>
             <Text>Connect</Text>
           </TouchableOpacity>
@@ -69,11 +73,31 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     marginRight: 20,
     marginLeft: 20,
-    marginTop: -80,
+    marginTop: -100,
   },
   about: {
-    marginTop: 80,
+    marginTop: 90,
     display: 'flex',
     alignItems: 'center'
+  },
+  name: {
+    fontSize: 35,
+    fontWeight: '300'
+  },
+  position: {
+    fontSize: 23,
+    fontWeight: '200'
+  },
+  company: {
+    fontSize: 21,
+    fontWeight: '300'
+  },
+  locationContainer: {
+    display: 'flex',
+    flexDirection: 'row'
+  },
+  location: {
+    fontSize: 19,
+    fontWeight: '200'
   }
 })
