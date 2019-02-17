@@ -11,7 +11,7 @@ export class HomeScreen extends React.Component {
   }
 
   render() {
-
+    const suggestions = this.props.user.suggestions
     return (
       <View style={styles.container}>
         <Text style={styles.name}>{this.props.user.name}</Text>
@@ -27,9 +27,7 @@ export class HomeScreen extends React.Component {
         </View>
         <View styles={styles.suggestedConnections}>
           <Text style={styles.suggestedTitle}>Suggested Connections</Text>
-          <SuggestedConnection />
-          <SuggestedConnection />
-          <SuggestedConnection />
+          { suggestions.map(suggestion => <SuggestedConnection suggestion={suggestion} />) }
         </View>
       </View>
     )
