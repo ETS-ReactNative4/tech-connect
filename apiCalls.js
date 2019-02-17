@@ -25,3 +25,18 @@ export const getPositions = async () => {
     return {label: location.attributes.job_title}
   })
 }
+
+export const getAllUsers = async (key) => {
+  const url = 'https://tech-connect-be.herokuapp.com/api/v1/users'
+  const response = await fetch(url, {
+    method: 'GET',
+    body: JSON.stringify(key)
+  })
+  console.log(response)
+  const userData = await response.json()
+  console.log(userData)
+  return userData.data.map(user => {
+    return user.attributes
+  })
+
+}
