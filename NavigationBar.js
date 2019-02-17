@@ -1,65 +1,69 @@
 import React, { Component } from 'react'
-import { View, Text, StyleSheet } from 'react-native'
-import Icon from 'react-native-vector-icons/Feather';
- 
+import { View } from 'react-native'
+import BottomNavigation, { FullTab } from 'react-native-material-bottom-navigation'
+
 export default class NavigationBar extends Component {
-  render() {
+  
+  renderTab = ({ tab, isActive }) => {
     return (
-      <View style={styles.container}>
-        <View style={styles.navElement}>
-          <Icon 
-            name='home'
-            size={30}
-            color='#4AA9C5'
-          />
-        </View>
-        <View style={styles.navElement}>
-          <Icon 
-              name='user'
-              size={30}
-              color='#4AA9C5'
-          />
-        </View>
-        <View style={styles.navElement}>
-          <Icon 
-              name='user-plus'
-              size={30}
-              color='#4AA9C5'
-          />
-        </View>
-        <View style={styles.navElement}>
-          <Icon 
-              name='message-circle'
-              size={30}
-              color='#4AA9C5'
-          />
-        </View>
-        <View style={styles.navElement}>
-          <Icon 
-              name='calendar'
-              size={30}
-              color='#4AA9C5'
-          />
-        </View>
+      <FullTab
+        key={tab.key}
+        isActive={isActive}
+        label={tab.label}
+        renderIcon={this.renderIcon}
+      />
+    )
+  }
+
+  renderIcon = ({ isActive }) => {
+    return <View />
+  }
+  
+  render() {
+    const tabs = [
+      {
+        key: 'home',
+        icon: 'gamepad-variant',
+        label: 'Home',
+        barColor: '#388E3C',
+        pressColor: 'rgba(255, 255, 255, 0.16)'
+      },
+      {
+        key: 'edit',
+        icon: 'gamepad-variant',
+        label: 'Edit Profile',
+        barColor: '#388E3C',
+        pressColor: 'rgba(255, 255, 255, 0.16)'
+      },
+      {
+        key: 'connections',
+        icon: 'gamepad-variant',
+        label: 'Connections',
+        barColor: '#388E3C',
+        pressColor: 'rgba(255, 255, 255, 0.16)'
+      },
+      {
+        key: 'messages',
+        icon: 'gamepad-variant',
+        label: 'Messages',
+        barColor: '#388E3C',
+        pressColor: 'rgba(255, 255, 255, 0.16)'
+      },
+      {
+        key: 'schedule',
+        icon: 'gamepad-variant',
+        label: 'Schedule',
+        barColor: '#388E3C',
+        pressColor: 'rgba(255, 255, 255, 0.16)'
+      }
+    ]
+    return (
+      <View>
+        <BottomNavigation
+          renderTab={this.renderTab}
+          tabs={tabs}
+        />
       </View>
     )
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    display: 'flex',
-    alignItems: 'stretch',
-    justifyContent: 'space-between',
-    width: '100%',
-    flexDirection: 'row',
-    position: 'absolute',
-    bottom: 0,
-    height: 80,
-    backgroundColor: 'white',
-    padding: 20,
-  },
-  navElement: {
-    backgroundColor: 'white',
-  }
-})
