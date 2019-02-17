@@ -28,3 +28,13 @@ export default class ProfilePage extends Component {
     )
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: '#4AA9C5',
+    display: 'flex'
+  },
+  profileContainer: {
+    backgroundColor: 'white'
+  }
+})
