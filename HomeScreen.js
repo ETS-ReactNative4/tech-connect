@@ -5,6 +5,8 @@ import { connect } from 'react-redux';
 import { LinearGradient } from 'expo'
 import ProfileScreen from './ProfileScreen'
 import SuggestedConnection from './SuggestedConnection.js' 
+
+
 export class HomeScreen extends React.Component {
   constructor(props) {
     super(props)
