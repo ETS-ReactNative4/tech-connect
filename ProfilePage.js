@@ -1,41 +1,44 @@
 import React, { Component } from 'react'
-import { View, Text, StyleSheet, TouchableHighlight, Image, Button } from 'react-native'
+import { View, Text, StyleSheet, TouchableHighlight, Image, Button, ScrollView } from 'react-native'
 import Icon from 'react-native-vector-icons/Feather'
+import Connection from './Connection'
 
 export default class ProfilePage extends Component {
   render() {
     return (
-      <View style={ styles.container }>
+      <ScrollView>
+        <View style={ styles.container }>
           <View style={ styles.imageContainer }>
             <Image style={ styles.profilePicture } source={ require('./profile-pic.jpeg') } />
           </View>
-        <View style={styles.profileContainer}>
-          <View style={ styles.about }>
-            <Text style={ styles.name }>Joe Jonas</Text>
-            <Text style={ styles.position }>Software Developer</Text>
-            <Text style={ styles.company }>Apple</Text>
-            <View style={ styles.locationContainer}>
-              <Icon name='map-pin' size={20} color='#4AA9C5' style={{marginRight: 7}} />
-              <Text style={ styles.location }>Denver, CO</Text>
+            <View style={styles.profileContainer}>
+            <View style={ styles.about }>
+              <Text style={ styles.name }>Joe Jonas</Text>
+              <Text style={ styles.position }>Software Developer</Text>
+              <Text style={ styles.company }>Apple</Text>
+              <View style={ styles.locationContainer}>
+                <Icon name='map-pin' size={20} color='#4AA9C5' style={{marginRight: 7}} />
+                <Text style={ styles.location }>Denver, CO</Text>
+              </View>
+              <Text style={ styles.bio }>This is a bio about Joe Jonas. He is a singer. He sings songs. He sings songs while touring the world</Text>
+              <TouchableHighlight style={styles.connectBtn}>
+                <Button title='Connect' color='white' />
+              </TouchableHighlight>
             </View>
-            <Text style={ styles.bio }>This is a bio about Joe Jonas. He is a singer. He sings songs. He sings songs while touring the world</Text>
-            <TouchableHighlight style={styles.connectBtn}>
-              <Button title='Connect' color='white' />
-            </TouchableHighlight>
-          </View>
-          <Text style={ styles.languages }>Langauge Interests</Text>
-          <View style={ styles.languageContainer }>
-            <Text style={ styles.language }>React.js</Text>
-            <Text style={ styles.language }>Node.js</Text>
-            <Text style={ styles.language }>Express.js</Text>
-            <Text style={ styles.language }>CSS</Text>
-          </View>
-          <Text style={ styles.languages }>Connections</Text>
-          <View style={ styles.languageContainer }>
-            <Connection />
+            <Text style={ styles.languages }>Langauge Interests</Text>
+            <View style={ styles.languageContainer }>
+              <Text style={ styles.language }>React.js</Text>
+              <Text style={ styles.language }>Node.js</Text>
+              <Text style={ styles.language }>Express.js</Text>
+              <Text style={ styles.language }>CSS</Text>
+            </View>
+            <Text style={ styles.languages }>Connections</Text>
+            <View style={ styles.languageContainer }>
+              <Connection />
+            </View>
           </View>
         </View>
-      </View>
+      </ScrollView>
     )
   }
 }
