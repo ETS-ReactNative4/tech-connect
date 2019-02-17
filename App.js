@@ -7,6 +7,7 @@ import MessagesScreen from './MessagesScreen'
 import ScheduleScreen from './ScheduleScreen'
 import Icon from 'react-native-vector-icons/Feather';
 import { createStackNavigator, createAppContainer, createBottomTabNavigator } from "react-navigation";
+import SearchScreen from './SearchScreen'
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'remote-redux-devtools';
@@ -55,6 +56,8 @@ const AppNavigator = createStackNavigator(
     ProfilePage: ProfilePage,
     Messages: MessagesScreen,
     Schedule: ScheduleScreen
+    Home: HomeScreen,
+    Search: SearchScreen
   },
   {
     headerMode: 'none',
