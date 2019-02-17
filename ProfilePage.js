@@ -2,8 +2,9 @@ import React, { Component } from 'react'
 import { View, Text, StyleSheet, TouchableHighlight, Image, Button, ScrollView } from 'react-native'
 import Icon from 'react-native-vector-icons/Feather'
 import Connection from './Connection'
+import { connect } from 'react-redux'
 
-export default class ProfilePage extends Component {
+export class ProfilePage extends Component {
   render() {
     return (
       <ScrollView>
@@ -44,6 +45,12 @@ export default class ProfilePage extends Component {
     )
   }
 }
+
+export const mapStateToProps = (state) => ({
+  user: state.user
+})
+
+export default connect(mapStateToProps)(ProfilePage)
 
 const styles = StyleSheet.create({
   container: {
