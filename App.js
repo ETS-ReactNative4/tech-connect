@@ -55,7 +55,7 @@ const AppNavigator = createStackNavigator(
     Profile: ProfileScreen,
     ProfilePage: ProfilePage,
     Messages: MessagesScreen,
-    Schedule: ScheduleScreen
+    Schedule: ScheduleScreen,
     Home: HomeScreen,
     Search: SearchScreen
   },
@@ -66,6 +66,7 @@ const AppNavigator = createStackNavigator(
 )
 
 const AppContainer = createAppContainer(AppNavigator)
+
 export default class App extends React.Component {
     
   render() {

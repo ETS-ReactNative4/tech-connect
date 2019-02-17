@@ -3,7 +3,6 @@ import { StyleSheet, Text, View, Button, TouchableHighlight, Image } from 'react
 import { connect } from 'react-redux';
 import { SearchBar } from 'react-native-elements'
 import { LinearGradient } from 'expo'
-import NavigationBar from './NavigationBar'
 import SuggestedConnection from './SuggestedConnection.js' 
 import { getAllUsers } from './apiCalls'
 
