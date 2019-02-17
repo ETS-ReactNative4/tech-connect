@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native'
+import { View, Text, StyleSheet, TouchableHighlight, Image, Button } from 'react-native'
 import Icon from 'react-native-vector-icons/Feather'
 
 export default class ProfilePage extends Component {
@@ -18,13 +18,11 @@ export default class ProfilePage extends Component {
             <Icon name='map-pin' size={20} color='#4AA9C5' style={{marginRight: 7}} />
             <Text style={ styles.location }>Denver, CO</Text>
           </View>
-          <TouchableOpacity>
-            <Text>Connect</Text>
-          </TouchableOpacity>
+          <Text style={ styles.bio }>This is a bio about Joe Jonas. He is a singer.</Text>
+          <TouchableHighlight style={styles.connectBtn}>
+            <Button title='Connect' color='white' />
+          </TouchableHighlight>
         </View>
-          <View>
-            <Text>Bio</Text>
-          </View>
           <View>
             <Text>Langauge Interests</Text>
           </View>
@@ -90,7 +88,8 @@ const styles = StyleSheet.create({
   },
   company: {
     fontSize: 21,
-    fontWeight: '300'
+    fontWeight: '300',
+    color: 'gray'
   },
   locationContainer: {
     display: 'flex',
@@ -98,6 +97,22 @@ const styles = StyleSheet.create({
   },
   location: {
     fontSize: 19,
-    fontWeight: '200'
+    fontWeight: '200',
+    color: 'gray'
+  },
+  bio: {
+    fontWeight: '300',
+    marginTop: 5,
+  },
+  connectBtn: {
+    backgroundColor: '#93548F',
+    paddingRight: 10,
+    paddingLeft: 10,
+    borderRadius: 20,
+    shadowOffset: {  width: 0,  height: 2 },
+    shadowRadius: 5,
+    shadowColor: 'black',
+    shadowOpacity: .5,
+    marginTop: 10,
   }
 })
