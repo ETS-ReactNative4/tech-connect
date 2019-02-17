@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import { LinearGradient } from 'expo'
 import SuggestedConnection from './SuggestedConnection.js' 
 import NavigationBar from './NavigationBar'
+
+
 export class HomeScreen extends React.Component {
   constructor(props) {
     super(props)
