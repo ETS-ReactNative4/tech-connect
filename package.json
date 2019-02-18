@@ -5,7 +5,7 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "eject": "expo eject",
-    "test": "jest"
+    "test": "node_modules/.bin/jest"
   },
   "dependencies": {
     "enzyme": "^3.8.0",
@@ -31,18 +31,22 @@
     "babel-preset-expo": "^5.0.0",
     "babel-preset-react-native": "^4.0.1",
     "jest": "^24.1.0",
+    "jest-expo": "^32.0.0",
     "react-dom": "^16.8.2",
     "react-test-renderer": "^16.8.2",
     "remote-redux-devtools": "^0.5.16"
   },
   "jest": {
-    "preset": "react-native",
-    "setupTestFrameworkScriptFile": "<rootDir>setupTests.js",
+    "preset": "jest-expo",
+    "setupFilesAfterEnv": ["<rootDir>setupTests.js"],
     "setupFiles": [
       "enzyme-react-16-adapter-setup"
     ],
+    "testPathIgnorePatterns": [
+    "/node_modules/"
+  ],
     "transformIgnorePatterns": [
-      "node_modules/(?!react-native|expo-react-native-adapter|react-navigation-stack|@react-navigation)"
+      "node_modules/(?!react-native|expo-react-native-adapter|react-navigation-stack|@react-navigation|native-base|@expo|expo|expo-font)"
     ],
     "collectCoverageFrom": [
       "**/*.{js,jsx}",
