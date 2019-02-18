@@ -4,7 +4,7 @@ import { shallow } from 'enzyme'
 import { updateUser } from '../thunks/updateUser'
 import { getLocations, getPositions, getEmployers } from '../apiCalls'
 import { Input } from 'react-native-elements'
-
+import ModalSelector from 'react-native-modal-selector'
 
 
 jest.mock('../thunks/updateUser')
@@ -57,8 +57,46 @@ describe('ProfileScreen', () => {
   })
 
   it('should update the name on change of input', () => {
-    wrapper.find(Input).first().simulate('changeText', 'Kylie')
+    wrapper.find(Input).at(0).simulate('changeText', 'Kylie')
     expect(wrapper.instance().state.name).toEqual('Kylie')
+  })
+
+
+  it('should update the phone number on change of input', () => {
+    wrapper.find(Input).at(1).simulate('changeText', '1234')
+    expect(wrapper.instance().state.phone_number).toEqual('1234')
+  })
+
+
+  it('should update the github on change of input', () => {
+    wrapper.find(Input).at(5).simulate('changeText', 'github.com')
+    expect(wrapper.instance().state.github).toEqual('github.com')
+  })
+
+
+  it('should update the linkedin on change of input', () => {
+    wrapper.find(Input).at(6).simulate('changeText', 'linkedin.com')
+    expect(wrapper.instance().state.linkedin).toEqual('linkedin.com')
+  })
+
+  it('should update the bio on change of input', () => {
+    wrapper.find(Input).at(7).simulate('changeText', 'Hey!')
+    expect(wrapper.instance().state.bio).toEqual('Hey!')
+  })
+
+  it('should update the location on selection', () => {
+    wrapper.find(ModalSelector).at(0).simulate('change', {label: 'Denver'})
+    expect(wrapper.instance().state.location).toEqual('Denver')
+  })
+
+  it('should update the position on selection', () => {
+    wrapper.find(ModalSelector).at(1).simulate('change', {label: 'Developer'})
+    expect(wrapper.instance().state.position).toEqual('Developer')
+  })
+
+  it('should update the employer on selection', () => {
+    wrapper.find(ModalSelector).at(2).simulate('change', {label: 'Turing'})
+    expect(wrapper.instance().state.employer).toEqual('Turing')
   })
 
   describe('mapStateToProps', () => {
