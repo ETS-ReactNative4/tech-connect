@@ -16,7 +16,7 @@ import rootReducer from './reducers'
 
 const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)))
 
-const SecondaryNav = createStackNavigator(
+const SecondaryHomeNav = createStackNavigator(
   {
     Home: HomeScreen,
     ProfilePage: ProfilePage,
@@ -29,7 +29,7 @@ const SecondaryNav = createStackNavigator(
 
 const AppNavBar = createBottomTabNavigator(
   {
-    Home: SecondaryNav,
+    Home: SecondaryHomeNav,
     Profile: ProfilePage,
     Messages: MessagesScreen,
     Schedule: ScheduleScreen

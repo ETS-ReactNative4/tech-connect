@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, TouchableHighlight, Image, Button, ScrollView }
 import Icon from 'react-native-vector-icons/Feather'
 import Connection from './Connection'
 import { connect } from 'react-redux'
+import { getConnectionInfo } from './apiCalls'
 
 export class ProfilePage extends Component {
   constructor(props) {
@@ -41,9 +42,12 @@ export class ProfilePage extends Component {
             </View>
             <Text style={ styles.languages }>Connections</Text>
             <View style={ styles.languageContainer }>
-              <Connection />
-              <Connection />
-              <Connection />
+              {
+                user.connections.map(connection => {
+                  const connectionInfo = await getConnectionInfo(connection.id, user.api_key)
+                  return <Connection user={connectionInfo} />
+                })
+              }
             </View>
           </View>
         </View>
