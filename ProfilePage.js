@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, TouchableHighlight, Image, Button, ScrollView }
 import Icon from 'react-native-vector-icons/Feather'
 import Connection from './Connection'
 import { connect } from 'react-redux'
-import { getUserInfo } from './thunks/getUserInfo'
+import { getUserInfo } from './apiCalls'
 
 export class ProfilePage extends Component {
   constructor(props) {
@@ -17,7 +17,7 @@ export class ProfilePage extends Component {
 
   render() {
     const user = this.props.navigation.getParam('user') ? this.props.navigation.getParam('user') : this.props.user
-    console.log(user)
+    
     return (
       <ScrollView style={ styles.scrollContainer }>
         <View style={ styles.container }>
@@ -35,18 +35,11 @@ export class ProfilePage extends Component {
               </View>
               <Text style={ styles.bio }>{ user.bio }</Text>
               {
-              this.props.user !== user && <TouchableHighlight style={styles.connectBtn}><Button title='Connect' color='white' /></TouchableHighlight>
+                this.props.user !== user && <TouchableHighlight style={styles.connectBtn}><Button title='Connect' color='white' /></TouchableHighlight>
               }
             </View>
-            <Text style={ styles.languages }>Langauge Interests</Text>
-            <View style={ styles.languageContainer }>
-              <Text style={ styles.language }>React.js</Text>
-              <Text style={ styles.language }>Node.js</Text>
-              <Text style={ styles.language }>Express.js</Text>
-              <Text style={ styles.language }>CSS</Text>
-            </View>
-            <Text style={ styles.languages }>Connections</Text>
-            <View style={ styles.languageContainer }>
+            <Text style={ styles.connections}>Connections</Text>
+            <View style={ styles.connectionsContainer }>
               {
                 user.connections && user.connections.map((connection) => {
                   return <Connection id={ connection.id } viewProfile={ this.viewProfile } />
@@ -155,12 +148,12 @@ const styles = StyleSheet.create({
     shadowOpacity: .5,
     marginTop: 10,
   },
-  languages: {
+  connections: {
     marginLeft: 20,
     marginTop: 15,
     fontSize: 15,
   },
-  languageContainer: {
+  connectionsContainer: {
     backgroundColor: '#4AA9C5',
     marginTop: 5,
     marginLeft: 20,

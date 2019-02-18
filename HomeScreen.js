@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
 import { connect } from 'react-redux';
 import { LinearGradient } from 'expo'
-import { getUserInfo } from './thunks/getUserInfo'
+import { getUserInfo } from './apiCalls'
 import SuggestedConnection from './SuggestedConnection.js' 
 
 
@@ -33,7 +33,9 @@ export class HomeScreen extends React.Component {
         </View>
         <View styles={styles.suggestedConnections}>
           <Text style={styles.suggestedTitle}>Suggested Connections</Text>
-          { suggestions.map(suggestion => <SuggestedConnection suggestion={suggestion} viewProfile={this.viewProfile} />) }
+          { 
+            suggestions.map(suggestion => <SuggestedConnection suggestion={suggestion} viewProfile={this.viewProfile} />) 
+          }
         </View>
       </View>
     )
