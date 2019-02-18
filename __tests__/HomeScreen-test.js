@@ -6,6 +6,7 @@ import renderer from 'react-test-renderer'
 
 describe('HomeScreen', () => {
   let wrapper
+  let mockUser
 
   beforeEach(() => {
     mockUser = {
@@ -28,4 +29,19 @@ describe('HomeScreen', () => {
 
     expect(wrapper.find(SuggestedConnection).length).toEqual(0)
   })
+
+  it('should render 1 suggestion component', () => {
+    const mockUser = {
+      name: 'Howard',
+      position: {
+        job_title: 'astronomer'
+      }, 
+      suggestions: [{name: 'Toby'}],
+      api_key: 112345129372873,
+    }
+    const wrapper = shallow(<HomeScreen user={ mockUser } />)
+    
+    expect(wrapper.find(SuggestedConnection).length).toEqual(1)
+  })
+
 })
