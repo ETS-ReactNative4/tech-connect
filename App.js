@@ -16,9 +16,20 @@ import rootReducer from './reducers'
 
 const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)))
 
-const AppNavBar = createBottomTabNavigator(
+const SecondaryNav = createStackNavigator(
   {
     Home: HomeScreen,
+    ProfilePage: ProfilePage,
+  },
+  {
+    headerMode: 'none',
+    initialRouteName: "Home"
+  }
+)
+
+const AppNavBar = createBottomTabNavigator(
+  {
+    Home: SecondaryNav,
     Profile: ProfilePage,
     Messages: MessagesScreen,
     Schedule: ScheduleScreen
@@ -39,7 +50,7 @@ const AppNavBar = createBottomTabNavigator(
         }
 
         return <Icon name={iconName} size={25} color={tintColor} />;
-      },
+      }
     }),
     tabBarOptions: {
       activeTintColor: '#4AA9C5',
@@ -48,15 +59,11 @@ const AppNavBar = createBottomTabNavigator(
   }
 )
 
+
 const AppNavigator = createStackNavigator(
   {
     Login: LoginScreen,
-    NavBar: AppNavBar,
-    Profile: ProfileScreen,
-    ProfilePage: ProfilePage,
-    Search: SearchScreen,
-    Messages: MessagesScreen,
-    Schedule: ScheduleScreen
+    NavBar: AppNavBar
   },
   {
     headerMode: 'none',
