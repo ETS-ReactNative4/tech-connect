@@ -2,7 +2,9 @@ import React from 'react';
 import { HomeScreen, mapStateToProps } from '../HomeScreen';
 import { shallow } from 'enzyme'
 import SuggestedConnection from '../SuggestedConnection'
-import renderer from 'react-test-renderer'
+import { getUserInfo } from '../apiCalls'
+
+jest.mock('../apiCalls')
 
 describe('HomeScreen', () => {
   let wrapper
@@ -17,7 +19,10 @@ describe('HomeScreen', () => {
       suggestions: [],
       api_key: 112345129372873,
     }
-    wrapper = shallow(<HomeScreen user={ mockUser } />)
+    mockNavigation = {
+      navigate: jest.fn()
+    }
+    wrapper = shallow(<HomeScreen user={ mockUser } navigation={ mockNavigation } />)
   })
 
   it('should match the snapshot', () => {
@@ -40,8 +45,33 @@ describe('HomeScreen', () => {
       api_key: 112345129372873,
     }
     const wrapper = shallow(<HomeScreen user={ mockUser } />)
-    
+
     expect(wrapper.find(SuggestedConnection).length).toEqual(1)
+  })
+
+  it('viewProfile - should fire getUserInfo and navigate to the profile page', async () => {
+    
+    await wrapper.instance().viewProfile()
+
+    expect(getUserInfo).toHaveBeenCalled()
+    expect(wrapper.instance().props.navigation.navigate).toHaveBeenCalled()
+  })
+
+  describe('mapStateToProps', () => {
+    it('should return an object with just the user', () => {
+      const mockState = {
+        user: {},
+        isLoading: false,
+        hasErrored: false
+      }
+      const expected = {
+        user: {}
+      }
+
+      const result = mapStateToProps(mockState)
+
+      expect(result).toEqual(expected)
+    })
   })
 
 })
