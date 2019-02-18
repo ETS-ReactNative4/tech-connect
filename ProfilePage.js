@@ -10,8 +10,8 @@ export class ProfilePage extends Component {
   }
 
   render() {
-    const user = this.props.navigation.getParam('user') ? this.props.navigation.getParams('user') : this.props.user
-    
+    const user = this.props.navigation.getParam('user') ? this.props.navigation.getParam('user') : this.props.user
+
     return (
       <ScrollView>
         <View style={ styles.container }>

@@ -3,13 +3,17 @@ import { StyleSheet, Text, View, Image, Button, TouchableHighlight } from 'react
 
 
 export default class SuggestedConnection extends Component {
+  
+  
   render() {
     return (
       <View style={styles.container}>
       <View style={styles.imageContainer}>
         <Image source={require('./profile-pic.jpeg')} style={styles.picture} />
       </View>
-        <Text style={styles.name}>{ this.props.suggestion.name }</Text>
+        <TouchableHighlight onPress={() => this.props.viewProfile(this.props.suggestion.id)}>
+          <Text style={styles.name}>{ this.props.suggestion.name }</Text>
+        </TouchableHighlight>
         <Text style={styles.position}>{ this.props.suggestion.job_title }</Text>
         <Text style={styles.position}>{ this.props.suggestion.city }</Text>
         <TouchableHighlight style={styles.connectBtn}>
