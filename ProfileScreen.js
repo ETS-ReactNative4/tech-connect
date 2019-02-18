@@ -1,11 +1,11 @@
-import React from 'react';
-import { StyleSheet, Text, TextInput, View, Button, TouchableHighlight } from 'react-native';
-import Icon from 'react-native-vector-icons/Feather';
-import { Input } from 'react-native-elements';
+import React from 'react'
+import { StyleSheet, Text, TextInput, View, Button, TouchableHighlight } from 'react-native'
+import { Input } from 'react-native-elements'
 import { updateUser } from './thunks/updateUser'
 import { connect } from 'react-redux'
 import ModalSelector from 'react-native-modal-selector'
 import { getLocations, getPositions, getEmployers } from './apiCalls'
+import Icon from 'react-native-vector-icons/Feather'
 
 
 export class ProfileScreen extends React.Component {
