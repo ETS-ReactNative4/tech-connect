@@ -79,22 +79,23 @@ export class LoginScreen extends React.Component {
           inputContainerStyle={styles.inputContainer} 
           containerStyle={styles.input} 
           placeholder="Email" style={styles.input} 
-          name='email' onChangeText={(text) => this.setState({email: text})} 
+          name='email' 
+          onChangeText={(text) => this.setState({email: text})} 
         />
         <Input 
           leftIcon= {
             <LinearGradient
               colors={['#4AA9C5', '#6364c1', '#93548F']}
               start={0.4}
-              style={styles.gradient} >
-            <Icon
-              raised={true}
-              name='lock'
-              size={32}
-              color='#FFF'
-            />
+              style={styles.gradient} 
+            >
+              <Icon
+                raised={true}
+                name='lock'
+                size={32}
+                color='#FFF'
+              />
             </LinearGradient>
-          
           }
           leftIconContainerStyle={styles.icon} 
           inputContainerStyle={styles.inputContainer} 
