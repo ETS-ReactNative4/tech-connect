@@ -3,6 +3,8 @@ import { ProfileScreen, mapStateToProps, mapDispatchToProps } from '../ProfileSc
 import { shallow } from 'enzyme'
 import { updateUser } from '../thunks/updateUser'
 import { getLocations, getPositions, getEmployers } from '../apiCalls'
+import { Input } from 'react-native-elements'
+
 
 
 jest.mock('../thunks/updateUser')
@@ -54,10 +56,9 @@ describe('ProfileScreen', () => {
     expect(wrapper.instance().props.navigation.navigate).toHaveBeenCalled()
   })
 
-  it.skip('should update the name on change of input', () => {
-    wrapper.find('Input').simulate('changeText')
-    wrapper.instance().forceUpdate()
-    expect(wrapper.instance().state.name).toEqual('')
+  it('should update the name on change of input', () => {
+    wrapper.find(Input).first().simulate('changeText', 'Kylie')
+    expect(wrapper.instance().state.name).toEqual('Kylie')
   })
 
   describe('mapStateToProps', () => {
