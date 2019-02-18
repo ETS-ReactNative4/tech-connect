@@ -10,7 +10,6 @@ import ModalSelector from 'react-native-modal-selector'
 jest.mock('../thunks/updateUser')
 jest.mock('../apiCalls')
 
-
 import renderer from 'react-test-renderer'
 
 
@@ -22,7 +21,7 @@ describe('ProfileScreen', () => {
   beforeEach(() => {
     navigation = { navigate: jest.fn() };
     onPressEvent = jest.fn()
-    wrapper = shallow(<ProfileScreen user={{api_key: 1234}} updateUser={jest.fn} navigation={navigation} />)
+    wrapper = shallow(<ProfileScreen user={{api_key: 1234}} updateUser={jest.fn()} navigation={navigation} />)
   })
 
   it('renders the snapshot', () => {
@@ -48,7 +47,7 @@ describe('ProfileScreen', () => {
 
   it('should save the updated user info', () => {
     wrapper.instance().handleSave()
-    expect(updateUser).toHaveBeenCalled()
+    expect(wrapper.instance().props.updateUser).toHaveBeenCalled()
   })
 
   it('should nagivate on save', async () => {
@@ -111,8 +110,10 @@ describe('ProfileScreen', () => {
       const result = mapStateToProps(mockState)
       expect(result).toEqual(expected)
     })
+  })
 
-    describe('mapDispatchToProps', () => {
+  describe('mapDispatchToProps', () => {
+    it('should call dispatch with the correct params', () => {
       const mockDispatch = jest.fn()
       const url = 'user.com'
       const actionToDispatch = updateUser(url)
