@@ -1,15 +1,19 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
-import { createBottomTabNavigator } from 'react-navigation'
 import { connect } from 'react-redux';
 import { LinearGradient } from 'expo'
-import ProfileScreen from './ProfileScreen'
+import { getUserInfo } from './apiCalls'
 import SuggestedConnection from './SuggestedConnection.js' 
 
 
 export class HomeScreen extends React.Component {
   constructor(props) {
     super(props)
+  }
+
+  viewProfile = async (id) => {
+    const user = await getUserInfo(id, this.props.user.api_key)
+    this.props.navigation.navigate('ProfilePage', {user})
   }
 
   render() {
@@ -29,7 +33,9 @@ export class HomeScreen extends React.Component {
         </View>
         <View styles={styles.suggestedConnections}>
           <Text style={styles.suggestedTitle}>Suggested Connections</Text>
-          { suggestions.map(suggestion => <SuggestedConnection suggestion={suggestion} />) }
+          { 
+            suggestions.map(suggestion => <SuggestedConnection suggestion={suggestion} viewProfile={this.viewProfile} />) 
+          }
         </View>
       </View>
     )
@@ -44,6 +50,7 @@ export default connect(mapStateToProps)(HomeScreen)
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     display: 'flex',
     alignItems: 'flex-start',
     alignItems: 'stretch',

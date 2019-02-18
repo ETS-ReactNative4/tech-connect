@@ -3,17 +3,23 @@ import { View, Text, StyleSheet, TouchableHighlight, Image, Button, ScrollView }
 import Icon from 'react-native-vector-icons/Feather'
 import Connection from './Connection'
 import { connect } from 'react-redux'
+import { getUserInfo } from './apiCalls'
 
 export class ProfilePage extends Component {
   constructor(props) {
     super(props)
   }
 
+  viewProfile = async (id) => {
+    const user = await getUserInfo(id, this.props.user.api_key)
+    this.props.navigation.navigate('ProfilePage', {user})
+  }
+
   render() {
-    const user = this.props.navigation.getParam('user') ? this.props.navigation.getParams('user') : this.props.user
+    const user = this.props.navigation.getParam('user') ? this.props.navigation.getParam('user') : this.props.user
     
     return (
-      <ScrollView>
+      <ScrollView style={ styles.scrollContainer }>
         <View style={ styles.container }>
           <View style={ styles.imageContainer }>
             <Image style={ styles.profilePicture } source={ require('./profile-pic.jpeg') } />
@@ -29,21 +35,16 @@ export class ProfilePage extends Component {
               </View>
               <Text style={ styles.bio }>{ user.bio }</Text>
               {
-              this.props.user !== user && <TouchableHighlight style={styles.connectBtn}><Button title='Connect' color='white' /></TouchableHighlight>
+                this.props.user !== user && <TouchableHighlight style={styles.connectBtn}><Button title='Connect' color='white' /></TouchableHighlight>
               }
             </View>
-            <Text style={ styles.languages }>Langauge Interests</Text>
-            <View style={ styles.languageContainer }>
-              <Text style={ styles.language }>React.js</Text>
-              <Text style={ styles.language }>Node.js</Text>
-              <Text style={ styles.language }>Express.js</Text>
-              <Text style={ styles.language }>CSS</Text>
-            </View>
-            <Text style={ styles.languages }>Connections</Text>
-            <View style={ styles.languageContainer }>
-              <Connection />
-              <Connection />
-              <Connection />
+            <Text style={ styles.connections}>Connections</Text>
+            <View style={ styles.connectionsContainer }>
+              {
+                user.connections && user.connections.map((connection) => {
+                  return <Connection id={ connection.id } viewProfile={ this.viewProfile } />
+                })
+              }
             </View>
           </View>
         </View>
@@ -59,7 +60,12 @@ export const mapStateToProps = (state) => ({
 export default connect(mapStateToProps)(ProfilePage)
 
 const styles = StyleSheet.create({
+  scrollContainer: {
+    flex: 1,
+    backgroundColor: '#4AA9C5',
+  },
   container: {
+    flex: 1,
     display: 'flex',
     alignItems: 'flex-start',
     alignItems: 'stretch',
@@ -128,6 +134,8 @@ const styles = StyleSheet.create({
   bio: {
     fontWeight: '300',
     marginTop: 5,
+    marginLeft: 10,
+    marginRight: 10
   },
   connectBtn: {
     backgroundColor: '#93548F',
@@ -140,12 +148,12 @@ const styles = StyleSheet.create({
     shadowOpacity: .5,
     marginTop: 10,
   },
-  languages: {
+  connections: {
     marginLeft: 20,
     marginTop: 15,
     fontSize: 15,
   },
-  languageContainer: {
+  connectionsContainer: {
     backgroundColor: '#4AA9C5',
     marginTop: 5,
     marginLeft: 20,
