@@ -14,40 +14,190 @@ exports[`LoginScreen renders the snapshot 1`] = `
   <Text>
     Tech Connect
   </Text>
-  <TextInput
-    allowFontScaling={true}
-    name="email"
-    onChangeText={[Function]}
-    placeholder="Email"
+  <View
     style={
       Object {
         "backgroundColor": "#E8FDFF",
-        "borderRadius": 20,
-        "height": 45,
+        "borderRadius": 30,
         "margin": 10,
         "padding": 10,
+        "paddingHorizontal": 10,
         "width": 300,
       }
     }
-    underlineColorAndroid="transparent"
-  />
-  <TextInput
-    allowFontScaling={true}
-    name="password"
-    onChangeText={[Function]}
-    placeholder="Password"
-    secureTextEntry={true}
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "borderBottomWidth": 0,
+          "borderColor": "#86939e",
+          "flexDirection": "row",
+          "height": 40,
+          "transform": Array [
+            Object {
+              "translateX": 0,
+            },
+          ],
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "pink",
+            "borderRadius": 50,
+            "height": 48,
+            "justifyContent": "center",
+            "marginLeft": -5,
+            "marginRight": 10,
+            "width": 48,
+          }
+        }
+      >
+        <ExponentLinearGradient
+          colors={
+            Array [
+              4283083205,
+              4284703937,
+              4287845519,
+            ]
+          }
+          startPoint={
+            Array [
+              undefined,
+              undefined,
+            ]
+          }
+          style={
+            Object {
+              "alignItems": "center",
+              "borderRadius": 300,
+              "height": 48,
+              "justifyContent": "center",
+              "width": 48,
+            }
+          }
+        >
+          <Text />
+        </ExponentLinearGradient>
+      </View>
+      <TextInput
+        allowFontScaling={true}
+        name="email"
+        onChangeText={[Function]}
+        placeholder="Email"
+        style={
+          Object {
+            "alignSelf": "center",
+            "color": "black",
+            "flex": 1,
+            "fontSize": 18,
+            "minHeight": 40,
+          }
+        }
+        testID="RNE__Input__text-input"
+        underlineColorAndroid="transparent"
+      />
+    </View>
+  </View>
+  <View
     style={
       Object {
         "backgroundColor": "#E8FDFF",
-        "borderRadius": 20,
-        "height": 45,
+        "borderRadius": 30,
         "margin": 10,
         "padding": 10,
+        "paddingHorizontal": 10,
         "width": 300,
       }
     }
-    underlineColorAndroid="transparent"
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "borderBottomWidth": 0,
+          "borderColor": "#86939e",
+          "flexDirection": "row",
+          "height": 40,
+          "transform": Array [
+            Object {
+              "translateX": 0,
+            },
+          ],
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "pink",
+            "borderRadius": 50,
+            "height": 48,
+            "justifyContent": "center",
+            "marginLeft": -5,
+            "marginRight": 10,
+            "width": 48,
+          }
+        }
+      >
+        <ExponentLinearGradient
+          colors={
+            Array [
+              4283083205,
+              4284703937,
+              4287845519,
+            ]
+          }
+          startPoint={
+            Array [
+              undefined,
+              undefined,
+            ]
+          }
+          style={
+            Object {
+              "alignItems": "center",
+              "borderRadius": 300,
+              "height": 48,
+              "justifyContent": "center",
+              "width": 48,
+            }
+          }
+        >
+          <Text />
+        </ExponentLinearGradient>
+      </View>
+      <TextInput
+        allowFontScaling={true}
+        name="password"
+        onChangeText={[Function]}
+        placeholder="Password"
+        secureTextEntry={true}
+        style={
+          Object {
+            "alignSelf": "center",
+            "color": "black",
+            "flex": 1,
+            "fontSize": 18,
+            "minHeight": 40,
+          }
+        }
+        testID="RNE__Input__text-input"
+        underlineColorAndroid="transparent"
+      />
+    </View>
+  </View>
+  <Text
+    style={
+      Object {
+        "color": "red",
+        "marginBottom": 3,
+      }
+    }
   />
   <View
     accessible={true}
@@ -60,9 +210,18 @@ exports[`LoginScreen renders the snapshot 1`] = `
     onStartShouldSetResponder={[Function]}
     style={
       Object {
+        "alignItems": "center",
         "backgroundColor": "#8FC9DB",
         "borderRadius": 25,
-        "height": 40,
+        "height": 44,
+        "justifyContent": "center",
+        "shadowColor": "black",
+        "shadowOffset": Object {
+          "height": 2,
+          "width": 2,
+        },
+        "shadowOpacity": 0.2,
+        "shadowRadius": 5,
         "width": 140,
       }
     }
@@ -116,6 +275,7 @@ exports[`LoginScreen renders the snapshot 1`] = `
       Object {
         "display": "flex",
         "flexDirection": "row",
+        "marginTop": 8,
       }
     }
   >
@@ -141,168 +301,7 @@ exports[`LoginScreen renders the snapshot 1`] = `
               "color": "#E8FDFF",
             },
             Object {
-              "textDecorationLine": "underline",
-            },
-          ]
-        }
-      >
-        Register
-      </Text>
-    </View>
-    <Text
-      style={
-        Object {
-          "color": "#E8FDFF",
-        }
-      }
-    >
-       if you do not have an account
-    </Text>
-  </View>
-</View>
-`;
-
-exports[`renders the snapshot 1`] = `
-<View
-  style={
-    Object {
-      "alignItems": "center",
-      "backgroundColor": "#4AA9C5",
-      "flex": 1,
-      "justifyContent": "center",
-    }
-  }
->
-  <Text>
-    Tech Connect
-  </Text>
-  <TextInput
-    allowFontScaling={true}
-    name="email"
-    onChangeText={[Function]}
-    placeholder="Email"
-    style={
-      Object {
-        "backgroundColor": "#E8FDFF",
-        "borderRadius": 20,
-        "height": 45,
-        "margin": 10,
-        "padding": 10,
-        "width": 300,
-      }
-    }
-    underlineColorAndroid="transparent"
-  />
-  <TextInput
-    allowFontScaling={true}
-    name="password"
-    onChangeText={[Function]}
-    placeholder="Password"
-    secureTextEntry={true}
-    style={
-      Object {
-        "backgroundColor": "#E8FDFF",
-        "borderRadius": 20,
-        "height": 45,
-        "margin": 10,
-        "padding": 10,
-        "width": 300,
-      }
-    }
-    underlineColorAndroid="transparent"
-  />
-  <View
-    accessible={true}
-    isTVSelectable={true}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={
-      Object {
-        "backgroundColor": "#8FC9DB",
-        "borderRadius": 25,
-        "height": 40,
-        "width": 140,
-      }
-    }
-  >
-    <View
-      accessibilityRole="button"
-      accessibilityStates={Array []}
-      accessible={true}
-      isTVSelectable={true}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Object {
-          "opacity": 1,
-        }
-      }
-    >
-      <View
-        style={
-          Array [
-            Object {},
-          ]
-        }
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#007AFF",
-                "fontSize": 18,
-                "padding": 8,
-                "textAlign": "center",
-              },
-              Object {
-                "color": "#E8FDFF",
-              },
-            ]
-          }
-        >
-          SIGN IN
-        </Text>
-      </View>
-    </View>
-  </View>
-  <View
-    style={
-      Object {
-        "display": "flex",
-        "flexDirection": "row",
-      }
-    }
-  >
-    <View
-      accessible={true}
-      isTVSelectable={true}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Object {
-          "opacity": 1,
-        }
-      }
-    >
-      <Text
-        style={
-          Array [
-            Object {
-              "color": "#E8FDFF",
-            },
-            Object {
+              "fontWeight": "bold",
               "textDecorationLine": "underline",
             },
           ]

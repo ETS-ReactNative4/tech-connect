@@ -1,0 +1,965 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProfileScreen renders the snapshot 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "flex": 1,
+      "justifyContent": "center",
+    }
+  }
+>
+  <Text
+    style={
+      Object {
+        "color": "#4AA9C5",
+        "fontSize": 20,
+        "marginBottom": 20,
+      }
+    }
+  >
+    Update Profile
+  </Text>
+  <View
+    style={
+      Object {
+        "height": 50,
+        "marginBottom": 10,
+        "paddingHorizontal": 10,
+        "width": 300,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "borderBottomColor": "#4AA9C5",
+          "borderBottomWidth": 1.3,
+          "borderColor": "#86939e",
+          "flexDirection": "row",
+          "transform": Array [
+            Object {
+              "translateX": 0,
+            },
+          ],
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "height": 40,
+            "justifyContent": "center",
+            "marginLeft": 0,
+            "marginRight": 10,
+          }
+        }
+      >
+        <Text />
+      </View>
+      <TextInput
+        allowFontScaling={true}
+        onChangeText={[Function]}
+        placeholder="Name"
+        style={
+          Object {
+            "alignSelf": "center",
+            "color": "black",
+            "flex": 1,
+            "fontSize": 18,
+            "minHeight": 40,
+          }
+        }
+        testID="RNE__Input__text-input"
+        underlineColorAndroid="transparent"
+        value=""
+      />
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "height": 50,
+        "marginBottom": 10,
+        "paddingHorizontal": 10,
+        "width": 300,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "borderBottomColor": "#4AA9C5",
+          "borderBottomWidth": 1.3,
+          "borderColor": "#86939e",
+          "flexDirection": "row",
+          "transform": Array [
+            Object {
+              "translateX": 0,
+            },
+          ],
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "height": 40,
+            "justifyContent": "center",
+            "marginLeft": 0,
+            "marginRight": 10,
+          }
+        }
+      >
+        <Text />
+      </View>
+      <TextInput
+        allowFontScaling={true}
+        onChangeText={[Function]}
+        placeholder="Phone Number"
+        style={
+          Object {
+            "alignSelf": "center",
+            "color": "black",
+            "flex": 1,
+            "fontSize": 18,
+            "minHeight": 40,
+          }
+        }
+        testID="RNE__Input__text-input"
+        underlineColorAndroid="transparent"
+        value=""
+      />
+    </View>
+  </View>
+  <View
+    style={Object {}}
+  >
+    <Modal
+      animationType="slide"
+      hardwareAccelerated={false}
+      onDismiss={[Function]}
+      onRequestClose={[Function]}
+      supportedOrientations={
+        Array [
+          "portrait",
+          "landscape",
+        ]
+      }
+      transparent={true}
+      visible={false}
+    >
+      <View
+        accessible={false}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Array [
+            Object {
+              "backgroundColor": "rgba(0,0,0,0.7)",
+              "flex": 1,
+              "justifyContent": "center",
+              "padding": "5%",
+            },
+            Object {},
+          ]
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "backgroundColor": "rgba(255,255,255,0.8)",
+                "borderRadius": 5,
+                "flexShrink": 1,
+                "marginBottom": 8,
+                "padding": 8,
+              },
+              Object {},
+            ]
+          }
+        />
+        <View
+          style={
+            Array [
+              Object {
+                "alignSelf": "stretch",
+              },
+              Object {},
+            ]
+          }
+        >
+          <View
+            accessibilityLabel="Cancel Button"
+            accessible={false}
+            isTVSelectable={true}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "rgba(255,255,255,0.8)",
+                    "borderRadius": 5,
+                    "padding": 8,
+                  },
+                  Object {},
+                ]
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#333",
+                      "fontSize": 16,
+                      "textAlign": "center",
+                    },
+                    Object {},
+                  ]
+                }
+              >
+                cancel
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+    </Modal>
+    <View
+      accessible={false}
+      hitSlop={
+        Object {
+          "bottom": 0,
+          "left": 0,
+          "right": 0,
+          "top": 0,
+        }
+      }
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+    >
+      <View
+        pointerEvents="none"
+        style={Object {}}
+      >
+        <View
+          style={
+            Object {
+              "height": 50,
+              "marginBottom": 10,
+              "paddingHorizontal": 10,
+              "width": 300,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "borderBottomColor": "#4AA9C5",
+                "borderBottomWidth": 1.3,
+                "borderColor": "#86939e",
+                "flexDirection": "row",
+                "transform": Array [
+                  Object {
+                    "translateX": 0,
+                  },
+                ],
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "height": 40,
+                  "justifyContent": "center",
+                  "marginLeft": 0,
+                  "marginRight": 10,
+                }
+              }
+            >
+              <Text />
+            </View>
+            <TextInput
+              allowFontScaling={true}
+              editable={false}
+              placeholder="Location"
+              style={
+                Object {
+                  "alignSelf": "center",
+                  "color": "black",
+                  "flex": 1,
+                  "fontSize": 18,
+                  "minHeight": 40,
+                }
+              }
+              testID="RNE__Input__text-input"
+              underlineColorAndroid="transparent"
+              value="Denver"
+            />
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+  <View
+    style={Object {}}
+  >
+    <Modal
+      animationType="slide"
+      hardwareAccelerated={false}
+      onDismiss={[Function]}
+      onRequestClose={[Function]}
+      supportedOrientations={
+        Array [
+          "portrait",
+          "landscape",
+        ]
+      }
+      transparent={true}
+      visible={false}
+    >
+      <View
+        accessible={false}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Array [
+            Object {
+              "backgroundColor": "rgba(0,0,0,0.7)",
+              "flex": 1,
+              "justifyContent": "center",
+              "padding": "5%",
+            },
+            Object {},
+          ]
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "backgroundColor": "rgba(255,255,255,0.8)",
+                "borderRadius": 5,
+                "flexShrink": 1,
+                "marginBottom": 8,
+                "padding": 8,
+              },
+              Object {},
+            ]
+          }
+        />
+        <View
+          style={
+            Array [
+              Object {
+                "alignSelf": "stretch",
+              },
+              Object {},
+            ]
+          }
+        >
+          <View
+            accessibilityLabel="Cancel Button"
+            accessible={false}
+            isTVSelectable={true}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "rgba(255,255,255,0.8)",
+                    "borderRadius": 5,
+                    "padding": 8,
+                  },
+                  Object {},
+                ]
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#333",
+                      "fontSize": 16,
+                      "textAlign": "center",
+                    },
+                    Object {},
+                  ]
+                }
+              >
+                cancel
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+    </Modal>
+    <View
+      accessible={false}
+      hitSlop={
+        Object {
+          "bottom": 0,
+          "left": 0,
+          "right": 0,
+          "top": 0,
+        }
+      }
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+    >
+      <View
+        pointerEvents="none"
+        style={Object {}}
+      >
+        <View
+          style={
+            Object {
+              "height": 50,
+              "marginBottom": 10,
+              "paddingHorizontal": 10,
+              "width": 300,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "borderBottomColor": "#4AA9C5",
+                "borderBottomWidth": 1.3,
+                "borderColor": "#86939e",
+                "flexDirection": "row",
+                "transform": Array [
+                  Object {
+                    "translateX": 0,
+                  },
+                ],
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "height": 40,
+                  "justifyContent": "center",
+                  "marginLeft": 0,
+                  "marginRight": 10,
+                }
+              }
+            >
+              <Text />
+            </View>
+            <TextInput
+              allowFontScaling={true}
+              editable={false}
+              placeholder="Position"
+              style={
+                Object {
+                  "alignSelf": "center",
+                  "color": "black",
+                  "flex": 1,
+                  "fontSize": 18,
+                  "minHeight": 40,
+                }
+              }
+              testID="RNE__Input__text-input"
+              underlineColorAndroid="transparent"
+              value={Array []}
+            />
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+  <View
+    style={Object {}}
+  >
+    <Modal
+      animationType="slide"
+      hardwareAccelerated={false}
+      onDismiss={[Function]}
+      onRequestClose={[Function]}
+      supportedOrientations={
+        Array [
+          "portrait",
+          "landscape",
+        ]
+      }
+      transparent={true}
+      visible={false}
+    >
+      <View
+        accessible={false}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Array [
+            Object {
+              "backgroundColor": "rgba(0,0,0,0.7)",
+              "flex": 1,
+              "justifyContent": "center",
+              "padding": "5%",
+            },
+            Object {},
+          ]
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "backgroundColor": "rgba(255,255,255,0.8)",
+                "borderRadius": 5,
+                "flexShrink": 1,
+                "marginBottom": 8,
+                "padding": 8,
+              },
+              Object {},
+            ]
+          }
+        />
+        <View
+          style={
+            Array [
+              Object {
+                "alignSelf": "stretch",
+              },
+              Object {},
+            ]
+          }
+        >
+          <View
+            accessibilityLabel="Cancel Button"
+            accessible={false}
+            isTVSelectable={true}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "rgba(255,255,255,0.8)",
+                    "borderRadius": 5,
+                    "padding": 8,
+                  },
+                  Object {},
+                ]
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#333",
+                      "fontSize": 16,
+                      "textAlign": "center",
+                    },
+                    Object {},
+                  ]
+                }
+              >
+                cancel
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+    </Modal>
+    <View
+      accessible={false}
+      hitSlop={
+        Object {
+          "bottom": 0,
+          "left": 0,
+          "right": 0,
+          "top": 0,
+        }
+      }
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+    >
+      <View
+        pointerEvents="none"
+        style={Object {}}
+      >
+        <View
+          style={
+            Object {
+              "height": 50,
+              "marginBottom": 10,
+              "paddingHorizontal": 10,
+              "width": 300,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "borderBottomColor": "#4AA9C5",
+                "borderBottomWidth": 1.3,
+                "borderColor": "#86939e",
+                "flexDirection": "row",
+                "transform": Array [
+                  Object {
+                    "translateX": 0,
+                  },
+                ],
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "height": 40,
+                  "justifyContent": "center",
+                  "marginLeft": 0,
+                  "marginRight": 10,
+                }
+              }
+            >
+              <Text />
+            </View>
+            <TextInput
+              allowFontScaling={true}
+              editable={false}
+              placeholder="Employer"
+              style={
+                Object {
+                  "alignSelf": "center",
+                  "color": "black",
+                  "flex": 1,
+                  "fontSize": 18,
+                  "minHeight": 40,
+                }
+              }
+              testID="RNE__Input__text-input"
+              underlineColorAndroid="transparent"
+              value="Turing"
+            />
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "height": 50,
+        "marginBottom": 10,
+        "paddingHorizontal": 10,
+        "width": 300,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "borderBottomColor": "#4AA9C5",
+          "borderBottomWidth": 1.3,
+          "borderColor": "#86939e",
+          "flexDirection": "row",
+          "transform": Array [
+            Object {
+              "translateX": 0,
+            },
+          ],
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "height": 40,
+            "justifyContent": "center",
+            "marginLeft": 0,
+            "marginRight": 10,
+          }
+        }
+      >
+        <Text />
+      </View>
+      <TextInput
+        allowFontScaling={true}
+        onChangeText={[Function]}
+        placeholder="GitHub"
+        style={
+          Object {
+            "alignSelf": "center",
+            "color": "black",
+            "flex": 1,
+            "fontSize": 18,
+            "minHeight": 40,
+          }
+        }
+        testID="RNE__Input__text-input"
+        underlineColorAndroid="transparent"
+        value=""
+      />
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "height": 50,
+        "marginBottom": 10,
+        "paddingHorizontal": 10,
+        "width": 300,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "borderBottomColor": "#4AA9C5",
+          "borderBottomWidth": 1.3,
+          "borderColor": "#86939e",
+          "flexDirection": "row",
+          "transform": Array [
+            Object {
+              "translateX": 0,
+            },
+          ],
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "height": 40,
+            "justifyContent": "center",
+            "marginLeft": 0,
+            "marginRight": 10,
+          }
+        }
+      >
+        <Text />
+      </View>
+      <TextInput
+        allowFontScaling={true}
+        onChangeText={[Function]}
+        placeholder="LinkedIn"
+        style={
+          Object {
+            "alignSelf": "center",
+            "color": "black",
+            "flex": 1,
+            "fontSize": 18,
+            "minHeight": 40,
+          }
+        }
+        testID="RNE__Input__text-input"
+        underlineColorAndroid="transparent"
+        value=""
+      />
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "height": 50,
+        "marginBottom": 10,
+        "paddingHorizontal": 10,
+        "width": 300,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "borderBottomColor": "#4AA9C5",
+          "borderBottomWidth": 1.3,
+          "borderColor": "#86939e",
+          "flexDirection": "row",
+          "transform": Array [
+            Object {
+              "translateX": 0,
+            },
+          ],
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "height": 40,
+            "justifyContent": "center",
+            "marginLeft": 0,
+            "marginRight": 10,
+          }
+        }
+      >
+        <Text />
+      </View>
+      <TextInput
+        allowFontScaling={true}
+        onChangeText={[Function]}
+        placeholder="Bio"
+        style={
+          Object {
+            "alignSelf": "center",
+            "color": "black",
+            "flex": 1,
+            "fontSize": 18,
+            "minHeight": 40,
+          }
+        }
+        testID="RNE__Input__text-input"
+        underlineColorAndroid="transparent"
+        value=""
+      />
+    </View>
+  </View>
+  <View
+    accessible={true}
+    isTVSelectable={true}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "backgroundColor": "#8FC9DB",
+        "borderRadius": 25,
+        "height": 40,
+        "width": 140,
+      }
+    }
+  >
+    <View
+      accessibilityRole="button"
+      accessibilityStates={Array []}
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {},
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#007AFF",
+                "fontSize": 18,
+                "padding": 8,
+                "textAlign": "center",
+              },
+              Object {
+                "color": "#E8FDFF",
+              },
+            ]
+          }
+        >
+          save
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;

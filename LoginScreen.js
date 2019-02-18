@@ -1,11 +1,11 @@
 import React from 'react';
 import { StyleSheet, Text, View, TextInput, Button, TouchableHighlight, TouchableOpacity } from 'react-native';
-import Icon from 'react-native-vector-icons/EvilIcons';
 import { connect } from 'react-redux'
 import { LinearGradient } from 'expo'
 import { Input } from 'react-native-elements';
 import { createUser } from './thunks/createUser'
 import { loginUser } from './thunks/loginUser'
+import Icon from 'react-native-vector-icons/EvilIcons';
 
 
 export class LoginScreen extends React.Component {
@@ -94,6 +94,7 @@ export class LoginScreen extends React.Component {
               color='#FFF'
             />
             </LinearGradient>
+          
           }
           leftIconContainerStyle={styles.icon} 
           inputContainerStyle={styles.inputContainer} 
