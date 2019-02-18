@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1550521554553" clover="3.2.0">
-  <project timestamp="1550521554553" name="All files">
-    <metrics statements="334" coveredstatements="52" conditionals="380" coveredconditionals="9" methods="132" coveredmethods="17" elements="846" coveredelements="78" complexity="0" loc="334" ncloc="334" packages="5" files="21" classes="21"/>
+<coverage generated="1550522542888" clover="3.2.0">
+  <project timestamp="1550522542888" name="All files">
+    <metrics statements="334" coveredstatements="54" conditionals="380" coveredconditionals="9" methods="132" coveredmethods="19" elements="846" coveredelements="82" complexity="0" loc="334" ncloc="334" packages="5" files="21" classes="21"/>
     <package name="tech-connect">
-      <metrics statements="160" coveredstatements="44" conditionals="40" coveredconditionals="9" methods="66" coveredmethods="17"/>
+      <metrics statements="160" coveredstatements="46" conditionals="40" coveredconditionals="9" methods="66" coveredmethods="19"/>
       <file name="App.js" path="/Users/kayleebunce/Documents/Turing/tech-connect/App.js">
         <metrics statements="17" coveredstatements="0" conditionals="8" coveredconditionals="0" methods="3" coveredmethods="0"/>
         <line num="17" count="0" type="stmt"/>
@@ -136,10 +136,10 @@
         <line num="58" count="0" type="stmt"/>
       </file>
       <file name="SuggestedConnection.js" path="/Users/kayleebunce/Documents/Turing/tech-connect/SuggestedConnection.js">
-        <metrics statements="3" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
-        <line num="9" count="0" type="stmt"/>
-        <line num="14" count="0" type="stmt"/>
-        <line num="27" count="1" type="stmt"/>
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="9" count="2" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="27" count="2" type="stmt"/>
       </file>
       <file name="apiCalls.js" path="/Users/kayleebunce/Documents/Turing/tech-connect/apiCalls.js">
         <metrics statements="50" coveredstatements="6" conditionals="4" coveredconditionals="0" methods="10" coveredmethods="0"/>

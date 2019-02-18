@@ -1,5 +1,6 @@
 import React from 'react'
 import SuggestedConnection from '../SuggestedConnection'
+import { TouchableHighlight } from 'react-native'
 import { shallow } from 'enzyme'
 
 describe('SuggestedConnection', () => {
@@ -24,5 +25,11 @@ describe('SuggestedConnection', () => {
   it('should match the snapshot', () => {
 
     expect(wrapper).toMatchSnapshot()
+  })
+
+  it('should fire viewProfile on press of the name', () => {
+    wrapper.find(TouchableHighlight).first().simulate('press')
+
+    expect(mockViewProfile).toHaveBeenCalled()
   })
 })
