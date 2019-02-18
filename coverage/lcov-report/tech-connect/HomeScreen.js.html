@@ -22,7 +22,7 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>0/7</span>
+        <span class='fraction'>0/9</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -32,12 +32,12 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>0/4</span>
+        <span class='fraction'>0/5</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>0/6</span>
+        <span class='fraction'>0/8</span>
       </div>
     </div>
     <p class="quiet">
@@ -169,7 +169,14 @@
 <a name='L121'></a><a href='#L121'>121</a>
 <a name='L122'></a><a href='#L122'>122</a>
 <a name='L123'></a><a href='#L123'>123</a>
-<a name='L124'></a><a href='#L124'>124</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L124'></a><a href='#L124'>124</a>
+<a name='L125'></a><a href='#L125'>125</a>
+<a name='L126'></a><a href='#L126'>126</a>
+<a name='L127'></a><a href='#L127'>127</a>
+<a name='L128'></a><a href='#L128'>128</a>
+<a name='L129'></a><a href='#L129'>129</a>
+<a name='L130'></a><a href='#L130'>130</a>
+<a name='L131'></a><a href='#L131'>131</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -179,7 +186,11 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -200,12 +211,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -213,7 +218,16 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -294,16 +308,20 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
-import { createBottomTabNavigator } from 'react-navigation'
 import { connect } from 'react-redux';
 import { LinearGradient } from 'expo'
-import ProfileScreen from './ProfileScreen'
+import { getUserInfo } from './apiCalls'
 import SuggestedConnection from './SuggestedConnection.js' 
 &nbsp;
 &nbsp;
 export class HomeScreen extends React.Component {
 <span class="fstat-no" title="function not covered" >  co</span>nstructor(props) {
 <span class="cstat-no" title="statement not covered" >    super(props)</span>
+  }
+&nbsp;
+  viewProfile = <span class="fstat-no" title="function not covered" >as</span>ync (id) =&gt; {
+    const user = <span class="cstat-no" title="statement not covered" >await getUserInfo(id, this.props.user.api_key)</span>
+<span class="cstat-no" title="statement not covered" >    this.props.navigation.navigate('ProfilePage', {user})</span>
   }
 &nbsp;
 <span class="fstat-no" title="function not covered" >  re</span>nder() {
@@ -323,7 +341,9 @@ export class HomeScreen extends React.Component {
         &lt;/View&gt;
         &lt;View styles={styles.suggestedConnections}&gt;
           &lt;Text style={styles.suggestedTitle}&gt;Suggested Connections&lt;/Text&gt;
-          { suggestions.map(<span class="fstat-no" title="function not covered" >su</span>ggestion =&gt; <span class="cstat-no" title="statement not covered" >&lt;SuggestedConnection suggestion={suggestion} /&gt;)</span> }
+          { 
+            suggestions.map(<span class="fstat-no" title="function not covered" >su</span>ggestion =&gt; <span class="cstat-no" title="statement not covered" >&lt;SuggestedConnection suggestion={suggestion} viewProfile={this.viewProfile} /&gt;) </span>
+          }
         &lt;/View&gt;
       &lt;/View&gt;
     )
@@ -338,6 +358,7 @@ export default connect(mapStateToProps)(HomeScreen)
 &nbsp;
 const styles = <span class="cstat-no" title="statement not covered" >StyleSheet.create({</span>
   container: {
+    flex: 1,
     display: 'flex',
     alignItems: 'flex-start',
     alignItems: 'stretch',
@@ -421,7 +442,7 @@ const styles = <span class="cstat-no" title="statement not covered" >StyleSheet.
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Feb 18 2019 11:58:03 GMT-0700 (Mountain Standard Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Feb 18 2019 14:05:33 GMT-0700 (Mountain Standard Time)
 </div>
 </div>
 <script src="../prettify.js"></script>
