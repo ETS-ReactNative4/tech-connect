@@ -16,9 +16,12 @@ export class Connection extends Component {
     const user = await getConnectionInfo(this.props.id, this.props.api_key)
     this.setState({
       user
-    }, () => {
-      console.log(this.state.user)
     })
+  }
+
+  viewProfile = async (id) => {
+    const user = await getUserInfo(id, this.props.user.api_key)
+    this.props.navigation.navigate('ProfilePage', {user})
   }
   
   render() {

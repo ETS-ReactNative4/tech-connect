@@ -11,9 +11,9 @@ export class ProfilePage extends Component {
 
   render() {
     const user = this.props.navigation.getParam('user') ? this.props.navigation.getParam('user') : this.props.user
-
+    console.log(user)
     return (
-      <ScrollView>
+      <ScrollView style={ styles.scrollContainer }>
         <View style={ styles.container }>
           <View style={ styles.imageContainer }>
             <Image style={ styles.profilePicture } source={ require('./profile-pic.jpeg') } />
@@ -42,7 +42,7 @@ export class ProfilePage extends Component {
             <Text style={ styles.languages }>Connections</Text>
             <View style={ styles.languageContainer }>
               {
-                user.connections.map((connection) => {
+                user.connections && user.connections.map((connection) => {
                   return <Connection id={connection.id} />
                 })
               }
@@ -61,7 +61,12 @@ export const mapStateToProps = (state) => ({
 export default connect(mapStateToProps)(ProfilePage)
 
 const styles = StyleSheet.create({
+  scrollContainer: {
+    flex: 1,
+    backgroundColor: '#4AA9C5',
+  },
   container: {
+    flex: 1,
     display: 'flex',
     alignItems: 'flex-start',
     alignItems: 'stretch',
@@ -130,6 +135,8 @@ const styles = StyleSheet.create({
   bio: {
     fontWeight: '300',
     marginTop: 5,
+    marginLeft: 10,
+    marginRight: 10
   },
   connectBtn: {
     backgroundColor: '#93548F',

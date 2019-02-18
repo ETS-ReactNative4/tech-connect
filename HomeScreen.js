@@ -48,6 +48,7 @@ export default connect(mapStateToProps)(HomeScreen)
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     display: 'flex',
     alignItems: 'flex-start',
     alignItems: 'stretch',
