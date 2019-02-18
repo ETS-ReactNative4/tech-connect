@@ -3,7 +3,9 @@ import { Connection, mapStateToProps } from '../Connection'
 import { shallow } from 'enzyme'
 import { getConnectionInfo } from '../apiCalls'
 
+const mockUser = {name: 'Howard'}
 jest.mock('../apiCalls')
+getConnectionInfo.mockImplementation(() => mockUser)
 
 describe('Connection', () => {
   let wrapper
@@ -24,5 +26,12 @@ describe('Connection', () => {
   it('should fire getConnectionsInfo with the correct params', () => {
 
     expect(getConnectionInfo).toHaveBeenCalledWith(3, mockApiKey)
+  })
+
+  it('should set state with the user', async () => {
+    const wrapper = shallow(<Connection api_key={ mockApiKey } viewProfile={ mockViewProfile } id={ 3 } />)
+    await wrapper.instance().componentDidMount()
+
+    expect(wrapper.state().user).toEqual(mockUser)
   })
 })
