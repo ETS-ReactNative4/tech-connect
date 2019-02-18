@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Text, Image, StyleSheet } from 'react-native'
+import { View, Text, Image, StyleSheet, TouchableHighlight } from 'react-native'
 import Icon from 'react-native-vector-icons/Feather'
 import { connect } from 'react-redux'
 import { getConnectionInfo } from './apiCalls'
@@ -18,21 +18,18 @@ export class Connection extends Component {
       user
     })
   }
-
-  viewProfile = async (id) => {
-    const user = await getUserInfo(id, this.props.user.api_key)
-    this.props.navigation.navigate('ProfilePage', {user})
-  }
   
   render() {
     if(Object.keys(this.state.user).length) {
       const { user } = this.state
-      console.log(user.position.job_title)
+
       return (
         <View style={ styles.container }>
           <Image source={ require('./profile-pic.jpeg')} style={styles.picture} />
           <View style={ styles.connectionContainer }>
-            <Text style={ styles.name }>{user.name}</Text>
+            <TouchableHighlight onPress={() => this.props.viewProfile(user.id)}>
+              <Text style={styles.name}>{ user.name }</Text>
+            </TouchableHighlight>
             <Text style={ styles.position }>{user.position.job_title}</Text>
             <View style={ styles.locationContainer}>
               <Icon name='map-pin' size={18} color='#4AA9C5' style={{marginRight: 7}} />

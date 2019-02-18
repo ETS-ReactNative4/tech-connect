@@ -3,10 +3,16 @@ import { View, Text, StyleSheet, TouchableHighlight, Image, Button, ScrollView }
 import Icon from 'react-native-vector-icons/Feather'
 import Connection from './Connection'
 import { connect } from 'react-redux'
+import { getUserInfo } from './thunks/getUserInfo'
 
 export class ProfilePage extends Component {
   constructor(props) {
     super(props)
+  }
+
+  viewProfile = async (id) => {
+    const user = await getUserInfo(id, this.props.user.api_key)
+    this.props.navigation.navigate('ProfilePage', {user})
   }
 
   render() {
@@ -43,7 +49,7 @@ export class ProfilePage extends Component {
             <View style={ styles.languageContainer }>
               {
                 user.connections && user.connections.map((connection) => {
-                  return <Connection id={connection.id} />
+                  return <Connection id={ connection.id } viewProfile={ this.viewProfile } />
                 })
               }
             </View>
