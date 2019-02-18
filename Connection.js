@@ -1,24 +1,54 @@
 import React, { Component } from 'react'
 import { View, Text, Image, StyleSheet } from 'react-native'
 import Icon from 'react-native-vector-icons/Feather'
+import { connect } from 'react-redux'
+import { getConnectionInfo } from './apiCalls'
 
-export default class Connection extends Component {
+export class Connection extends Component {
+  constructor() {
+    super()
+    this.state = {
+      user: {}
+    }
+  }
+  
+  async componentDidMount() {
+    const user = await getConnectionInfo(this.props.id, this.props.api_key)
+    this.setState({
+      user
+    }, () => {
+      console.log(this.state.user)
+    })
+  }
+  
   render() {
-    return (
-      <View style={ styles.container }>
-        <Image source={ require('./profile-pic.jpeg')} style={styles.picture} />
-        <View style={ styles.connectionContainer }>
-          <Text style={ styles.name }>Nick Jonas</Text>
-          <Text style={ styles.position }>Software Developer</Text>
-          <View style={ styles.locationContainer}>
-            <Icon name='map-pin' size={18} color='#4AA9C5' style={{marginRight: 7}} />
-            <Text style={ styles.location }>Denver, CO</Text>
+    if(Object.keys(this.state.user).length) {
+      const { user } = this.state
+      console.log(user.position.job_title)
+      return (
+        <View style={ styles.container }>
+          <Image source={ require('./profile-pic.jpeg')} style={styles.picture} />
+          <View style={ styles.connectionContainer }>
+            <Text style={ styles.name }>{user.name}</Text>
+            <Text style={ styles.position }>{user.position.job_title}</Text>
+            <View style={ styles.locationContainer}>
+              <Icon name='map-pin' size={18} color='#4AA9C5' style={{marginRight: 7}} />
+              <Text style={ styles.location }>{user.location.city}</Text>
+            </View>
           </View>
         </View>
-      </View>
-    )
+      ) 
+    } else {
+      return null
+    }
   }
 }
+
+export const mapStateToProps = (state) => ({
+  api_key: state.user.api_key
+})
+
+export default connect(mapStateToProps)(Connection)
 
 const styles = StyleSheet.create({
   container: {
