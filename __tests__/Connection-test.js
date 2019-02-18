@@ -20,4 +20,9 @@ describe('Connection', () => {
 
     expect(wrapper).toMatchSnapshot()
   })
+
+  it('should fire getConnectionsInfo with the correct params', () => {
+
+    expect(getConnectionInfo).toHaveBeenCalledWith(3, mockApiKey)
+  })
 })
