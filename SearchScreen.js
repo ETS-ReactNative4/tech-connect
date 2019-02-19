@@ -1,11 +1,11 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button, TouchableHighlight, Image, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, Button, TouchableHighlight, Image, ScrollView, ActivityIndicator } from 'react-native';
 import { connect } from 'react-redux';
 import { SearchBar, ButtonGroup } from 'react-native-elements'
 import { LinearGradient } from 'expo'
 import SuggestedConnection from './SuggestedConnection.js' 
 import Connection from './Connection'
-import { getAllUsers, getUserInfo } from './apiCalls'
+import { getAllUsers, getUserInfo, getUsersFilter } from './apiCalls'
 import Icon from 'react-native-vector-icons/Feather'
 
 
@@ -16,13 +16,14 @@ export class SearchScreen extends React.Component {
     this.state = {
       allUsers: [],
       search: '',
-      selectedIndex: 0
+      selectedIndex: 0,
+      loading: true
     }
   }
 
   async componentDidMount() {
     const allUsers = await getAllUsers(this.props.user.api_key)
-    this.setState({ allUsers })
+    this.setState({ allUsers, loading: false })
   }
 
   viewProfile = async (id) => {
@@ -34,13 +35,17 @@ export class SearchScreen extends React.Component {
     this.setState({selectedIndex})
   }
 
-  getFilteredUsers = () => {
-
+  getFilteredUsers = async () => {
+    this.setState({ allUsers: [], loading: true })
+    const { selectedIndex, search } = this.state
+    const queryParams = ['name', 'city', 'position', 'employer']
+    const allUsers = await getUsersFilter(this.props.user.api_key, queryParams[selectedIndex], search)
+    this.setState({ allUsers, loading: false })
   }
 
 
   render() {
-    const userArray = this.state.allUsers.length !== 0 && this.state.allUsers.map(user => <Connection id={ user.id } viewProfile={ this.viewProfile } />)
+    const userArray = this.state.allUsers.map(user => <Connection id={ user.id } viewProfile={ this.viewProfile } />)
     const buttons = ['Name', 'Location', 'Position', 'Employer']
 
     return (
@@ -78,7 +83,11 @@ export class SearchScreen extends React.Component {
         />
         <ScrollView contentContainerStyle={{alignItems: 'center'}} style={ styles.scrollContainer }>
               <View style={ styles.connectionsContainer }>
-                { userArray }
+                { !this.state.loading ? userArray : <ActivityIndicator size="large" color="#fff" /> }
+                { 
+                  (!userArray.length && !this.state.loading) && 
+                    <Text style={{color: '#fff'}}>No users were found.</Text> 
+                }
               </View>
         </ScrollView>
       </View>
@@ -131,7 +140,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center', 
     padding: 15,
     alignItems: 'stretch',
-    marginTop: 20,
+    marginTop: 25,
     marginRight: 20,
     marginLeft: 20,
   },
