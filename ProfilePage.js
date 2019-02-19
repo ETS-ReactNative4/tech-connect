@@ -70,7 +70,7 @@ export class ProfilePage extends Component {
             <View style={ styles.connectionsContainer }>
               {
                 user.connections && user.connections.map((connection) => {
-                  return <Connection id={ connection.id } viewProfile={ this.viewProfile } />
+                  return <Connection connection={ connection } viewProfile={ this.viewProfile } />
                 })
               }
             </View>
