@@ -42,6 +42,29 @@ describe('ProfilePage', () => {
     expect(wrapper.find(TouchableHighlight).length).toEqual(0)
   })
 
+  it('should render a TouchableHighlight', () => {
+    const mockProfile = {
+      name: 'Lenard',
+      position: {
+        job_title: 'Developer'
+      },
+      employer: {
+        name: 'Turing'
+      },
+      location: {
+        city: 'Denver'
+      },
+      connections: []
+    }
+    const mockNavigation = {
+      navigate: jest.fn(),
+      getParam: () => mockProfile
+    }
+    const wrapper = shallow(<ProfilePage user={ mockUser } navigation={ mockNavigation }/>)
+
+    expect(wrapper.find(TouchableHighlight).length).toEqual(1)
+  })
+
   it('should render 0 connections', () => {
 
     expect(wrapper.find(Connection).length).toEqual(0)
