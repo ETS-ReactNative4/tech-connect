@@ -31,24 +31,33 @@ export class ProfilePage extends Component {
     this.props.navigation.navigate('EditProfile')
   }
 
+  displayEditProfile = (user) => {
+    return (
+      <Icon name='edit' size={20} color='#4AA9C5' style={ styles.editIcon } onPress={ this.editProfile } />
+    )
+  }
+
   render() {
     const user = this.props.navigation.getParam('user') ? this.props.navigation.getParam('user') : this.props.user
     const isConnection = this.props.user.connections.filter(connection => parseInt(user.id) === parseInt(connection.id))
     const connectionInfo = isConnection.length ? this.contactInfo(user) : null
-    
+    const editProfileSection = this.props.user.id !== user.id ? null : this.displayEditProfile(user)
+
     return (
       <ScrollView style={ styles.scrollContainer }>
         <View style={ styles.container }>
           <View style={ styles.imageContainer }>
             <Image style={ styles.profilePicture } source={ require('./profile-pic.jpeg') } />
-            <Icon name='edit' size={20} color='#4AA9C5' style={ styles.editIcon } onPress={ this.editProfile } />
+            {
+              editProfileSection
+            }
           </View>
           <View style={styles.profileContainer}>
             <View style={ styles.about }>
               <Text style={ styles.name }>{ user.name }</Text>
               <Text style={ styles.position }>{ user.position.job_title }</Text>
               <Text style={ styles.company }>{ user.employer.name }</Text>
-              <View style={ styles.iconContainer}>
+              <View style={ styles.iconContainer }>
                 <Icon name='map-pin' size={20} color='#4AA9C5' style={{marginRight: 7}} />
                 <Text style={ styles.location }>{ user.location.city }</Text>
               </View>
