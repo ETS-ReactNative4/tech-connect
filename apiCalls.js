@@ -27,18 +27,12 @@ export const getPositions = async () => {
 }
 
 export const getAllUsers = async (key) => {
-  const url = 'https://tech-connect-be.herokuapp.com/api/v1/users'
-  const response = await fetch(url, {
-    method: 'GET',
-    body: JSON.stringify(key)
-  })
-  console.log(response)
+  const url = `https://tech-connect-be.herokuapp.com/api/v1/users?api_key=${key}`
+  const response = await fetch(url)
   const userData = await response.json()
-  console.log(userData)
   return userData.data.map(user => {
-    return user.attributes
+    return {...user.attributes, id: user.id}
   })
-
 }
 
 export const getUserInfo = async (id, apiKey) => {
