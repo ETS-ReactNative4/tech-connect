@@ -41,6 +41,7 @@
     "setupFilesAfterEnv": [
       "<rootDir>setupTests.js"
     ],
+    "testEnvironment": "node",
     "setupFiles": [
       "enzyme-react-16-adapter-setup"
     ],

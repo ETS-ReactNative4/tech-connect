@@ -1,7 +1,6 @@
 import { isLoading, hasErrored, updateUserAction } from '../actions'
 
 export const updateUser = (user) => {
-  console.log(user)
   const url = 'https://tech-connect-be.herokuapp.com/api/v1/users'
   return async (dispatch) => {
 
@@ -26,7 +25,6 @@ export const updateUser = (user) => {
       dispatch(updateUserAction(updatedUser.data.attributes))
       dispatch(hasErrored(''))
     } catch(err) {
-      console.log(err)
       dispatch(hasErrored(err.message))
     }
   }
