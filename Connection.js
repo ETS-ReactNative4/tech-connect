@@ -6,6 +6,7 @@ import { connect } from 'react-redux'
 export class Connection extends Component {
   
   render() {
+
     const { connection } = this.props
 
     return (
