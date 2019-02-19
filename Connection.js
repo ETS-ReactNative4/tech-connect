@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { View, Text, Image, StyleSheet, TouchableHighlight } from 'react-native'
 import Icon from 'react-native-vector-icons/Feather'
 import { connect } from 'react-redux'
-import { getConnectionInfo } from './apiCalls'
 
 export class Connection extends Component {
   
