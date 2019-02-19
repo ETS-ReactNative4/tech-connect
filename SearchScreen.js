@@ -44,7 +44,7 @@ export class SearchScreen extends React.Component {
 
 
   render() {
-    const userArray = this.state.allUsers.map(user => <Connection id={ user.id } viewProfile={ this.viewProfile } />)
+    const userArray = this.state.allUsers.map(user => <Connection connection={ user } viewProfile={ this.viewProfile } />)
     const buttons = ['Name', 'Location', 'Position', 'Employer']
 
     return (
