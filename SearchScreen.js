@@ -9,7 +9,6 @@ import { getAllUsers, getUserInfo, getUsersFilter } from './apiCalls'
 import Icon from 'react-native-vector-icons/Feather'
 
 
-
 export class SearchScreen extends React.Component {
   constructor(props) {
     super(props)
@@ -96,7 +95,7 @@ export class SearchScreen extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => ({
+export const mapStateToProps = (state) => ({
   user: state.user
 })
 
