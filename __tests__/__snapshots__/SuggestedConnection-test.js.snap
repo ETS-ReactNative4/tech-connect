@@ -1,0 +1,125 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SuggestedConnection should match the snapshot 1`] = `
+<Component
+  style={
+    Object {
+      "backgroundColor": "#4AA9C5",
+      "borderBottomLeftRadius": 6,
+      "borderBottomRightRadius": 6,
+      "borderTopLeftRadius": 6,
+      "borderTopRightRadius": 20,
+      "height": 110,
+      "marginBottom": 15,
+      "marginLeft": 50,
+      "marginRight": 40,
+      "shadowColor": "black",
+      "shadowOffset": Object {
+        "height": 2,
+        "width": 2,
+      },
+      "shadowOpacity": 0.5,
+      "shadowRadius": 4,
+    }
+  }
+>
+  <Component
+    style={
+      Object {
+        "shadowColor": "black",
+        "shadowOffset": Object {
+          "height": 2,
+          "width": 0,
+        },
+        "shadowOpacity": 0.5,
+        "shadowRadius": 10,
+      }
+    }
+  >
+    <Component
+      source={1}
+      style={
+        Object {
+          "borderRadius": 45,
+          "height": 90,
+          "left": -40,
+          "position": "absolute",
+          "top": 10,
+          "width": 90,
+        }
+      }
+    />
+  </Component>
+  <TouchableHighlight
+    activeOpacity={0.85}
+    delayPressOut={100}
+    onPress={[Function]}
+    underlayColor="black"
+  >
+    <Component
+      style={
+        Object {
+          "color": "white",
+          "fontSize": 22,
+          "marginLeft": 60,
+          "marginTop": 10,
+        }
+      }
+    >
+      Howard
+    </Component>
+  </TouchableHighlight>
+  <Component
+    style={
+      Object {
+        "color": "white",
+        "fontSize": 17,
+        "marginLeft": 60,
+        "marginTop": 2,
+      }
+    }
+  >
+    Astronomer
+  </Component>
+  <Component
+    style={
+      Object {
+        "color": "white",
+        "fontSize": 17,
+        "marginLeft": 60,
+        "marginTop": 2,
+      }
+    }
+  >
+    Denver
+  </Component>
+  <TouchableHighlight
+    activeOpacity={0.85}
+    delayPressOut={100}
+    style={
+      Object {
+        "backgroundColor": "#93548F",
+        "borderRadius": 20,
+        "paddingLeft": 10,
+        "paddingRight": 10,
+        "position": "absolute",
+        "right": -30,
+        "shadowColor": "black",
+        "shadowOffset": Object {
+          "height": 2,
+          "width": 0,
+        },
+        "shadowOpacity": 0.5,
+        "shadowRadius": 10,
+        "top": 35,
+      }
+    }
+    underlayColor="black"
+  >
+    <Button
+      color="white"
+      title="Connect"
+    />
+  </TouchableHighlight>
+</Component>
+`;

@@ -38,13 +38,15 @@
   },
   "jest": {
     "preset": "jest-expo",
-    "setupFilesAfterEnv": ["<rootDir>setupTests.js"],
+    "setupFilesAfterEnv": [
+      "<rootDir>setupTests.js"
+    ],
     "setupFiles": [
       "enzyme-react-16-adapter-setup"
     ],
     "testPathIgnorePatterns": [
-    "/node_modules/"
-  ],
+      "/node_modules/"
+    ],
     "transformIgnorePatterns": [
       "node_modules/(?!react-native|expo-react-native-adapter|react-navigation-stack|@react-navigation|native-base|@expo|expo|expo-font)"
     ],

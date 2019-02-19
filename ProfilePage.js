@@ -38,7 +38,7 @@ export class ProfilePage extends Component {
                 this.props.user !== user && <TouchableHighlight style={styles.connectBtn}><Button title='Connect' color='white' /></TouchableHighlight>
               }
             </View>
-            <Text style={ styles.connections}>Connections</Text>
+            <Text style={ styles.connections }>Connections</Text>
             <View style={ styles.connectionsContainer }>
               {
                 user.connections && user.connections.map((connection) => {

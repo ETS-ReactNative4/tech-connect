@@ -1,0 +1,180 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProfilePage should match the snapshot 1`] = `
+<ScrollView
+  style={
+    Object {
+      "backgroundColor": "#4AA9C5",
+      "flex": 1,
+    }
+  }
+>
+  <Component
+    style={
+      Object {
+        "alignItems": "stretch",
+        "backgroundColor": "#4AA9C5",
+        "display": "flex",
+        "flex": 1,
+        "flexDirection": "column",
+        "height": "100%",
+        "paddingBottom": 20,
+        "paddingTop": 20,
+        "width": "100%",
+      }
+    }
+  >
+    <Component
+      style={
+        Object {
+          "alignItems": "center",
+          "display": "flex",
+          "height": 180,
+          "justifyContent": "center",
+          "marginBottom": 20,
+          "marginTop": 20,
+          "shadowColor": "black",
+          "shadowOffset": Object {
+            "height": 2,
+            "width": 2,
+          },
+          "shadowOpacity": 0.5,
+          "shadowRadius": 20,
+          "width": "100%",
+          "zIndex": 200000,
+        }
+      }
+    >
+      <Component
+        source={1}
+        style={
+          Object {
+            "borderRadius": 90,
+            "height": 180,
+            "width": 180,
+            "zIndex": 20000,
+          }
+        }
+      />
+    </Component>
+    <Component
+      style={
+        Object {
+          "backgroundColor": "white",
+          "flex": 1,
+          "marginLeft": 20,
+          "marginRight": 20,
+          "marginTop": -100,
+          "paddingBottom": 20,
+        }
+      }
+    >
+      <Component
+        style={
+          Object {
+            "alignItems": "center",
+            "display": "flex",
+            "marginTop": 90,
+          }
+        }
+      >
+        <Component
+          style={
+            Object {
+              "fontSize": 35,
+              "fontWeight": "300",
+            }
+          }
+        >
+          Howard
+        </Component>
+        <Component
+          style={
+            Object {
+              "fontSize": 23,
+              "fontWeight": "200",
+            }
+          }
+        >
+          Developer
+        </Component>
+        <Component
+          style={
+            Object {
+              "color": "gray",
+              "fontSize": 21,
+              "fontWeight": "300",
+            }
+          }
+        >
+          Turing
+        </Component>
+        <Component
+          style={
+            Object {
+              "display": "flex",
+              "flexDirection": "row",
+            }
+          }
+        >
+          <Icon
+            allowFontScaling={false}
+            color="#4AA9C5"
+            name="map-pin"
+            size={20}
+            style={
+              Object {
+                "marginRight": 7,
+              }
+            }
+          />
+          <Component
+            style={
+              Object {
+                "color": "gray",
+                "fontSize": 19,
+                "fontWeight": "200",
+              }
+            }
+          >
+            Denver
+          </Component>
+        </Component>
+        <Component
+          style={
+            Object {
+              "fontWeight": "300",
+              "marginLeft": 10,
+              "marginRight": 10,
+              "marginTop": 5,
+            }
+          }
+        />
+      </Component>
+      <Component
+        style={
+          Object {
+            "fontSize": 15,
+            "marginLeft": 20,
+            "marginTop": 15,
+          }
+        }
+      >
+        Connections
+      </Component>
+      <Component
+        style={
+          Object {
+            "backgroundColor": "#4AA9C5",
+            "borderRadius": 5,
+            "marginLeft": 20,
+            "marginRight": 20,
+            "marginTop": 5,
+            "padding": 10,
+          }
+        }
+      />
+    </Component>
+  </Component>
+</ScrollView>
+`;
