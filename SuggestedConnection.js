@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { StyleSheet, Text, View, Image, Button, TouchableHighlight } from 'react-native'
-
+import Icon from 'react-native-vector-icons/Feather'
 
 export default class SuggestedConnection extends Component {
   
@@ -12,11 +12,14 @@ export default class SuggestedConnection extends Component {
         <Image source={require('./profile-pic.jpeg')} style={styles.picture} />
       </View>
         <TouchableHighlight onPress={() => this.props.viewProfile(this.props.suggestion.id)}>
-          <Text style={styles.name}>{ this.props.suggestion.name }</Text>
+          <Text style={ styles.name }>{ this.props.suggestion.name }</Text>
         </TouchableHighlight>
-        <Text style={styles.position}>{ this.props.suggestion.job_title }</Text>
-        <Text style={styles.position}>{ this.props.suggestion.city }</Text>
-        <TouchableHighlight style={styles.connectBtn}>
+        <Text style={ styles.position }>{ this.props.suggestion.job_title }</Text>
+        <View style={ styles.iconContainer }>
+          <Icon name='map-pin' size={17} color='#93548F' style={ {marginRight: 2} } />
+          <Text style={ {color: 'white', marginLeft: 3} }>{ this.props.suggestion.city }</Text>
+        </View>
+        <TouchableHighlight style={ styles.connectBtn }>
           <Button title='Connect' color='white' />
         </TouchableHighlight>
       </View>
@@ -78,5 +81,11 @@ const styles = StyleSheet.create({
     shadowRadius: 10,
     shadowColor: 'black',
     shadowOpacity: .5,
-  }
+  },
+  iconContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+    marginLeft: 60,
+    marginTop: 5
+  },
 })
