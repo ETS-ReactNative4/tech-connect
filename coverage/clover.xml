@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1550525858195" clover="3.2.0">
-  <project timestamp="1550525858195" name="All files">
-    <metrics statements="334" coveredstatements="64" conditionals="380" coveredconditionals="11" methods="132" coveredmethods="23" elements="846" coveredelements="98" complexity="0" loc="334" ncloc="334" packages="5" files="21" classes="21"/>
+<coverage generated="1550552840508" clover="3.2.0">
+  <project timestamp="1550552840508" name="All files">
+    <metrics statements="334" coveredstatements="65" conditionals="380" coveredconditionals="11" methods="132" coveredmethods="24" elements="846" coveredelements="100" complexity="0" loc="334" ncloc="334" packages="5" files="21" classes="21"/>
     <package name="tech-connect">
-      <metrics statements="160" coveredstatements="56" conditionals="40" coveredconditionals="11" methods="66" coveredmethods="23"/>
+      <metrics statements="160" coveredstatements="57" conditionals="40" coveredconditionals="11" methods="66" coveredmethods="24"/>
       <file name="App.js" path="/Users/kayleebunce/Documents/Turing/tech-connect/App.js">
         <metrics statements="17" coveredstatements="0" conditionals="8" coveredconditionals="0" methods="3" coveredmethods="0"/>
         <line num="17" count="0" type="stmt"/>
@@ -25,16 +25,16 @@
         <line num="79" count="0" type="stmt"/>
       </file>
       <file name="Connection.js" path="/Users/kayleebunce/Documents/Turing/tech-connect/Connection.js">
-        <metrics statements="11" coveredstatements="10" conditionals="2" coveredconditionals="2" methods="5" coveredmethods="4"/>
-        <line num="9" count="5" type="stmt"/>
-        <line num="10" count="5" type="stmt"/>
-        <line num="16" count="6" type="stmt"/>
+        <metrics statements="11" coveredstatements="11" conditionals="2" coveredconditionals="2" methods="5" coveredmethods="5"/>
+        <line num="9" count="6" type="stmt"/>
+        <line num="10" count="6" type="stmt"/>
+        <line num="16" count="7" type="stmt"/>
         <line num="17" count="5" type="stmt"/>
-        <line num="23" count="9" type="cond" truecount="2" falsecount="0"/>
-        <line num="24" count="4" type="stmt"/>
-        <line num="26" count="4" type="stmt"/>
-        <line num="30" count="0" type="stmt"/>
-        <line num="42" count="5" type="stmt"/>
+        <line num="23" count="11" type="cond" truecount="2" falsecount="0"/>
+        <line num="24" count="5" type="stmt"/>
+        <line num="26" count="5" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
+        <line num="42" count="6" type="stmt"/>
         <line num="47" count="1" type="stmt"/>
         <line num="53" count="1" type="stmt"/>
       </file>
