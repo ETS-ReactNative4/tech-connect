@@ -47,7 +47,7 @@ export class LoginScreen extends React.Component {
 
   handleUpdateProfile = () => {
     if (this.props.error === '' && this.state.register) {
-      this.props.navigation.navigate('Profile')
+      this.props.navigation.navigate('EditProfile')
     } else if (this.props.error === '') {
       this.props.navigation.navigate('Home')
     }
