@@ -1,7 +1,7 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 import { ProfilePage, mapStateToProps } from '../ProfilePage'
-import { TouchableHighlight } from 'react-native'
+import { TouchableHighlight, View } from 'react-native'
 import Connection from '../Connection'
 import { getUserInfo } from '../apiCalls'
 
@@ -23,7 +23,9 @@ describe('ProfilePage', () => {
       location: {
         city: 'Denver'
       },
-      connections: []
+      connections: [],
+      phone_number: '303-333-3333',
+      email: 'thisemail@email.com'
     }
     mockNavigation = {
       navigate: jest.fn(),
@@ -101,6 +103,28 @@ describe('ProfilePage', () => {
       expect(getUserInfo).toHaveBeenCalled()
       expect(wrapper.instance().props.navigation.navigate).toHaveBeenCalled()
     })
+  })
+
+  describe('contactInfo', () => {
+    const mockUser = {
+      name: 'Howard',
+      position: {
+        job_title: 'Developer'
+      },
+      employer: {
+        name: 'Turing'
+      },
+      location: {
+        city: 'Denver'
+      },
+      phone_number: '303-333-3333',
+      email: 'thisemail@email.com',
+      connections: [{name: 'Howard', id: 3}]
+    }
+    const wrapper = shallow(<ProfilePage user={ mockUser } navigation={{navigate: jest.fn(), getParam: jest.fn()}} />)
+    wrapper.instance().contactInfo(mockUser)
+
+    expect(wrapper.find(View).length).toEqual(8)
   })
 
   describe('mapStateToProps', () => {

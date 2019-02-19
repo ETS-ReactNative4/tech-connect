@@ -28,7 +28,6 @@ export class ProfilePage extends Component {
   }
 
   editProfile = () => {
-    console.log('Hiiiiiiii')
     this.props.navigation.navigate('EditProfile')
   }
 
