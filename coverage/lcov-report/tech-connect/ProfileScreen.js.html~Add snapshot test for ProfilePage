@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">65.22% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>23/23</span>
+        <span class='fraction'>15/23</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -30,21 +30,21 @@
         <span class='fraction'>0/0</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">46.67% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>15/15</span>
+        <span class='fraction'>7/15</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">61.9% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>21/21</span>
+        <span class='fraction'>13/21</span>
       </div>
     </div>
     <p class="quiet">
       Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
     </p>
   </div>
-  <div class='status-line high'></div>
+  <div class='status-line medium'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -296,8 +296,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">16x</span>
-<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -313,7 +313,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">17x</span>
+<span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-yes">7x</span>
@@ -326,11 +326,11 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">32x</span>
+<span class="cline-any cline-yes">15x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -345,7 +345,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -365,7 +365,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -387,7 +387,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -409,7 +409,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -427,7 +427,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -442,7 +442,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -457,7 +457,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -568,7 +568,7 @@ export class ProfileScreen extends React.Component {
       &lt;View style={styles.container} &gt;
       &lt;Text style={styles.title}&gt;Update Profile&lt;/Text&gt;
         &lt;Input
-          onChangeText={(text) =&gt; this.setState({name: text})} 
+          onChangeText={<span class="fstat-no" title="function not covered" >(t</span>ext) =&gt; <span class="cstat-no" title="statement not covered" >this.setState({name: text})} </span>
           containerStyle={styles.profileInputContainer} 
           leftIconContainerStyle={styles.icon} 
           inputContainerStyle={styles.profileInput} 
@@ -583,7 +583,7 @@ export class ProfileScreen extends React.Component {
           }
         /&gt;
         &lt;Input 
-          onChangeText={(text) =&gt; this.setState({phone_number: text})} 
+          onChangeText={<span class="fstat-no" title="function not covered" >(t</span>ext) =&gt; <span class="cstat-no" title="statement not covered" >this.setState({phone_number: text})} </span>
           containerStyle={styles.profileInputContainer} 
           leftIconContainerStyle={styles.icon} 
           inputContainerStyle={styles.profileInput} 
@@ -603,7 +603,7 @@ export class ProfileScreen extends React.Component {
           data={this.state.locations}
           initValue="Select something!"
           cancelButtonAccessibilityLabel={'Cancel Button'}
-          onChange={(option)=&gt;{ this.setState({location: option.label})}}&gt;
+          onChange={<span class="fstat-no" title="function not covered" >(o</span>ption)=&gt;{ <span class="cstat-no" title="statement not covered" >this.setState({location: option.label})}</span>}&gt;
           &lt;Input
             containerStyle={styles.profileInputContainer} 
             leftIconContainerStyle={styles.icon} 
@@ -625,7 +625,7 @@ export class ProfileScreen extends React.Component {
           data={this.state.positions}
           initValue="Select something!"
           cancelButtonAccessibilityLabel={'Cancel Button'}
-          onChange={(option)=&gt;{ this.setState({position: option.label})}}&gt;
+          onChange={<span class="fstat-no" title="function not covered" >(o</span>ption)=&gt;{ <span class="cstat-no" title="statement not covered" >this.setState({position: option.label})}</span>}&gt;
           &lt;Input
             containerStyle={styles.profileInputContainer} 
             leftIconContainerStyle={styles.icon} 
@@ -647,7 +647,7 @@ export class ProfileScreen extends React.Component {
           data={this.state.employers}
           initValue="Select something!"
           cancelButtonAccessibilityLabel={'Cancel Button'}
-          onChange={(option)=&gt;{ this.setState({employer: option.label})}}&gt;
+          onChange={<span class="fstat-no" title="function not covered" >(o</span>ption)=&gt;{ <span class="cstat-no" title="statement not covered" >this.setState({employer: option.label})}</span>}&gt;
           &lt;Input
             containerStyle={styles.profileInputContainer} 
             leftIconContainerStyle={styles.icon} 
@@ -665,7 +665,7 @@ export class ProfileScreen extends React.Component {
         &lt;/ModalSelector&gt;
 &nbsp;
         &lt;Input 
-          onChangeText={(text) =&gt; this.setState({github: text})} 
+          onChangeText={<span class="fstat-no" title="function not covered" >(t</span>ext) =&gt; <span class="cstat-no" title="statement not covered" >this.setState({github: text})} </span>
           containerStyle={styles.profileInputContainer} 
           leftIconContainerStyle={styles.icon} 
           inputContainerStyle={styles.profileInput} 
@@ -680,7 +680,7 @@ export class ProfileScreen extends React.Component {
           }
         /&gt;
         &lt;Input 
-          onChangeText={(text) =&gt; this.setState({linkedin: text})} 
+          onChangeText={<span class="fstat-no" title="function not covered" >(t</span>ext) =&gt; <span class="cstat-no" title="statement not covered" >this.setState({linkedin: text})} </span>
           containerStyle={styles.profileInputContainer} 
           leftIconContainerStyle={styles.icon} 
           inputContainerStyle={styles.profileInput} 
@@ -695,7 +695,7 @@ export class ProfileScreen extends React.Component {
           }
         /&gt;
         &lt;Input 
-          onChangeText={(text) =&gt; this.setState({bio: text})} 
+          onChangeText={<span class="fstat-no" title="function not covered" >(t</span>ext) =&gt; <span class="cstat-no" title="statement not covered" >this.setState({bio: text})} </span>
           containerStyle={styles.profileInputContainer} 
           leftIconContainerStyle={styles.icon} 
           inputContainerStyle={styles.profileInput} 
@@ -766,7 +766,7 @@ const styles = StyleSheet.create({
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Feb 18 2019 14:37:38 GMT-0700 (Mountain Standard Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Feb 18 2019 22:07:20 GMT-0700 (Mountain Standard Time)
 </div>
 </div>
 <script src="../prettify.js"></script>

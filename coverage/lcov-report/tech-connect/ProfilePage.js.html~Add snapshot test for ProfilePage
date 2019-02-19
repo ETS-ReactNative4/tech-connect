@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Code coverage report for tech-connect/ProfileScreen.js</title>
+    <title>Code coverage report for tech-connect/ProfilePage.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../prettify.css" />
     <link rel="stylesheet" href="../base.css" />
@@ -16,35 +16,35 @@
 <div class='wrapper'>
   <div class='pad1'>
     <h1>
-      <a href="../index.html">All files</a> / <a href="index.html">tech-connect</a> ProfileScreen.js
+      <a href="../index.html">All files</a> / <a href="index.html">tech-connect</a> ProfilePage.js
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>23/23</span>
+        <span class='fraction'>0/9</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>0/0</span>
+        <span class='fraction'>0/6</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>15/15</span>
+        <span class='fraction'>0/5</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>21/21</span>
+        <span class='fraction'>0/8</span>
       </div>
     </div>
     <p class="quiet">
       Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
     </p>
   </div>
-  <div class='status-line high'></div>
+  <div class='status-line low'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -213,78 +213,7 @@
 <a name='L165'></a><a href='#L165'>165</a>
 <a name='L166'></a><a href='#L166'>166</a>
 <a name='L167'></a><a href='#L167'>167</a>
-<a name='L168'></a><a href='#L168'>168</a>
-<a name='L169'></a><a href='#L169'>169</a>
-<a name='L170'></a><a href='#L170'>170</a>
-<a name='L171'></a><a href='#L171'>171</a>
-<a name='L172'></a><a href='#L172'>172</a>
-<a name='L173'></a><a href='#L173'>173</a>
-<a name='L174'></a><a href='#L174'>174</a>
-<a name='L175'></a><a href='#L175'>175</a>
-<a name='L176'></a><a href='#L176'>176</a>
-<a name='L177'></a><a href='#L177'>177</a>
-<a name='L178'></a><a href='#L178'>178</a>
-<a name='L179'></a><a href='#L179'>179</a>
-<a name='L180'></a><a href='#L180'>180</a>
-<a name='L181'></a><a href='#L181'>181</a>
-<a name='L182'></a><a href='#L182'>182</a>
-<a name='L183'></a><a href='#L183'>183</a>
-<a name='L184'></a><a href='#L184'>184</a>
-<a name='L185'></a><a href='#L185'>185</a>
-<a name='L186'></a><a href='#L186'>186</a>
-<a name='L187'></a><a href='#L187'>187</a>
-<a name='L188'></a><a href='#L188'>188</a>
-<a name='L189'></a><a href='#L189'>189</a>
-<a name='L190'></a><a href='#L190'>190</a>
-<a name='L191'></a><a href='#L191'>191</a>
-<a name='L192'></a><a href='#L192'>192</a>
-<a name='L193'></a><a href='#L193'>193</a>
-<a name='L194'></a><a href='#L194'>194</a>
-<a name='L195'></a><a href='#L195'>195</a>
-<a name='L196'></a><a href='#L196'>196</a>
-<a name='L197'></a><a href='#L197'>197</a>
-<a name='L198'></a><a href='#L198'>198</a>
-<a name='L199'></a><a href='#L199'>199</a>
-<a name='L200'></a><a href='#L200'>200</a>
-<a name='L201'></a><a href='#L201'>201</a>
-<a name='L202'></a><a href='#L202'>202</a>
-<a name='L203'></a><a href='#L203'>203</a>
-<a name='L204'></a><a href='#L204'>204</a>
-<a name='L205'></a><a href='#L205'>205</a>
-<a name='L206'></a><a href='#L206'>206</a>
-<a name='L207'></a><a href='#L207'>207</a>
-<a name='L208'></a><a href='#L208'>208</a>
-<a name='L209'></a><a href='#L209'>209</a>
-<a name='L210'></a><a href='#L210'>210</a>
-<a name='L211'></a><a href='#L211'>211</a>
-<a name='L212'></a><a href='#L212'>212</a>
-<a name='L213'></a><a href='#L213'>213</a>
-<a name='L214'></a><a href='#L214'>214</a>
-<a name='L215'></a><a href='#L215'>215</a>
-<a name='L216'></a><a href='#L216'>216</a>
-<a name='L217'></a><a href='#L217'>217</a>
-<a name='L218'></a><a href='#L218'>218</a>
-<a name='L219'></a><a href='#L219'>219</a>
-<a name='L220'></a><a href='#L220'>220</a>
-<a name='L221'></a><a href='#L221'>221</a>
-<a name='L222'></a><a href='#L222'>222</a>
-<a name='L223'></a><a href='#L223'>223</a>
-<a name='L224'></a><a href='#L224'>224</a>
-<a name='L225'></a><a href='#L225'>225</a>
-<a name='L226'></a><a href='#L226'>226</a>
-<a name='L227'></a><a href='#L227'>227</a>
-<a name='L228'></a><a href='#L228'>228</a>
-<a name='L229'></a><a href='#L229'>229</a>
-<a name='L230'></a><a href='#L230'>230</a>
-<a name='L231'></a><a href='#L231'>231</a>
-<a name='L232'></a><a href='#L232'>232</a>
-<a name='L233'></a><a href='#L233'>233</a>
-<a name='L234'></a><a href='#L234'>234</a>
-<a name='L235'></a><a href='#L235'>235</a>
-<a name='L236'></a><a href='#L236'>236</a>
-<a name='L237'></a><a href='#L237'>237</a>
-<a name='L238'></a><a href='#L238'>238</a>
-<a name='L239'></a><a href='#L239'>239</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L168'></a><a href='#L168'>168</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -293,15 +222,18 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">16x</span>
-<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -313,26 +245,19 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">17x</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">32x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -343,12 +268,13 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -365,7 +291,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -387,7 +312,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -409,7 +333,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -427,7 +350,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -442,7 +364,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -457,308 +378,174 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from 'react'
-import { StyleSheet, Text, TextInput, View, Button, TouchableHighlight } from 'react-native'
-import { Input } from 'react-native-elements'
-import { updateUser } from './thunks/updateUser'
-import { connect } from 'react-redux'
-import ModalSelector from 'react-native-modal-selector'
-import { getLocations, getPositions, getEmployers } from './apiCalls'
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { Component } from 'react'
+import { View, Text, StyleSheet, TouchableHighlight, Image, Button, ScrollView } from 'react-native'
 import Icon from 'react-native-vector-icons/Feather'
+import Connection from './Connection'
+import { connect } from 'react-redux'
+import { getUserInfo } from './apiCalls'
 &nbsp;
-&nbsp;
-export class ProfileScreen extends React.Component {
-  constructor() {
-    super()
-    this.state = {
-      name: '',
-      bio: '',
-      linkedin: '',
-      github: '',
-      phone_number: '',
-      location: 'Denver',
-      employer: 'Turing',
-      position: 'Unemployed',
-      locations: [],
-      employers: [],
-      position: []
-    }
+export class ProfilePage extends Component {
+<span class="fstat-no" title="function not covered" >  co</span>nstructor(props) {
+<span class="cstat-no" title="statement not covered" >    super(props)</span>
   }
 &nbsp;
-  async componentDidMount() {
-    const locations = await getLocations()
-    const positions = await getPositions()
-    const employers = await getEmployers()
-    this.setState({ locations, employers, positions })
+  viewProfile = <span class="fstat-no" title="function not covered" >as</span>ync (id) =&gt; {
+    const user = <span class="cstat-no" title="statement not covered" >await getUserInfo(id, this.props.user.api_key)</span>
+<span class="cstat-no" title="statement not covered" >    this.props.navigation.navigate('ProfilePage', {user})</span>
   }
 &nbsp;
-&nbsp;
-  handleSave = async () =&gt; {
-    await this.props.updateUser({...this.state, api_key: this.props.user.api_key})
-    this.props.navigation.navigate('Home')
-  }
-&nbsp;
-  render() {
-    return (
-      &lt;View style={styles.container} &gt;
-      &lt;Text style={styles.title}&gt;Update Profile&lt;/Text&gt;
-        &lt;Input
-          onChangeText={(text) =&gt; this.setState({name: text})} 
-          containerStyle={styles.profileInputContainer} 
-          leftIconContainerStyle={styles.icon} 
-          inputContainerStyle={styles.profileInput} 
-          placeholder="Name"
-          value={this.state.name}
-          leftIcon={
-            &lt;Icon
-              name='user'
-              size={18}
-              color='#4AA9C5'
-            /&gt;
-          }
-        /&gt;
-        &lt;Input 
-          onChangeText={(text) =&gt; this.setState({phone_number: text})} 
-          containerStyle={styles.profileInputContainer} 
-          leftIconContainerStyle={styles.icon} 
-          inputContainerStyle={styles.profileInput} 
-          placeholder="Phone Number"
-          value={this.state.phone_number}
-          leftIcon={
-            &lt;Icon 
-              name='phone'
-              size={18}
-              color='#4AA9C5'
-            /&gt;
-          }
-        /&gt;
-        
-        &lt;ModalSelector
-          optionTextStyle={{color: '#4AA9C5', fontSize: 20}}
-          data={this.state.locations}
-          initValue="Select something!"
-          cancelButtonAccessibilityLabel={'Cancel Button'}
-          onChange={(option)=&gt;{ this.setState({location: option.label})}}&gt;
-          &lt;Input
-            containerStyle={styles.profileInputContainer} 
-            leftIconContainerStyle={styles.icon} 
-            inputContainerStyle={styles.profileInput} 
-            leftIcon={
-              &lt;Icon
-                name='map-pin'
-                size={18}
-                color='#4AA9C5'
-              /&gt;
-            }
-          editable={false}
-          placeholder="Location"
-          value={this.state.location} /&gt;
-        &lt;/ModalSelector&gt;
-&nbsp;
-        &lt;ModalSelector
-          optionTextStyle={{color: '#4AA9C5', fontSize: 20}}
-          data={this.state.positions}
-          initValue="Select something!"
-          cancelButtonAccessibilityLabel={'Cancel Button'}
-          onChange={(option)=&gt;{ this.setState({position: option.label})}}&gt;
-          &lt;Input
-            containerStyle={styles.profileInputContainer} 
-            leftIconContainerStyle={styles.icon} 
-            inputContainerStyle={styles.profileInput} 
-            leftIcon={
-              &lt;Icon
-                name='briefcase'
-                size={18}
-                color='#4AA9C5'
-              /&gt;
-            }
-          editable={false}
-          placeholder="Position"
-          value={this.state.position} /&gt;
-        &lt;/ModalSelector&gt;
-&nbsp;
-        &lt;ModalSelector
-          optionTextStyle={{color: '#4AA9C5', fontSize: 20}}
-          data={this.state.employers}
-          initValue="Select something!"
-          cancelButtonAccessibilityLabel={'Cancel Button'}
-          onChange={(option)=&gt;{ this.setState({employer: option.label})}}&gt;
-          &lt;Input
-            containerStyle={styles.profileInputContainer} 
-            leftIconContainerStyle={styles.icon} 
-            inputContainerStyle={styles.profileInput} 
-            leftIcon={
-              &lt;Icon
-                name='home'
-                size={18}
-                color='#4AA9C5'
-              /&gt;
-            }
-          editable={false}
-          placeholder="Employer"
-          value={this.state.employer} /&gt;
-        &lt;/ModalSelector&gt;
-&nbsp;
-        &lt;Input 
-          onChangeText={(text) =&gt; this.setState({github: text})} 
-          containerStyle={styles.profileInputContainer} 
-          leftIconContainerStyle={styles.icon} 
-          inputContainerStyle={styles.profileInput} 
-          placeholder="GitHub"
-          value={this.state.github}
-          leftIcon={
-            &lt;Icon
-              name='github'
-              size={18}
-              color='#4AA9C5'
-            /&gt;
-          }
-        /&gt;
-        &lt;Input 
-          onChangeText={(text) =&gt; this.setState({linkedin: text})} 
-          containerStyle={styles.profileInputContainer} 
-          leftIconContainerStyle={styles.icon} 
-          inputContainerStyle={styles.profileInput} 
-          placeholder="LinkedIn"
-          value={this.state.linkedin}
-          leftIcon={
-            &lt;Icon
-              name='linkedin'
-              size={18}
-              color='#4AA9C5'
-            /&gt;
-          }
-        /&gt;
-        &lt;Input 
-          onChangeText={(text) =&gt; this.setState({bio: text})} 
-          containerStyle={styles.profileInputContainer} 
-          leftIconContainerStyle={styles.icon} 
-          inputContainerStyle={styles.profileInput} 
-          placeholder="Bio"
-          value={this.state.bio}
-          leftIcon={
-            &lt;Icon
-              name='edit'
-              size={18}
-              color='#4AA9C5'
-            /&gt;
-          }
-        /&gt;
-        &lt;TouchableHighlight style={styles.button}&gt;
-          &lt;Button title="save" color='#E8FDFF' onPress={this.handleSave}/&gt;
-        &lt;/TouchableHighlight&gt;
-      &lt;/View&gt;  
+<span class="fstat-no" title="function not covered" >  re</span>nder() {
+    const user = <span class="cstat-no" title="statement not covered" >this.props.navigation.getParam('user') ? this.props.navigation.getParam('user') : this.props.user</span>
+    
+<span class="cstat-no" title="statement not covered" >    return (</span>
+      &lt;ScrollView style={ styles.scrollContainer }&gt;
+        &lt;View style={ styles.container }&gt;
+          &lt;View style={ styles.imageContainer }&gt;
+            &lt;Image style={ styles.profilePicture } source={ require('./profile-pic.jpeg') } /&gt;
+          &lt;/View&gt;
+            &lt;View style={styles.profileContainer}&gt;
+            &lt;View style={ styles.about }&gt;
+              &lt;Text style={ styles.name }&gt;{ user.name }&lt;/Text&gt;
+              &lt;Text style={ styles.position }&gt;{ user.position.job_title }&lt;/Text&gt;
+              &lt;Text style={ styles.company }&gt;{ user.employer.name }&lt;/Text&gt;
+              &lt;View style={ styles.locationContainer}&gt;
+                &lt;Icon name='map-pin' size={20} color='#4AA9C5' style={{marginRight: 7}} /&gt;
+                &lt;Text style={ styles.location }&gt;{ user.location.city }&lt;/Text&gt;
+              &lt;/View&gt;
+              &lt;Text style={ styles.bio }&gt;{ user.bio }&lt;/Text&gt;
+              {
+                this.props.user !== user &amp;&amp; &lt;TouchableHighlight style={styles.connectBtn}&gt;&lt;Button title='Connect' color='white' /&gt;&lt;/TouchableHighlight&gt;
+              }
+            &lt;/View&gt;
+            &lt;Text style={ styles.connections}&gt;Connections&lt;/Text&gt;
+            &lt;View style={ styles.connectionsContainer }&gt;
+              {
+                user.connections &amp;&amp; user.connections.map(<span class="fstat-no" title="function not covered" >(c</span>onnection) =&gt; {
+<span class="cstat-no" title="statement not covered" >                  return &lt;Connection id={ connection.id } viewProfile={ this.viewProfile } /&gt;</span>
+                })
+              }
+            &lt;/View&gt;
+          &lt;/View&gt;
+        &lt;/View&gt;
+      &lt;/ScrollView&gt;
     )
   }
 }
 &nbsp;
-export const mapStateToProps = (state) =&gt; ({
-  user: state.user,
-  isLoading: state.isLoading,
-  error: state.error
+export const mapStateToProps = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(s</span>tate) =&gt; (<span class="cstat-no" title="statement not covered" >{</span></span>
+  user: state.user
 })
 &nbsp;
-export const mapDispatchToProps = (dispatch) =&gt; ({
-  updateUser: (user) =&gt; dispatch(updateUser(user)),
-})
+export default connect(mapStateToProps)(ProfilePage)
 &nbsp;
-export default connect(mapStateToProps, mapDispatchToProps)(ProfileScreen)
-&nbsp;
-&nbsp;
-const styles = StyleSheet.create({
+const styles = <span class="cstat-no" title="statement not covered" >StyleSheet.create({</span>
+  scrollContainer: {
+    flex: 1,
+    backgroundColor: '#4AA9C5',
+  },
   container: {
     flex: 1,
-    alignItems: 'center', 
+    display: 'flex',
+    alignItems: 'flex-start',
+    alignItems: 'stretch',
+    flexDirection: 'column',
+    height: '100%',
+    width: '100%',
+    paddingTop: 20,
+    backgroundColor: '#4AA9C5',
+    paddingBottom: 20,
+  },
+  imageContainer: {
+    display: 'flex',
+    height: 180,
+    width: '100%',
     justifyContent: 'center',
-  },
-  title: {
+    alignItems: 'center',
+    zIndex: 200000,
     marginBottom: 20,
-    fontSize: 20,
-    color: '#4AA9C5'
+    marginTop: 20,
+    shadowOffset: {  width: 2,  height: 2},
+    shadowRadius: 20,
+    shadowColor: 'black',
+    shadowOpacity: .5,
   },
-  profileInputContainer: {
-    width: 300,
-    height: 50,
-    marginBottom: 10,
+  profilePicture: {
+    height: 180,
+    width: 180,
+    borderRadius: 90,
+    zIndex: 20000,
   },
-  profileInput: {
-    borderBottomWidth: 1.3,
-    borderBottomColor: '#4AA9C5',
+  profileContainer: {
+    flex: 1,
+    backgroundColor: 'white',
+    marginRight: 20,
+    marginLeft: 20,
+    marginTop: -100,
+    paddingBottom: 20,
   },
-  icon: {
-    marginRight: 10,
-    marginLeft: 0
+  about: {
+    marginTop: 90,
+    display: 'flex',
+    alignItems: 'center'
   },
-  button: {
-    backgroundColor: '#8FC9DB',
-    borderRadius: 25,
-    height: 40,
-    width: 140
+  name: {
+    fontSize: 35,
+    fontWeight: '300'
+  },
+  position: {
+    fontSize: 23,
+    fontWeight: '200'
+  },
+  company: {
+    fontSize: 21,
+    fontWeight: '300',
+    color: 'gray'
+  },
+  locationContainer: {
+    display: 'flex',
+    flexDirection: 'row'
+  },
+  location: {
+    fontSize: 19,
+    fontWeight: '200',
+    color: 'gray'
+  },
+  bio: {
+    fontWeight: '300',
+    marginTop: 5,
+    marginLeft: 10,
+    marginRight: 10
+  },
+  connectBtn: {
+    backgroundColor: '#93548F',
+    paddingRight: 10,
+    paddingLeft: 10,
+    borderRadius: 20,
+    shadowOffset: {  width: 0,  height: 2 },
+    shadowRadius: 5,
+    shadowColor: 'black',
+    shadowOpacity: .5,
+    marginTop: 10,
+  },
+  connections: {
+    marginLeft: 20,
+    marginTop: 15,
+    fontSize: 15,
+  },
+  connectionsContainer: {
+    backgroundColor: '#4AA9C5',
+    marginTop: 5,
+    marginLeft: 20,
+    marginRight: 20,
+    padding: 10,
+    borderRadius: 5
+  },
+  language: {
+    color: 'white',
+    fontSize: 15,
   }
 })</pre></td></tr>
 </table></pre>
@@ -766,7 +553,7 @@ const styles = StyleSheet.create({
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Feb 18 2019 14:37:38 GMT-0700 (Mountain Standard Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Feb 18 2019 22:07:20 GMT-0700 (Mountain Standard Time)
 </div>
 </div>
 <script src="../prettify.js"></script>
