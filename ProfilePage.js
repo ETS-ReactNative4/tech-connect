@@ -4,7 +4,6 @@ import Icon from 'react-native-vector-icons/Feather'
 import Connection from './Connection'
 import { connect } from 'react-redux'
 import { getUserInfo } from './apiCalls'
-import { userReducer } from './reducers/userReducer';
 
 export class ProfilePage extends Component {
   constructor(props) {
@@ -29,6 +28,11 @@ export class ProfilePage extends Component {
     )
   }
 
+  editProfile = () => {
+    console.log('Hiiiiiiii')
+    this.props.navigation.navigate('EditProfile')
+  }
+
   render() {
     const user = this.props.navigation.getParam('user') ? this.props.navigation.getParam('user') : this.props.user
     const isConnection = this.props.user.connections.filter(connection => parseInt(user.id) === parseInt(connection.id))
@@ -39,9 +43,9 @@ export class ProfilePage extends Component {
         <View style={ styles.container }>
           <View style={ styles.imageContainer }>
             <Image style={ styles.profilePicture } source={ require('./profile-pic.jpeg') } />
+            <Icon name='edit' size={20} color='#4AA9C5' style={ styles.editIcon } onPress={ this.editProfile } />
           </View>
           <View style={styles.profileContainer}>
-            <Icon name='edit' size={20} color='#4AA9C5' style={ styles.editIcon } onPress={() => this.props.navigation.navigate('EditProfile')} />
             <View style={ styles.about }>
               <Text style={ styles.name }>{ user.name }</Text>
               <Text style={ styles.position }>{ user.position.job_title }</Text>
@@ -110,7 +114,7 @@ const styles = StyleSheet.create({
     width: '100%',
     justifyContent: 'center',
     alignItems: 'center',
-    zIndex: 200000,
+    zIndex: 200,
     marginBottom: 20,
     marginTop: 20,
     shadowOffset: {  width: 2,  height: 2},
@@ -122,7 +126,7 @@ const styles = StyleSheet.create({
     height: 180,
     width: 180,
     borderRadius: 90,
-    zIndex: 20000,
+    zIndex: 200,
   },
   profileContainer: {
     flex: 1,
@@ -134,8 +138,9 @@ const styles = StyleSheet.create({
   },
   editIcon: {
     position: 'absolute',
-    right: 10,
-    top: 10
+    right: 30,
+    top: 110,
+    zIndex: 100000000005
   },
   about: {
     marginTop: 90,
