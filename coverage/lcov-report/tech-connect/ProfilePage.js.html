@@ -20,31 +20,31 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>0/9</span>
+        <span class='fraction'>9/9</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">83.33% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>0/6</span>
+        <span class='fraction'>5/6</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>0/5</span>
+        <span class='fraction'>5/5</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>0/8</span>
+        <span class='fraction'>8/8</span>
       </div>
     </div>
     <p class="quiet">
       Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
     </p>
   </div>
-  <div class='status-line low'></div>
+  <div class='status-line high'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -222,22 +222,18 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -257,7 +253,11 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -268,13 +268,13 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -388,19 +388,19 @@ import { connect } from 'react-redux'
 import { getUserInfo } from './apiCalls'
 &nbsp;
 export class ProfilePage extends Component {
-<span class="fstat-no" title="function not covered" >  co</span>nstructor(props) {
-<span class="cstat-no" title="statement not covered" >    super(props)</span>
+  constructor(props) {
+    super(props)
   }
 &nbsp;
-  viewProfile = <span class="fstat-no" title="function not covered" >as</span>ync (id) =&gt; {
-    const user = <span class="cstat-no" title="statement not covered" >await getUserInfo(id, this.props.user.api_key)</span>
-<span class="cstat-no" title="statement not covered" >    this.props.navigation.navigate('ProfilePage', {user})</span>
+  viewProfile = async (id) =&gt; {
+    const user = await getUserInfo(id, this.props.user.api_key)
+    this.props.navigation.navigate('ProfilePage', {user})
   }
 &nbsp;
-<span class="fstat-no" title="function not covered" >  re</span>nder() {
-    const user = <span class="cstat-no" title="statement not covered" >this.props.navigation.getParam('user') ? this.props.navigation.getParam('user') : this.props.user</span>
+  render() {
+    const user = this.props.navigation.getParam('user') ? this.props.navigation.getParam('user') : this.props.user
     
-<span class="cstat-no" title="statement not covered" >    return (</span>
+    return (
       &lt;ScrollView style={ styles.scrollContainer }&gt;
         &lt;View style={ styles.container }&gt;
           &lt;View style={ styles.imageContainer }&gt;
@@ -417,14 +417,14 @@ export class ProfilePage extends Component {
               &lt;/View&gt;
               &lt;Text style={ styles.bio }&gt;{ user.bio }&lt;/Text&gt;
               {
-                this.props.user !== user &amp;&amp; &lt;TouchableHighlight style={styles.connectBtn}&gt;&lt;Button title='Connect' color='white' /&gt;&lt;/TouchableHighlight&gt;
+                this.props.user !== user &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >&lt;TouchableHighlight style={styles.connectBtn}&gt;&lt;Button title='Connect' color='white' /&gt;&lt;/TouchableHighlight&gt;</span>
               }
             &lt;/View&gt;
-            &lt;Text style={ styles.connections}&gt;Connections&lt;/Text&gt;
+            &lt;Text style={ styles.connections }&gt;Connections&lt;/Text&gt;
             &lt;View style={ styles.connectionsContainer }&gt;
               {
-                user.connections &amp;&amp; user.connections.map(<span class="fstat-no" title="function not covered" >(c</span>onnection) =&gt; {
-<span class="cstat-no" title="statement not covered" >                  return &lt;Connection id={ connection.id } viewProfile={ this.viewProfile } /&gt;</span>
+                user.connections &amp;&amp; user.connections.map((connection) =&gt; {
+                  return &lt;Connection id={ connection.id } viewProfile={ this.viewProfile } /&gt;
                 })
               }
             &lt;/View&gt;
@@ -435,13 +435,13 @@ export class ProfilePage extends Component {
   }
 }
 &nbsp;
-export const mapStateToProps = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(s</span>tate) =&gt; (<span class="cstat-no" title="statement not covered" >{</span></span>
+export const mapStateToProps = (state) =&gt; ({
   user: state.user
 })
 &nbsp;
 export default connect(mapStateToProps)(ProfilePage)
 &nbsp;
-const styles = <span class="cstat-no" title="statement not covered" >StyleSheet.create({</span>
+const styles = StyleSheet.create({
   scrollContainer: {
     flex: 1,
     backgroundColor: '#4AA9C5',
@@ -553,7 +553,7 @@ const styles = <span class="cstat-no" title="statement not covered" >StyleSheet.
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Feb 18 2019 22:07:20 GMT-0700 (Mountain Standard Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Feb 18 2019 23:02:39 GMT-0700 (Mountain Standard Time)
 </div>
 </div>
 <script src="../prettify.js"></script>
