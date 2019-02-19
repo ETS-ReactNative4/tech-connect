@@ -31,7 +31,17 @@ export const getAllUsers = async (key) => {
   const response = await fetch(url)
   const userData = await response.json()
   return userData.data.map(user => {
-    return {...user.attributes, id: user.id}
+    const { name, github, linkedin, bio, position, location, employer } = user.attributes
+    return {
+      name,
+      github,
+      linkedin,
+      bio,
+      id: user.id, 
+      job_title: position ? position.job_title : null, 
+      city: location ? location.city : null,
+      employer: employer ? employer : null
+    }
   })
 }
 
@@ -40,7 +50,17 @@ export const getUsersFilter = async (key, filter, name) => {
   const response = await fetch(url)
   const userData = await response.json()
   return userData.data.map(user => {
-    return {...user.attributes, id: user.id}
+    const { name, github, linkedin, bio, position, location, employer } = user.attributes
+    return {
+      name,
+      github,
+      linkedin,
+      bio,
+      id: user.id, 
+      job_title: position ? position.job_title : null, 
+      city: location ? location.city : null,
+      employer: employer ? employer : null
+    }
   })
 }
 
