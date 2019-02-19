@@ -1,24 +1,31 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button, TouchableHighlight, Image } from 'react-native';
+import { StyleSheet, Text, View, Button, TouchableHighlight, Image, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
 import { SearchBar } from 'react-native-elements'
 import { LinearGradient } from 'expo'
 import SuggestedConnection from './SuggestedConnection.js' 
-import { getAllUsers } from './apiCalls'
+import Connection from './Connection'
+import { getAllUsers, getUserInfo } from './apiCalls'
+
 
 
 export class SearchScreen extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      allUsers: ['kylie', 'kaylee', 'isaac', 'bailey'],
+      allUsers: [],
       search: ''
     }
   }
 
   async componentDidMount() {
-    // const allUsers = await getAllUsers('1234567891011121')
-    // this.setState({ allUsers })
+    const allUsers = await getAllUsers(this.props.user.api_key)
+    this.setState({ allUsers })
+  }
+
+  viewProfile = async (id) => {
+    const user = await getUserInfo(id, this.props.user.api_key)
+    this.props.navigation.navigate('ProfilePage', {user})
   }
 
   updateSearch = (search) => {
@@ -27,8 +34,7 @@ export class SearchScreen extends React.Component {
 
 
   render() {
-    const userArray = this.state.allUsers.length && this.state.allUsers.map(user => <SuggestedConnection suggestion={user} />)
-    console.log(userArray) 
+    const userArray = this.state.allUsers.length !== 0 && this.state.allUsers.map(user => <Connection id={ user.id } viewProfile={ this.viewProfile } />)
     return (
       <View style={styles.container}>
         <SearchBar
@@ -40,9 +46,15 @@ export class SearchScreen extends React.Component {
           onChangeText={this.updateSearch}
           value={this.state.search}
         />
-        <View styles={styles.suggestedConnections}>
-        { userArray }
-        </View>
+        <ScrollView style={ styles.scrollContainer }>
+          <View style={ styles.innerContainer }>
+            <View style={styles.profileContainer}>
+              <View style={ styles.connectionsContainer }>
+                { userArray }
+              </View>
+            </View>
+          </View>
+        </ScrollView>
       </View>
     )
   }
@@ -79,22 +91,55 @@ const styles = StyleSheet.create({
     borderBottomWidth: 2, 
     backgroundColor: '#fff'
   },
-  suggestedTitle: {
-    color: '#4AA9C5',
-    fontSize: 20,
-    marginBottom: 10,
-    marginLeft: 20,
+  scrollContainer: {
+    flex: 1,
+    backgroundColor: '#4AA9C5',
   },
-  suggestedConnections: {
+  innerContainer: {
+    flex: 1,
     display: 'flex',
+    alignItems: 'flex-start',
     alignItems: 'stretch',
+    flexDirection: 'column',
+    height: '100%',
+    width: '100%',
+    paddingTop: 20,
+    backgroundColor: '#4AA9C5',
+    paddingBottom: 20,
+  },
+  profileContainer: {
+    flex: 1,
+    backgroundColor: 'white',
+    marginRight: 20,
+    marginLeft: 20,
+    marginTop: 0,
+    paddingBottom: 20,
+  },
+  connectBtn: {
+    backgroundColor: '#93548F',
+    paddingRight: 10,
+    paddingLeft: 10,
+    borderRadius: 20,
     shadowOffset: {  width: 0,  height: 2 },
-    shadowRadius: 10,
+    shadowRadius: 5,
     shadowColor: 'black',
     shadowOpacity: .5,
-    width: '100%',
-    backgroundColor: 'blue'
-  }
+    marginTop: 10,
+  },
+  connections: {
+    marginLeft: 20,
+    marginTop: 15,
+    fontSize: 15,
+  },
+  connectionsContainer: {
+    backgroundColor: '#4AA9C5',
+    marginTop: 5,
+    marginLeft: 20,
+    marginRight: 20,
+    padding: 10,
+    borderRadius: 5
+  },
+  
 })
 
 
