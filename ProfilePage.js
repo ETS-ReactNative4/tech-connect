@@ -25,21 +25,23 @@ export class ProfilePage extends Component {
             <Image style={ styles.profilePicture } source={ require('./profile-pic.jpeg') } />
           </View>
           <View style={styles.profileContainer}>
-            <TouchableHighlight onPress={() => this.props.navigation.navigate('EditProfile')}>
-                <Icon name='edit' size={20} color='#4AA9C5' style={ styles.editIcon } />
-            </TouchableHighlight>
+            <Icon name='edit' size={20} color='#4AA9C5' style={ styles.editIcon } onPress={() => this.props.navigation.navigate('EditProfile')} />
             <View style={ styles.about }>
               <Text style={ styles.name }>{ user.name }</Text>
               <Text style={ styles.position }>{ user.position.job_title }</Text>
               <Text style={ styles.company }>{ user.employer.name }</Text>
-              <View style={ styles.locationContainer}>
+              <View style={ styles.iconContainer}>
                 <Icon name='map-pin' size={20} color='#4AA9C5' style={{marginRight: 7}} />
                 <Text style={ styles.location }>{ user.location.city }</Text>
               </View>
-              <Text>
-                <Icon name='linkedin' size={20} color='#4AA9C5' />
-                <Icon name='github' size={20} color='#4AA9C5' />
-              </Text>
+              <View style={ styles.iconContainer }> 
+                <Icon name='linkedin' size={ 20 } color='#4AA9C5' style={ {marginRight: 5} }/>
+                <Text>{ user.linkedin }</Text>
+              </View>
+              <View style={ styles.iconContainer }>
+                <Icon name='github' size={ 20 } color='#4AA9C5' style={ {marginRight: 5} }/>
+                <Text>{ user.github }</Text>
+              </View>
               <Text style={ styles.bio }>{ user.bio }</Text>
               {
                 this.props.user !== user && <TouchableHighlight style={styles.connectBtn}><Button title='Connect' color='white' /></TouchableHighlight>
@@ -134,7 +136,7 @@ const styles = StyleSheet.create({
     fontWeight: '300',
     color: 'gray'
   },
-  locationContainer: {
+  iconContainer: {
     display: 'flex',
     flexDirection: 'row'
   },
