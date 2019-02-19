@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Text, StyleSheet, TouchableHighlight, Image, Button, ScrollView } from 'react-native'
+import { View, Text, StyleSheet, TouchableHighlight, Image, Button, ScrollView, TouchableOpacity } from 'react-native'
 import Icon from 'react-native-vector-icons/Feather'
 import Connection from './Connection'
 import { connect } from 'react-redux'
@@ -24,7 +24,10 @@ export class ProfilePage extends Component {
           <View style={ styles.imageContainer }>
             <Image style={ styles.profilePicture } source={ require('./profile-pic.jpeg') } />
           </View>
-            <View style={styles.profileContainer}>
+          <View style={styles.profileContainer}>
+            <TouchableHighlight onPress={() => this.props.navigation.navigate('EditProfile')}>
+                <Icon name='edit' size={20} color='#4AA9C5' style={ styles.editIcon } />
+            </TouchableHighlight>
             <View style={ styles.about }>
               <Text style={ styles.name }>{ user.name }</Text>
               <Text style={ styles.position }>{ user.position.job_title }</Text>
@@ -33,6 +36,10 @@ export class ProfilePage extends Component {
                 <Icon name='map-pin' size={20} color='#4AA9C5' style={{marginRight: 7}} />
                 <Text style={ styles.location }>{ user.location.city }</Text>
               </View>
+              <Text>
+                <Icon name='linkedin' size={20} color='#4AA9C5' />
+                <Icon name='github' size={20} color='#4AA9C5' />
+              </Text>
               <Text style={ styles.bio }>{ user.bio }</Text>
               {
                 this.props.user !== user && <TouchableHighlight style={styles.connectBtn}><Button title='Connect' color='white' /></TouchableHighlight>
@@ -103,6 +110,11 @@ const styles = StyleSheet.create({
     marginLeft: 20,
     marginTop: -100,
     paddingBottom: 20,
+  },
+  editIcon: {
+    position: 'absolute',
+    right: 10,
+    top: 10
   },
   about: {
     marginTop: 90,
