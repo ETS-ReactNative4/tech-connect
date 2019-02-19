@@ -84,14 +84,34 @@ exports[`SuggestedConnection should match the snapshot 1`] = `
   <Component
     style={
       Object {
-        "color": "white",
-        "fontSize": 17,
+        "display": "flex",
+        "flexDirection": "row",
         "marginLeft": 60,
-        "marginTop": 2,
+        "marginTop": 5,
       }
     }
   >
-    Denver
+    <Icon
+      allowFontScaling={false}
+      color="#93548F"
+      name="map-pin"
+      size={17}
+      style={
+        Object {
+          "marginRight": 2,
+        }
+      }
+    />
+    <Component
+      style={
+        Object {
+          "color": "white",
+          "marginLeft": 3,
+        }
+      }
+    >
+      Denver
+    </Component>
   </Component>
   <TouchableHighlight
     activeOpacity={0.85}

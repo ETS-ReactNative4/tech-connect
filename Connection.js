@@ -12,7 +12,7 @@ export class Connection extends Component {
       <View style={ styles.container }>
         <Image source={ require('./profile-pic.jpeg')} style={styles.picture} />
         <View style={ styles.connectionContainer }>
-          <TouchableHighlight onPress={() => this.props.viewProfile(user.id)}>
+          <TouchableHighlight onPress={() => this.props.viewProfile(connection.id)}>
             <Text style={styles.name}>{ connection.name }</Text>
           </TouchableHighlight>
           <Text style={ styles.position }>{ connection.job_title }</Text>

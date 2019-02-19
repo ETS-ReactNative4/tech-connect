@@ -12,7 +12,6 @@ export class ProfilePage extends Component {
 
   viewProfile = async (id) => {
     const user = await getUserInfo(id, this.props.user.api_key)
-    console.log('viewProfile', user)
     this.props.navigation.navigate('ProfilePage', {user})
   }
 
