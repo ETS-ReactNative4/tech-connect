@@ -4,6 +4,7 @@ import Icon from 'react-native-vector-icons/Feather'
 import Connection from './Connection'
 import { connect } from 'react-redux'
 import { getUserInfo } from './apiCalls'
+import { userReducer } from './reducers/userReducer';
 
 export class ProfilePage extends Component {
   constructor(props) {
@@ -12,11 +13,26 @@ export class ProfilePage extends Component {
 
   viewProfile = async (id) => {
     const user = await getUserInfo(id, this.props.user.api_key)
+    console.log('viewProfile', user)
     this.props.navigation.navigate('ProfilePage', {user})
+  }
+
+  contactInfo = (user) => {
+    return (
+      <View>
+        <Text style={ styles.connections }>Contact Information</Text>
+        <View style={ styles.connectionsContainer }>
+          <Text>{ user.phone_number }</Text>
+          <Text>{ user.email }</Text>
+        </View>
+      </View>
+    )
   }
 
   render() {
     const user = this.props.navigation.getParam('user') ? this.props.navigation.getParam('user') : this.props.user
+    const isConnection = this.props.user.connections.filter(connection => parseInt(user.id) === parseInt(connection.id))
+    const connectionInfo = isConnection.length ? this.contactInfo(user) : null
     
     return (
       <ScrollView style={ styles.scrollContainer }>
@@ -47,7 +63,10 @@ export class ProfilePage extends Component {
                 this.props.user !== user && <TouchableHighlight style={styles.connectBtn}><Button title='Connect' color='white' /></TouchableHighlight>
               }
             </View>
-            <Text style={ styles.connections }>Connections</Text>
+            {
+              connectionInfo
+            }
+            <Text style={ styles.connections}>Connections</Text>
             <View style={ styles.connectionsContainer }>
               {
                 user.connections && user.connections.map((connection) => {
