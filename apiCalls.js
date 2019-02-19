@@ -35,6 +35,15 @@ export const getAllUsers = async (key) => {
   })
 }
 
+export const getUsersFilter = async (key, filter, name) => {
+  const url = `https://tech-connect-be.herokuapp.com/api/v1/users/find?${filter}=${name}&api_key=${key}`
+  const response = await fetch(url)
+  const userData = await response.json()
+  return userData.data.map(user => {
+    return {...user.attributes, id: user.id}
+  })
+}
+
 export const getUserInfo = async (id, apiKey) => {
 
   const url = `https://tech-connect-be.herokuapp.com/api/v1/users/${id}?api_key=${apiKey}`
