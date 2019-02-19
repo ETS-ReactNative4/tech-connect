@@ -1,11 +1,12 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button, TouchableHighlight, Image, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
-import { SearchBar } from 'react-native-elements'
+import { SearchBar, ButtonGroup } from 'react-native-elements'
 import { LinearGradient } from 'expo'
 import SuggestedConnection from './SuggestedConnection.js' 
 import Connection from './Connection'
 import { getAllUsers, getUserInfo } from './apiCalls'
+import Icon from 'react-native-vector-icons/Feather'
 
 
 
@@ -14,7 +15,8 @@ export class SearchScreen extends React.Component {
     super(props)
     this.state = {
       allUsers: [],
-      search: ''
+      search: '',
+      selectedIndex: 0
     }
   }
 
@@ -28,31 +30,56 @@ export class SearchScreen extends React.Component {
     this.props.navigation.navigate('ProfilePage', {user})
   }
 
-  updateSearch = (search) => {
-    this.setState({ search });
-  };
+  updateIndex = (selectedIndex) => {
+    this.setState({selectedIndex})
+  }
+
+  getFilteredUsers = () => {
+
+  }
 
 
   render() {
     const userArray = this.state.allUsers.length !== 0 && this.state.allUsers.map(user => <Connection id={ user.id } viewProfile={ this.viewProfile } />)
+    const buttons = ['Name', 'Location', 'Position', 'Employer']
+
     return (
       <View style={styles.container}>
       <View style={styles.componentContainer}>
+        <Text style={styles.search}>Search by:</Text>
+        <ButtonGroup
+          onPress={this.updateIndex}
+          selectedIndex={this.state.selectedIndex}
+          selectedButtonStyle={{backgroundColor: '#4AA9C5'}}
+          buttons={buttons}
+          containerStyle={{height: 30}}
+        />
         <SearchBar
+          searchIcon= {
+            <LinearGradient
+              colors={['#4AA9C5', '#6364c1', '#93548F']}
+              start={0.4}
+              style={styles.gradient} >
+              <Icon
+                name='search'
+                size={16}
+                color='#FFF'
+                onPress={this.getFilteredUsers}
+              />
+            </LinearGradient>
+          }
+          leftIconContainerStyle={styles.icon} 
           containerStyle={styles.searchContainer}
           inputContainerStyle={styles.inputContainer}
-          inputStyle={{}}
           lightTheme
           placeholder="Type Here..."
-          onChangeText={this.updateSearch}
+          onChangeText={(text) => this.setState({search: text})} 
           value={this.state.search}
         />
-        <ScrollView style={ styles.scrollContainer }>
-          <View style={ styles.innerContainer }>
+        <ScrollView contentContainerStyle={{alignItems: 'center'}} style={ styles.scrollContainer }>
               <View style={ styles.connectionsContainer }>
                 { userArray }
               </View>
-          </View>
         </ScrollView>
       </View>
       </View>
@@ -77,11 +104,32 @@ const styles = StyleSheet.create({
     paddingTop: 20,
     backgroundColor: '#4AA9C5'
   },
+  search: {
+    marginTop: 10, 
+    marginLeft: 10,
+    fontSize: 20
+  },
+  icon: {
+    marginRight: 5,
+    marginLeft: 3,
+    width: 36,
+    height: 36,
+    borderRadius: 50,
+    backgroundColor: '#4AA9C5'
+  },
+  gradient: {
+    borderRadius: 300, 
+    width: 36, 
+    height: 36, 
+    justifyContent: 'center', 
+    alignItems: 'center'
+  },
   componentContainer: {
     flex: 1,
     backgroundColor: '#fff', 
     borderRadius: 5,
     justifyContent: 'center', 
+    padding: 15,
     alignItems: 'stretch',
     marginTop: 20,
     marginRight: 20,
@@ -89,14 +137,13 @@ const styles = StyleSheet.create({
   },
   searchContainer: {
     width: '100%',
-    marginTop: 10,
     marginBottom: 10, 
     backgroundColor: '#ffffff00', 
     borderBottomWidth: 0, 
     borderTopWidth: 0
   },
   inputContainer: {
-    borderRadius: 20, 
+    borderRadius: 30, 
     borderWidth: 2, 
     borderColor: '#4AA9C5',
     borderBottomWidth: 2, 
@@ -114,22 +161,12 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFF',
     paddingBottom: 20,
   },
-  profileContainer: {
-    flex: 1,
-    backgroundColor: '#fff',
-    marginRight: 10,
-    marginLeft: 10,
-    marginTop: 0,
-    paddingBottom: 20
-  },
   connectionsContainer: {
     backgroundColor: '#4AA9C5',
-    marginTop: 5,
     padding: 10,
     borderRadius: 5,
-    width: '90%'
-  },
-  
+    width: '100%'
+  }
 })
 
 
