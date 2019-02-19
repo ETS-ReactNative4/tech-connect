@@ -2,6 +2,7 @@ import React from 'react'
 import { Connection, mapStateToProps } from '../Connection'
 import { shallow } from 'enzyme'
 import { getConnectionInfo } from '../apiCalls'
+import { TouchableHighlight } from 'react-native'
 
 const mockUser = {name: 'Howard'}
 jest.mock('../apiCalls')
@@ -33,5 +34,41 @@ describe('Connection', () => {
     await wrapper.instance().componentDidMount()
 
     expect(wrapper.state().user).toEqual(mockUser)
+  })
+
+  it('should call viewProfile on press of the name', () => {
+    wrapper.setState({
+      user: {
+        id: 3,
+        name: 'Howard',
+        position: {
+          job_title: 'Astronomer'
+        },
+        location: {
+          city: 'Denver'
+        }
+      }
+    })
+    
+    wrapper.find(TouchableHighlight).first().simulate('press')
+
+    expect(mockViewProfile).toHaveBeenCalled()
+  })
+
+  it('mapStateToProps should return an object with an api_key', () => {
+    const mockState = {
+      isLoading: false,
+      hasErrored: false,
+      user: {
+        api_key: 123456789
+      }
+    }
+    const expected = {
+      api_key: 123456789
+    }
+
+    const result = mapStateToProps(mockState)
+
+    expect(result).toEqual(expected)
   })
 })
