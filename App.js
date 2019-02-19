@@ -3,6 +3,7 @@ import LoginScreen from './LoginScreen'
 import ProfileScreen from './ProfileScreen'
 import ProfilePage from './ProfilePage'
 import HomeScreen from './HomeScreen'
+import ModalScreen from './ModalScreen'
 import SearchScreen from './SearchScreen'
 import MessagesScreen from './MessagesScreen'
 import ScheduleScreen from './ScheduleScreen'
@@ -78,7 +79,7 @@ const AppNavigator = createStackNavigator(
   {
     Login: LoginScreen,
     NavBar: AppNavBar,
-    EditProfile: ProfileScreen
+    EditProfile: ProfileScreen,
   },
   {
     headerMode: 'none',
@@ -86,8 +87,24 @@ const AppNavigator = createStackNavigator(
   }
 )
 
+const RootStack = createStackNavigator(
+  {
+    Main: {
+      screen: AppNavigator,
+    },
+    Modal: {
+      screen: ModalScreen,
+    },
+  },
+  {
+    mode: 'modal',
+    headerMode: 'none',
+  }
+);
 
-const AppContainer = createAppContainer(AppNavigator)
+
+const AppContainer = createAppContainer(RootStack)
+
 export default class App extends React.Component {
     
   render() {
