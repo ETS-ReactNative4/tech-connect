@@ -46,7 +46,6 @@ exports[`LoginScreen renders the snapshot 1`] = `
         style={
           Object {
             "alignItems": "center",
-            "backgroundColor": "pink",
             "borderRadius": 50,
             "height": 48,
             "justifyContent": "center",
@@ -134,7 +133,6 @@ exports[`LoginScreen renders the snapshot 1`] = `
         style={
           Object {
             "alignItems": "center",
-            "backgroundColor": "pink",
             "borderRadius": 50,
             "height": 48,
             "justifyContent": "center",

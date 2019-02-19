@@ -1,54 +1,101 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button, TouchableHighlight, Image } from 'react-native';
+import { StyleSheet, Text, View, Button, TouchableHighlight, Image, ScrollView, ActivityIndicator } from 'react-native';
 import { connect } from 'react-redux';
-import { SearchBar } from 'react-native-elements'
+import { SearchBar, ButtonGroup } from 'react-native-elements'
 import { LinearGradient } from 'expo'
 import SuggestedConnection from './SuggestedConnection.js' 
-import { getAllUsers } from './apiCalls'
+import Connection from './Connection'
+import { getAllUsers, getUserInfo, getUsersFilter } from './apiCalls'
+import Icon from 'react-native-vector-icons/Feather'
 
 
 export class SearchScreen extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      allUsers: ['kylie', 'kaylee', 'isaac', 'bailey'],
-      search: ''
+      allUsers: [],
+      search: '',
+      selectedIndex: 0,
+      loading: true
     }
   }
 
   async componentDidMount() {
-    // const allUsers = await getAllUsers('1234567891011121')
-    // this.setState({ allUsers })
+    const allUsers = await getAllUsers(this.props.user.api_key)
+    this.setState({ allUsers, loading: false })
   }
 
-  updateSearch = (search) => {
-    this.setState({ search });
-  };
+  viewProfile = async (id) => {
+    const user = await getUserInfo(id, this.props.user.api_key)
+    this.props.navigation.navigate('ProfilePage', {user})
+  }
+
+  updateIndex = (selectedIndex) => {
+    this.setState({selectedIndex})
+  }
+
+  getFilteredUsers = async () => {
+    this.setState({ allUsers: [], loading: true })
+    const { selectedIndex, search } = this.state
+    const queryParams = ['name', 'city', 'position', 'employer']
+    const allUsers = await getUsersFilter(this.props.user.api_key, queryParams[selectedIndex], search)
+    this.setState({ allUsers, loading: false })
+  }
 
 
   render() {
-    const userArray = this.state.allUsers.length && this.state.allUsers.map(user => <SuggestedConnection suggestion={user} />)
-    console.log(userArray) 
+    const userArray = this.state.allUsers.map(user => <Connection connection={ user } viewProfile={ this.viewProfile } />)
+    const buttons = ['Name', 'Location', 'Position', 'Employer']
+
     return (
       <View style={styles.container}>
+      <View style={styles.componentContainer}>
+        <Text style={styles.search}>Search by:</Text>
+        <ButtonGroup
+          onPress={this.updateIndex}
+          selectedIndex={this.state.selectedIndex}
+          selectedButtonStyle={{backgroundColor: '#4AA9C5'}}
+          buttons={buttons}
+          containerStyle={{height: 30}}
+        />
         <SearchBar
+          searchIcon= {
+            <LinearGradient
+              colors={['#4AA9C5', '#6364c1', '#93548F']}
+              start={0.4}
+              style={styles.gradient} >
+              <Icon
+                name='search'
+                size={16}
+                color='#FFF'
+                onPress={ this.getFilteredUsers }
+              />
+            </LinearGradient>
+          }
+          leftIconContainerStyle={styles.icon} 
           containerStyle={styles.searchContainer}
           inputContainerStyle={styles.inputContainer}
-          inputStyle={{}}
           lightTheme
           placeholder="Type Here..."
-          onChangeText={this.updateSearch}
+          onChangeText={(text) => this.setState({search: text})} 
           value={this.state.search}
         />
-        <View styles={styles.suggestedConnections}>
-        { userArray }
-        </View>
+        <ScrollView contentContainerStyle={{alignItems: 'center'}} style={ styles.scrollContainer }>
+              <View style={ styles.connectionsContainer }>
+                { !this.state.loading ? userArray : <ActivityIndicator size="large" color="#fff" /> }
+                { 
+                  (!userArray.length && !this.state.loading) && 
+                    <Text style={{color: '#fff'}}>No users were found.</Text> 
+                }
+              </View>
+        </ScrollView>
+      </View>
       </View>
     )
   }
 }
 
-const mapStateToProps = (state) => ({
+export const mapStateToProps = (state) => ({
   user: state.user
 })
 
@@ -57,43 +104,76 @@ export default connect(mapStateToProps)(SearchScreen)
 
 const styles = StyleSheet.create({
   container: {
-    display: 'flex',
-    alignItems: 'flex-start',
+    flex: 1,
     alignItems: 'stretch',
-    flexDirection: 'column',
+    justifyContent: 'center',
     height: '100%',
     width: '100%',
-    paddingTop: 20
+    paddingTop: 20,
+    backgroundColor: '#4AA9C5'
+  },
+  search: {
+    marginTop: 10, 
+    marginLeft: 10,
+    fontSize: 20
+  },
+  icon: {
+    marginRight: 5,
+    marginLeft: 3,
+    width: 36,
+    height: 36,
+    borderRadius: 50,
+    backgroundColor: '#4AA9C5'
+  },
+  gradient: {
+    borderRadius: 300, 
+    width: 36, 
+    height: 36, 
+    justifyContent: 'center', 
+    alignItems: 'center'
+  },
+  componentContainer: {
+    flex: 1,
+    backgroundColor: '#fff', 
+    borderRadius: 5,
+    justifyContent: 'center', 
+    padding: 15,
+    alignItems: 'stretch',
+    marginTop: 25,
+    marginRight: 20,
+    marginLeft: 20,
   },
   searchContainer: {
-    marginTop: 30,
+    width: '100%',
     marginBottom: 10, 
     backgroundColor: '#ffffff00', 
     borderBottomWidth: 0, 
     borderTopWidth: 0
   },
   inputContainer: {
-    borderRadius: 20, 
+    borderRadius: 30, 
     borderWidth: 2, 
     borderColor: '#4AA9C5',
     borderBottomWidth: 2, 
     backgroundColor: '#fff'
   },
-  suggestedTitle: {
-    color: '#4AA9C5',
-    fontSize: 20,
-    marginBottom: 10,
-    marginLeft: 20,
+  scrollContainer: {
+    flex: 1,
   },
-  suggestedConnections: {
-    display: 'flex',
-    alignItems: 'stretch',
-    shadowOffset: {  width: 0,  height: 2 },
-    shadowRadius: 10,
-    shadowColor: 'black',
-    shadowOpacity: .5,
+  innerContainer: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: '100%',
     width: '100%',
-    backgroundColor: 'blue'
+    backgroundColor: '#FFF',
+    paddingBottom: 20,
+  },
+  connectionsContainer: {
+    backgroundColor: '#4AA9C5',
+    padding: 10,
+    borderRadius: 5,
+    width: '100%'
   }
 })
 

@@ -43,7 +43,8 @@ const AppNavBar = createBottomTabNavigator(
     Home: SecondaryHomeNav,
     Profile: SecondaryProfileNav,
     Messages: MessagesScreen,
-    Schedule: ScheduleScreen
+    Schedule: ScheduleScreen,
+    Search: SearchScreen
   },
   {
     defaultNavigationOptions: ({ navigation }) => ({
@@ -58,6 +59,8 @@ const AppNavBar = createBottomTabNavigator(
           iconName = 'message-circle'
         } else if (routeName === 'Schedule') {
           iconName = 'calendar'
+        } else if (routeName === 'Search') {
+          iconName = 'search'
         }
 
         return <Icon name={iconName} size={25} color={tintColor} />;
