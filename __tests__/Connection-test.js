@@ -1,12 +1,9 @@
 import React from 'react'
 import { Connection, mapStateToProps } from '../Connection'
 import { shallow } from 'enzyme'
-import { getConnectionInfo } from '../apiCalls'
 import { TouchableHighlight } from 'react-native'
 
 const mockUser = {name: 'Howard'}
-jest.mock('../apiCalls')
-getConnectionInfo.mockImplementation(() => mockUser)
 
 describe('Connection', () => {
   let wrapper
@@ -16,7 +13,13 @@ describe('Connection', () => {
   beforeEach(() => {
     mockViewProfile = jest.fn()
     mockApiKey - 123998347574354
-    wrapper = shallow(<Connection api_key={ mockApiKey } viewProfile={ mockViewProfile } id={ 3 } />)
+    mockConnection = {
+      id: 3,
+      name: 'Howard',
+      job_title: 'Astronomer',
+      city: 'Denver'
+    }
+    wrapper = shallow(<Connection connection={ mockConnection } viewProfile={ mockViewProfile } />)
   })
 
   it('should match the snapshot', () => {
@@ -24,32 +27,7 @@ describe('Connection', () => {
     expect(wrapper).toMatchSnapshot()
   })
 
-  it('should fire getConnectionsInfo with the correct params', () => {
-
-    expect(getConnectionInfo).toHaveBeenCalledWith(3, mockApiKey)
-  })
-
-  it('should set state with the user', async () => {
-    const wrapper = shallow(<Connection api_key={ mockApiKey } viewProfile={ mockViewProfile } id={ 3 } />)
-    await wrapper.instance().componentDidMount()
-
-    expect(wrapper.state().user).toEqual(mockUser)
-  })
-
   it('should call viewProfile on press of the name', () => {
-    wrapper.setState({
-      user: {
-        id: 3,
-        name: 'Howard',
-        position: {
-          job_title: 'Astronomer'
-        },
-        location: {
-          city: 'Denver'
-        }
-      }
-    })
-    
     wrapper.find(TouchableHighlight).first().simulate('press')
 
     expect(mockViewProfile).toHaveBeenCalled()

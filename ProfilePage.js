@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Text, StyleSheet, TouchableHighlight, Image, Button, ScrollView } from 'react-native'
+import { View, Text, StyleSheet, TouchableHighlight, Image, Button, ScrollView, TouchableOpacity } from 'react-native'
 import Icon from 'react-native-vector-icons/Feather'
 import Connection from './Connection'
 import { connect } from 'react-redux'
@@ -15,35 +15,81 @@ export class ProfilePage extends Component {
     this.props.navigation.navigate('ProfilePage', {user})
   }
 
+  contactInfo = (user) => {
+    return (
+      <View>
+        <Text style={ styles.connections }>Contact Information</Text>
+        <View style={ styles.connectionsContainer }>
+          <Text>{ user.phone_number }</Text>
+          <Text>{ user.email }</Text>
+        </View>
+      </View>
+    )
+  }
+
+  editProfile = () => {
+    this.props.navigation.navigate('EditProfile')
+  }
+
+  displayEditProfile = (user) => {
+    return (
+      <Icon name='edit' size={20} color='#4AA9C5' style={ styles.editIcon } onPress={ this.editProfile } />
+    )
+  }
+
+  displayConnections = (user) => {
+    const connections = user.connections.map((connection) => {
+      return <Connection connection={ connection } viewProfile={ this.viewProfile } />
+    })
+    return connections
+  }
+
   render() {
     const user = this.props.navigation.getParam('user') ? this.props.navigation.getParam('user') : this.props.user
-    
+    const isConnection = this.props.user.connections.filter(connection => parseInt(user.id) === parseInt(connection.id))
+    const connectionInfo = isConnection.length ? this.contactInfo(user) : null
+    const editProfileSection = this.props.user.id !== user.id ? null : this.displayEditProfile(user)
+    const connectBtn = this.props.user !== user && <TouchableHighlight style={styles.connectBtn}><Button title='Connect' color='white' /></TouchableHighlight>
+    const connections = user.connections && this.displayConnections(user)
+
     return (
       <ScrollView style={ styles.scrollContainer }>
         <View style={ styles.container }>
           <View style={ styles.imageContainer }>
             <Image style={ styles.profilePicture } source={ require('./profile-pic.jpeg') } />
+            {
+              editProfileSection
+            }
           </View>
-            <View style={styles.profileContainer}>
+          <View style={styles.profileContainer}>
             <View style={ styles.about }>
               <Text style={ styles.name }>{ user.name }</Text>
               <Text style={ styles.position }>{ user.position.job_title }</Text>
               <Text style={ styles.company }>{ user.employer.name }</Text>
-              <View style={ styles.locationContainer}>
+              <View style={ styles.iconContainer }>
                 <Icon name='map-pin' size={20} color='#4AA9C5' style={{marginRight: 7}} />
                 <Text style={ styles.location }>{ user.location.city }</Text>
               </View>
+              <View style={ styles.iconContainer }> 
+                <Icon name='linkedin' size={ 20 } color='#4AA9C5' style={ {marginRight: 5} }/>
+                <Text>{ user.linkedin }</Text>
+              </View>
+              <View style={ styles.iconContainer }>
+                <Icon name='github' size={ 20 } color='#4AA9C5' style={ {marginRight: 5} }/>
+                <Text>{ user.github }</Text>
+              </View>
               <Text style={ styles.bio }>{ user.bio }</Text>
               {
-                this.props.user !== user && <TouchableHighlight style={styles.connectBtn}><Button title='Connect' color='white' /></TouchableHighlight>
+                connectBtn
               }
             </View>
-            <Text style={ styles.connections }>Connections</Text>
+            {
+              connectionInfo
+            }
+            <Text style={ styles.connections}>Connections</Text>
             <View style={ styles.connectionsContainer }>
               {
-                user.connections && user.connections.map((connection) => {
-                  return <Connection id={ connection.id } viewProfile={ this.viewProfile } />
-                })
+                connections
               }
             </View>
           </View>
@@ -82,7 +128,7 @@ const styles = StyleSheet.create({
     width: '100%',
     justifyContent: 'center',
     alignItems: 'center',
-    zIndex: 200000,
+    zIndex: 200,
     marginBottom: 20,
     marginTop: 20,
     shadowOffset: {  width: 2,  height: 2},
@@ -94,7 +140,7 @@ const styles = StyleSheet.create({
     height: 180,
     width: 180,
     borderRadius: 90,
-    zIndex: 20000,
+    zIndex: 200,
   },
   profileContainer: {
     flex: 1,
@@ -103,6 +149,12 @@ const styles = StyleSheet.create({
     marginLeft: 20,
     marginTop: -100,
     paddingBottom: 20,
+  },
+  editIcon: {
+    position: 'absolute',
+    right: 30,
+    top: 110,
+    zIndex: 100000000005
   },
   about: {
     marginTop: 90,
@@ -122,7 +174,7 @@ const styles = StyleSheet.create({
     fontWeight: '300',
     color: 'gray'
   },
-  locationContainer: {
+  iconContainer: {
     display: 'flex',
     flexDirection: 'row'
   },

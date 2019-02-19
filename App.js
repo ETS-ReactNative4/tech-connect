@@ -27,10 +27,21 @@ const SecondaryHomeNav = createStackNavigator(
   }
 )
 
+const SecondaryProfileNav = createStackNavigator(
+  {
+    ProfilePage: ProfilePage,
+    EditProfile: ProfileScreen,
+  },
+  {
+    headerMode: 'none',
+    initialRouteName: "ProfilePage"
+  }
+)
+
 const AppNavBar = createBottomTabNavigator(
   {
     Home: SecondaryHomeNav,
-    Profile: ProfilePage,
+    Profile: SecondaryProfileNav,
     Messages: MessagesScreen,
     Schedule: ScheduleScreen
   },
@@ -63,7 +74,8 @@ const AppNavBar = createBottomTabNavigator(
 const AppNavigator = createStackNavigator(
   {
     Login: LoginScreen,
-    NavBar: AppNavBar
+    NavBar: AppNavBar,
+    EditProfile: ProfileScreen
   },
   {
     headerMode: 'none',

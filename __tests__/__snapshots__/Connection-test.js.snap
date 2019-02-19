@@ -1,3 +1,100 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Connection should match the snapshot 1`] = `""`;
+exports[`Connection should match the snapshot 1`] = `
+<Component
+  style={
+    Object {
+      "backgroundColor": "white",
+      "borderRadius": 5,
+      "display": "flex",
+      "flexDirection": "row",
+      "marginBottom": 10,
+      "padding": 10,
+      "shadowColor": "black",
+      "shadowOffset": Object {
+        "height": 2,
+        "width": 2,
+      },
+      "shadowOpacity": 0.5,
+      "shadowRadius": 5,
+    }
+  }
+>
+  <Component
+    source={1}
+    style={
+      Object {
+        "borderRadius": 40,
+        "height": 80,
+        "width": 80,
+      }
+    }
+  />
+  <Component
+    style={
+      Object {
+        "marginLeft": 5,
+      }
+    }
+  >
+    <TouchableHighlight
+      activeOpacity={0.85}
+      delayPressOut={100}
+      onPress={[Function]}
+      underlayColor="black"
+    >
+      <Component
+        style={
+          Object {
+            "fontSize": 18,
+          }
+        }
+      >
+        Howard
+      </Component>
+    </TouchableHighlight>
+    <Component
+      style={
+        Object {
+          "color": "gray",
+          "marginTop": 1,
+        }
+      }
+    >
+      Astronomer
+    </Component>
+    <Component
+      style={
+        Object {
+          "display": "flex",
+          "flexDirection": "row",
+          "marginTop": 3,
+        }
+      }
+    >
+      <Icon
+        allowFontScaling={false}
+        color="#4AA9C5"
+        name="map-pin"
+        size={18}
+        style={
+          Object {
+            "marginRight": 7,
+          }
+        }
+      />
+      <Component
+        style={
+          Object {
+            "color": "gray",
+            "fontSize": 14,
+            "marginTop": 2,
+          }
+        }
+      >
+        Denver
+      </Component>
+    </Component>
+  </Component>
+</Component>
+`;
