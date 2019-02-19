@@ -127,6 +127,30 @@ describe('ProfilePage', () => {
     expect(wrapper.find(View).length).toEqual(8)
   })
 
+  describe('editProfile', () => {
+    it('should navigate to the EditProfile page', () => {
+      const mockUser = {
+        name: 'Howard',
+        position: {
+          job_title: 'Developer'
+        },
+        employer: {
+          name: 'Turing'
+        },
+        location: {
+          city: 'Denver'
+        },
+        phone_number: '303-333-3333',
+        email: 'thisemail@email.com',
+        connections: [{name: 'Howard', id: 3}]
+      }
+      const wrapper = shallow(<ProfilePage user={ mockUser } navigation={{navigate: jest.fn(), getParam: jest.fn()}} />)
+      wrapper.instance().editProfile(mockUser)
+
+      expect(wrapper.instance().props.navigation.navigate).toHaveBeenCalled()
+    })
+  })
+
   describe('mapStateToProps', () => {
     it('should return an object with a user key', () => {
       const mockState = {
