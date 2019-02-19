@@ -2,6 +2,7 @@ import React from 'react'
 import { shallow } from 'enzyme'
 import { ProfilePage, mapStateToProps } from '../ProfilePage'
 import { TouchableHighlight, View } from 'react-native'
+import Icon from 'react-native-vector-icons/Feather'
 import Connection from '../Connection'
 import { getUserInfo } from '../apiCalls'
 
@@ -173,6 +174,35 @@ describe('ProfilePage', () => {
       wrapper.instance().editProfile(mockUser)
 
       expect(wrapper.instance().props.navigation.navigate).toHaveBeenCalled()
+    })
+  })
+
+  describe('displayEditProfile', () => {
+    let mockUser
+    let wrapper
+
+    beforeEach(() => {
+      mockUser = {
+        name: 'Howard',
+        position: {
+          job_title: 'Developer'
+        },
+        id: 3,
+        employer: {
+          name: 'Turing'
+        },
+        location: {
+          city: 'Denver'
+        },
+        phone_number: '303-333-3333',
+        email: 'thisemail@email.com',
+        connections: [{name: 'Howard', id: 3}]
+      }
+      wrapper = shallow(<ProfilePage user={ mockUser } navigation={{navigate: jest.fn(), getParam: jest.fn()}} />)
+    })
+    it('should render an edit icon', () => {
+  
+      expect(wrapper.find(Icon).length).toEqual(4)
     })
   })
 
