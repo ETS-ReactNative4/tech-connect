@@ -106,25 +106,50 @@ describe('ProfilePage', () => {
   })
 
   describe('contactInfo', () => {
-    const mockUser = {
-      name: 'Howard',
-      position: {
-        job_title: 'Developer'
-      },
-      employer: {
-        name: 'Turing'
-      },
-      location: {
-        city: 'Denver'
-      },
-      phone_number: '303-333-3333',
-      email: 'thisemail@email.com',
-      connections: [{name: 'Howard', id: 3}]
-    }
-    const wrapper = shallow(<ProfilePage user={ mockUser } navigation={{navigate: jest.fn(), getParam: jest.fn()}} />)
-    wrapper.instance().contactInfo(mockUser)
+    it('should render a contact section', () => {
+      const mockUser = {
+        name: 'Howard',
+        position: {
+          job_title: 'Developer'
+        },
+        id: 3,
+        employer: {
+          name: 'Turing'
+        },
+        location: {
+          city: 'Denver'
+        },
+        phone_number: '303-333-3333',
+        email: 'thisemail@email.com',
+        connections: [{name: 'Howard', id: 3}]
+      }
+      const wrapper = shallow(<ProfilePage user={ mockUser } navigation={{navigate: jest.fn(), getParam: jest.fn()}} />)
+      wrapper.instance().contactInfo(mockUser)
+  
+      expect(wrapper.find(View).length).toEqual(10)
+    })
 
-    expect(wrapper.find(View).length).toEqual(8)
+    it('should not render a contact section', () => {
+      const mockUser = {
+        name: 'Howard',
+        position: {
+          job_title: 'Developer'
+        },
+        employer: {
+          name: 'Turing'
+        },
+        location: {
+          city: 'Denver'
+        },
+        phone_number: '303-333-3333',
+        email: 'thisemail@email.com',
+        connections: [{name: 'Howard', id: 3}]
+      }
+      const wrapper = shallow(<ProfilePage user={ mockUser } navigation={{navigate: jest.fn(), getParam: jest.fn()}} />)
+      wrapper.instance().contactInfo(mockUser)
+  
+      expect(wrapper.find(View).length).toEqual(8)
+    })
   })
 
   describe('editProfile', () => {
