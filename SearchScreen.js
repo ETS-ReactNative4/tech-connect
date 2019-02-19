@@ -37,6 +37,7 @@ export class SearchScreen extends React.Component {
     const userArray = this.state.allUsers.length !== 0 && this.state.allUsers.map(user => <Connection id={ user.id } viewProfile={ this.viewProfile } />)
     return (
       <View style={styles.container}>
+      <View style={styles.componentContainer}>
         <SearchBar
           containerStyle={styles.searchContainer}
           inputContainerStyle={styles.inputContainer}
@@ -48,13 +49,12 @@ export class SearchScreen extends React.Component {
         />
         <ScrollView style={ styles.scrollContainer }>
           <View style={ styles.innerContainer }>
-            <View style={styles.profileContainer}>
               <View style={ styles.connectionsContainer }>
                 { userArray }
               </View>
-            </View>
           </View>
         </ScrollView>
+      </View>
       </View>
     )
   }
@@ -69,16 +69,27 @@ export default connect(mapStateToProps)(SearchScreen)
 
 const styles = StyleSheet.create({
   container: {
-    display: 'flex',
-    alignItems: 'flex-start',
+    flex: 1,
     alignItems: 'stretch',
-    flexDirection: 'column',
+    justifyContent: 'center',
     height: '100%',
     width: '100%',
-    paddingTop: 20
+    paddingTop: 20,
+    backgroundColor: '#4AA9C5'
+  },
+  componentContainer: {
+    flex: 1,
+    backgroundColor: '#fff', 
+    borderRadius: 5,
+    justifyContent: 'center', 
+    alignItems: 'stretch',
+    marginTop: 20,
+    marginRight: 20,
+    marginLeft: 20,
   },
   searchContainer: {
-    marginTop: 30,
+    width: '100%',
+    marginTop: 10,
     marginBottom: 10, 
     backgroundColor: '#ffffff00', 
     borderBottomWidth: 0, 
@@ -93,51 +104,30 @@ const styles = StyleSheet.create({
   },
   scrollContainer: {
     flex: 1,
-    backgroundColor: '#4AA9C5',
   },
   innerContainer: {
     flex: 1,
-    display: 'flex',
-    alignItems: 'flex-start',
-    alignItems: 'stretch',
-    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
     height: '100%',
     width: '100%',
-    paddingTop: 20,
-    backgroundColor: '#4AA9C5',
+    backgroundColor: '#FFF',
     paddingBottom: 20,
   },
   profileContainer: {
     flex: 1,
-    backgroundColor: 'white',
-    marginRight: 20,
-    marginLeft: 20,
+    backgroundColor: '#fff',
+    marginRight: 10,
+    marginLeft: 10,
     marginTop: 0,
-    paddingBottom: 20,
-  },
-  connectBtn: {
-    backgroundColor: '#93548F',
-    paddingRight: 10,
-    paddingLeft: 10,
-    borderRadius: 20,
-    shadowOffset: {  width: 0,  height: 2 },
-    shadowRadius: 5,
-    shadowColor: 'black',
-    shadowOpacity: .5,
-    marginTop: 10,
-  },
-  connections: {
-    marginLeft: 20,
-    marginTop: 15,
-    fontSize: 15,
+    paddingBottom: 20
   },
   connectionsContainer: {
     backgroundColor: '#4AA9C5',
     marginTop: 5,
-    marginLeft: 20,
-    marginRight: 20,
     padding: 10,
-    borderRadius: 5
+    borderRadius: 5,
+    width: '90%'
   },
   
 })
