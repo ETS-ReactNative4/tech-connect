@@ -68,7 +68,7 @@ export class SearchScreen extends React.Component {
                 name='search'
                 size={16}
                 color='#FFF'
-                onPress={this.getFilteredUsers}
+                onPress={ this.getFilteredUsers }
               />
             </LinearGradient>
           }
