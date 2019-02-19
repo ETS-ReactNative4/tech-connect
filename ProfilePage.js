@@ -37,11 +37,20 @@ export class ProfilePage extends Component {
     )
   }
 
+  displayConnections = (user) => {
+    const connections = user.connections.map((connection) => {
+      return <Connection connection={ connection } viewProfile={ this.viewProfile } />
+    })
+    return connections
+  }
+
   render() {
     const user = this.props.navigation.getParam('user') ? this.props.navigation.getParam('user') : this.props.user
     const isConnection = this.props.user.connections.filter(connection => parseInt(user.id) === parseInt(connection.id))
     const connectionInfo = isConnection.length ? this.contactInfo(user) : null
     const editProfileSection = this.props.user.id !== user.id ? null : this.displayEditProfile(user)
+    const connectBtn = this.props.user !== user && <TouchableHighlight style={styles.connectBtn}><Button title='Connect' color='white' /></TouchableHighlight>
+    const connections = user.connections && this.displayConnections(user)
 
     return (
       <ScrollView style={ styles.scrollContainer }>
@@ -71,7 +80,7 @@ export class ProfilePage extends Component {
               </View>
               <Text style={ styles.bio }>{ user.bio }</Text>
               {
-                this.props.user !== user && <TouchableHighlight style={styles.connectBtn}><Button title='Connect' color='white' /></TouchableHighlight>
+                connectBtn
               }
             </View>
             {
@@ -80,9 +89,7 @@ export class ProfilePage extends Component {
             <Text style={ styles.connections}>Connections</Text>
             <View style={ styles.connectionsContainer }>
               {
-                user.connections && user.connections.map((connection) => {
-                  return <Connection connection={ connection } viewProfile={ this.viewProfile } />
-                })
+                connections
               }
             </View>
           </View>
