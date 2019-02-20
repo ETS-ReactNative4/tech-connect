@@ -29,8 +29,8 @@ export class LoginScreen extends React.Component {
 
   handleSubmit = async () => {
     const { email, password, password_confirmation } = this.state
-    const createInfo = { email, password, password_confirmation }
-    const loginInfo = { email, password }
+    const createInfo = { email: email.toLowerCase(), password, password_confirmation }
+    const loginInfo = { email: email.toLowerCase(), password }
 
     if (this.state.register) {
       await this.props.createUser(createInfo)
