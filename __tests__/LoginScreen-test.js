@@ -68,7 +68,7 @@ describe('LoginScreen', () => {
   it('should navigate to the Profile screen', () => {
     wrapper.setState({ register: true })
     wrapper.instance().handleUpdateProfile()
-    expect(wrapper.instance().props.navigation.navigate).toHaveBeenCalledWith('Profile')
+    expect(wrapper.instance().props.navigation.navigate).toHaveBeenCalledWith('EditProfile')
   })
 
   it('should navigate to the Home screen', () => {
