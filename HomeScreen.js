@@ -37,7 +37,7 @@ export class HomeScreen extends React.Component {
         <View styles={styles.suggestedConnections}>
           <Text style={styles.suggestedTitle}>Suggested Connections</Text>
           { 
-            suggestions.map(suggestion => <SuggestedConnection suggestion={suggestion} viewProfile={this.viewProfile} />) 
+            suggestions.map(suggestion => <SuggestedConnection suggestion={ suggestion } viewProfile={ this.viewProfile } />) 
           }
         </View>
       </View>

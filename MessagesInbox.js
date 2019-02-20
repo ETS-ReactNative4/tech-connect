@@ -19,14 +19,6 @@ export class MessagesInbox extends Component {
     })
   }
 
-  displayMessages = async () => {
-    const messages = this.state.messages.map(message => {
-      console.log(message)
-      return <Message message={message.attributes} />
-    })
-    return messages
-  }
-
   render() {
     return (
       <View style={ styles.inboxContainer }>

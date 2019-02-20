@@ -39,7 +39,7 @@ export class ProfilePage extends Component {
 
   displayConnections = (user) => {
     const connections = user.connections.map((connection) => {
-      return <Connection connection={ connection } viewProfile={ this.viewProfile } />
+      return <Connection connection={ connection } viewProfile={ this.viewProfile } key={connection.id}/>
     })
     return connections
   }

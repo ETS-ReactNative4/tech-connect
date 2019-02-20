@@ -4,9 +4,9 @@ import { StyleSheet, View, Image, Text } from 'react-native'
 export default class Message extends Component {
   render() {
     const date = new Date(this.props.message.meeting_date)
-    console.log(date)
     const splitDate = date.toUTCString().split(' ')
     const newDate = splitDate.slice(0, 4).join(' ')
+    
     return (
       <View style={ styles.messageContainer }>
         <View style={ styles.imageContainer }>
