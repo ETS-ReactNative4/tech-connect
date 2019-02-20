@@ -27,30 +27,33 @@ export class ProfileScreen extends React.Component {
   }
 
   async componentDidMount() {
-    const { name, phone_number, location, position, employer, github, linkedin, bio } = this.props.user
-    let phoneNumber = phone_number
-    if(phone_number === null) {
-      phoneNumber = ''
-    } else {
-      phoneNumber = phoneNumber.toString()
-    }
     const locations = await getLocations()
     const positions = await getPositions()
     const employers = await getEmployers()
+    this.loadInputs()
     this.setState({
       locations,
       employers,
-      positions,
-      name,
-      phone_number: phoneNumber,
-      github,
-      linkedin,
-      bio,
-      location: location.city,
-      position: position.job_title,
-      employer: employer.name,
-      error: ''
+      positions
       })
+  }
+
+  loadInputs = () => {
+    if(this.props.user.hasOwnProperty('name')) {
+      const { name, phone_number, location, position, employer, github, linkedin, bio } = this.props.user
+      let phoneNumber = phone_number
+      this.setState({
+        name,
+        phone_number: phoneNumber.toString(),
+        github,
+        linkedin,
+        bio,
+        location: location.city,
+        position: position.job_title,
+        employer: employer.name,
+        error: ''
+      })
+    }
   }
 
 
@@ -225,7 +228,7 @@ export class ProfileScreen extends React.Component {
             />
           }
         />
-        <Text>{ this.state.error }</Text>
+        <Text style={ styles.error }>{ error }</Text>
         <TouchableHighlight style={styles.button}>
           <Button title="save" color='#E8FDFF' onPress={this.handleSave}/>
         </TouchableHighlight>
@@ -276,5 +279,9 @@ const styles = StyleSheet.create({
     borderRadius: 25,
     height: 40,
     width: 140
+  },
+  error: {
+    color: 'red',
+    marginBottom: 15
   }
 })

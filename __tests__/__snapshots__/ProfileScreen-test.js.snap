@@ -899,7 +899,14 @@ exports[`ProfileScreen renders the snapshot 1`] = `
       />
     </View>
   </View>
-  <Text />
+  <Text
+    style={
+      Object {
+        "color": "red",
+        "marginBottom": 15,
+      }
+    }
+  />
   <View
     accessible={true}
     isTVSelectable={true}
