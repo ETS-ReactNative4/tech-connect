@@ -3,12 +3,16 @@ import { StyleSheet, View, Image, Text } from 'react-native'
 
 export default class Message extends Component {
   render() {
+    const date = new Date(this.props.message.meeting_date)
+    console.log(date)
+    const splitDate = date.toUTCString().split(' ')
+    const newDate = splitDate.slice(0, 4).join(' ')
     return (
       <View style={ styles.messageContainer }>
         <View style={ styles.imageContainer }>
           <Image source={ require('./profile-pic.jpeg') } style={ styles.userPic }/>
         </View>
-        <Text style={ styles.date }>10/10/2019</Text>
+        <Text style={ styles.date }>{ newDate }</Text>
         <View style={ styles.messageInfo }>
           <Text style={ styles.name }>{ this.props.message.receiver }</Text>
           <Text style={ styles.message }>{ this.props.message.status }</Text>
