@@ -105,5 +105,22 @@ export const sendConnectionRequest = async (key, id, inputs) => {
   }
 }
 
+export const getMessages = async (apiKey) => {
+  const url = `https://tech-connect-be.herokuapp.com/api/v1/messages?api_key=${apiKey}`
+  try {
+    const response = await fetch(url)
+
+    if (!response.ok) {
+      const errorText = await response.json()
+      throw Error(errorText.error)
+    }
+
+    const result = await response.json()
+    return result.data
+  } catch(err) {
+    console.log(err)
+  }
+}
+
 
 

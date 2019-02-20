@@ -10,8 +10,8 @@ export default class Message extends Component {
         </View>
         <Text style={ styles.date }>10/10/2019</Text>
         <View style={ styles.messageInfo }>
-          <Text style={ styles.name }>Howard Stearn</Text>
-          <Text style={ styles.message }>This is Howard's message</Text>
+          <Text style={ styles.name }>{ this.props.message.receiver }</Text>
+          <Text style={ styles.message }>{ this.props.message.status }</Text>
         </View>
       </View>
     )
@@ -46,10 +46,10 @@ const styles = StyleSheet.create({
     fontSize: 18
   },
   message: {
-    marginTop: 10,
+    marginTop: 5,
     color: 'gray'
   },
   messageInfo: {
-    marginLeft: 8
+    marginLeft: 10
   }
 })
