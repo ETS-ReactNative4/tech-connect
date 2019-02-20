@@ -1,7 +1,10 @@
 import React from 'react'
 import SuggestedConnection from '../SuggestedConnection'
-import { TouchableHighlight } from 'react-native'
+import NavigationService from '../NavigationService';
+import { TouchableHighlight, Button } from 'react-native'
 import { shallow } from 'enzyme'
+
+jest.mock('../NavigationService')
 
 describe('SuggestedConnection', () => {
   let wrapper 
@@ -31,5 +34,12 @@ describe('SuggestedConnection', () => {
     wrapper.find(TouchableHighlight).first().simulate('press')
 
     expect(mockViewProfile).toHaveBeenCalled()
+  })
+
+  it('should call NavigationService', () => {
+
+    wrapper.find(Button).simulate('press')
+
+    expect(NavigationService.navigate).toHaveBeenCalled()
   })
 })

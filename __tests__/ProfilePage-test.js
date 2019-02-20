@@ -85,6 +85,7 @@ describe('ProfilePage', () => {
       location: {
         city: 'Denver'
       },
+      id: 3,
       connections: [{name: 'Howard', id: 3}]
     }
     const mockNavigation = {
@@ -95,22 +96,17 @@ describe('ProfilePage', () => {
     expect(wrapper.find(Connection).length).toEqual(1)
   })
 
-  it('should navigate to the modal screen', () => {
-    const mockUser = {
-      name: 'Howard',
-      position: {
-        job_title: 'Developer'
-      },
-      employer: {
-        name: 'Turing'
-      },
-      location: {
-        city: 'Denver'
-      },
-      connections: [],
-      phone_number: '303-333-3333',
-      email: 'thisemail@email.com'
+  it('should have an edit icon', () => {
+    const mockNavigation = {
+      navigate: jest.fn(),
+      getParam: () => false
     }
+    const wrapper = shallow(<ProfilePage user={ mockUser } navigation={ mockNavigation }/>)
+
+    expect(wrapper.find(Icon).length).toEqual(4)
+  })
+
+  it('should navigate to the modal screen', () => {
     const otherUser = {
       name: 'Lenard',
       position: {
