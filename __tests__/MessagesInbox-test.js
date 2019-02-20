@@ -28,4 +28,23 @@ describe('MessagesInbox', () => {
 
     expect(wrapper.find(Message).length).toEqual(1)
   })
+
+  describe('mapStateToProps', () => {
+    it('should return an obkect with a key of api_key', () => {
+      const mockState = {
+        isLoading: false,
+        hasErrored: false,
+        user: {
+          api_key: 123456789
+        }
+      }
+      const expected = {
+        api_key: 123456789
+      }
+
+      const result = mapStateToProps(mockState)
+
+      expect(result).toEqual(expected)
+    })
+  })
 })
