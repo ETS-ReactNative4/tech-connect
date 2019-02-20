@@ -15,7 +15,6 @@ export const updateUser = (user) => {
       })
 
       if(!response.ok) {
-        console.log(response)
         const errorText = await response.json()
         throw Error(errorText.error)
       }

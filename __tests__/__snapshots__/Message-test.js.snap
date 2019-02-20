@@ -1,0 +1,93 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Message should match the snapshot 1`] = `
+<Component
+  style={
+    Object {
+      "borderBottomColor": "gray",
+      "borderBottomWidth": 0.5,
+      "display": "flex",
+      "flexDirection": "row",
+      "padding": 20,
+    }
+  }
+>
+  <Component
+    style={
+      Object {
+        "position": "absolute",
+        "right": 20,
+        "top": 20,
+      }
+    }
+  >
+    Invalid Date
+  </Component>
+  <TouchableOpacity
+    activeOpacity={0.2}
+    onPress={[Function]}
+    style={
+      Object {
+        "display": "flex",
+        "flexDirection": "row",
+        "marginRight": 10,
+        "maxWidth": "100%",
+      }
+    }
+  >
+    <Component
+      style={
+        Object {
+          "shadowColor": "black",
+          "shadowOffset": Object {
+            "height": 2,
+            "width": 2,
+          },
+          "shadowOpacity": 0.2,
+          "shadowRadius": 4,
+        }
+      }
+    >
+      <Component
+        source={1}
+        style={
+          Object {
+            "borderRadius": 25,
+            "height": 50,
+            "width": 50,
+          }
+        }
+      />
+    </Component>
+    <Component
+      style={
+        Object {
+          "marginLeft": 10,
+          "marginRight": 30,
+          "marginTop": 5,
+        }
+      }
+    >
+      <Component
+        style={
+          Object {
+            "fontSize": 18,
+          }
+        }
+      >
+        Howard
+      </Component>
+      <Component
+        style={
+          Object {
+            "color": "gray",
+            "marginTop": 5,
+          }
+        }
+      >
+        Confirmed
+      </Component>
+    </Component>
+  </TouchableOpacity>
+</Component>
+`;

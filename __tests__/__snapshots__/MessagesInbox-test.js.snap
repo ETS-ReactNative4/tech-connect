@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MessagesInbox should match the snapshot 1`] = `
+<Component
+  style={
+    Object {
+      "backgroundColor": "#4AA9C5",
+      "flex": 1,
+      "padding": 20,
+    }
+  }
+>
+  <Component
+    style={
+      Object {
+        "fontSize": 30,
+        "marginBottom": 10,
+        "marginTop": 10,
+      }
+    }
+  >
+    Inbox
+  </Component>
+  <Component
+    style={
+      Object {
+        "backgroundColor": "#FFFFFF",
+        "flex": 1,
+      }
+    }
+  />
+</Component>
+`;

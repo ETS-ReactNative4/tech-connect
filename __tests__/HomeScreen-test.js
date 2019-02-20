@@ -3,6 +3,7 @@ import { HomeScreen, mapStateToProps } from '../HomeScreen';
 import { shallow } from 'enzyme'
 import SuggestedConnection from '../SuggestedConnection'
 import { getUserInfo } from '../apiCalls'
+import { Text } from 'react-native'
 
 jest.mock('../apiCalls')
 
@@ -33,6 +34,26 @@ describe('HomeScreen', () => {
   it('should render 0 suggested connections', () => {
 
     expect(wrapper.find(SuggestedConnection).length).toEqual(0)
+  })
+
+  it('should render a title', () => {
+
+    expect(wrapper.find(Text).at(1).contains('astronomer')).toBe(true)
+  })
+
+  it('should not render a title', () => {
+    const mockUserWithoutTitle = {
+      name: 'Howard',
+      position: {
+        job_title: null
+      }, 
+      suggestions: [],
+      api_key: 112345129372873,
+    }
+
+    wrapper = shallow(<HomeScreen user={ mockUserWithoutTitle } navigation={ mockNavigation } />)
+
+    expect(wrapper.find(Text).at(1).contains('astronomer')).toBe(false)
   })
 
   it('should render 1 suggestion component', () => {
