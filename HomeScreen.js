@@ -16,12 +16,16 @@ export class HomeScreen extends React.Component {
     this.props.navigation.navigate('ProfilePage', {user})
   }
 
+
   render() {
     const suggestions = this.props.user.suggestions
+    const title = this.props.user.position ? this.props.user.position.job_title : null
+    console.log(this.props.user)
+
     return (
       <View style={styles.container}>
         <Text style={styles.name}>{this.props.user.name}</Text>
-        <Text style={styles.position}>{this.props.user.position.job_title}</Text>
+        <Text style={styles.position}>{title}</Text>
         <View style={styles.imageContainer}>
           <Image source={require('./profile-pic.jpeg')} style={styles.profilePic} />
         </View>
