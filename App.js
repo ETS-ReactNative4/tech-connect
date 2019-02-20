@@ -7,6 +7,7 @@ import ModalScreen from './ModalScreen'
 import SearchScreen from './SearchScreen'
 import MessagesScreen from './MessagesScreen'
 import ScheduleScreen from './ScheduleScreen'
+import NavigationService from './NavigationService';
 import Icon from 'react-native-vector-icons/Feather';
 import { createStackNavigator, createAppContainer, createBottomTabNavigator } from "react-navigation";
 import { Provider } from 'react-redux'
@@ -110,7 +111,11 @@ export default class App extends React.Component {
   render() {
     return (
       <Provider store={ store }>
-        <AppContainer />
+        <AppContainer 
+          ref={navigatorRef => {
+            NavigationService.setTopLevelNavigator(navigatorRef);
+          }}
+        />
       </Provider>
     );
   }

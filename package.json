@@ -57,7 +57,8 @@
       "!/node_modules/",
       "!**/coverage/**",
       "!**/babel.config.js",
-      "!**/reducers/index.js"
+      "!**/reducers/index.js",
+      "!**/NavigationService.js"
     ]
   },
   "private": true

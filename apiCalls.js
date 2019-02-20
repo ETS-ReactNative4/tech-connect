@@ -101,7 +101,7 @@ export const sendConnectionRequest = async (key, id, inputs) => {
     const result = await response.json()
     return result.success
   } catch(err) {
-    console.log(err)
+    return 'Please fill out all the fields'
   }
 }
 
