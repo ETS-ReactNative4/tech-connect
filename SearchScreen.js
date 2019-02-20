@@ -42,10 +42,9 @@ export class SearchScreen extends React.Component {
     this.setState({ allUsers, loading: false })
   }
 
-
   render() {
-    const userArray = this.state.allUsers.map(user => <Connection connection={ user } viewProfile={ this.viewProfile } key={ user.id } />)
-    const userArray = this.state.allUsers.map(user => <Connection connection={ user } viewProfile={(() => this.viewProfile(user.id)) } />)
+    const { allUsers, selectedIndex, search, loading } = this.state
+    const userArray = allUsers.map(user => <Connection connection={ user } viewProfile={(() => this.viewProfile(user.id)) } key={ user.id }/>)
 
     const buttons = ['Name', 'Location', 'Position', 'Employer']
 
@@ -55,7 +54,7 @@ export class SearchScreen extends React.Component {
         <Text style={styles.search}>Search by:</Text>
         <ButtonGroup
           onPress={this.updateIndex}
-          selectedIndex={this.state.selectedIndex}
+          selectedIndex={selectedIndex}
           selectedButtonStyle={{backgroundColor: '#4AA9C5'}}
           buttons={buttons}
           containerStyle={{height: 30}}
@@ -80,13 +79,13 @@ export class SearchScreen extends React.Component {
           lightTheme
           placeholder="Type Here..."
           onChangeText={(text) => this.setState({search: text})} 
-          value={this.state.search}
+          value={search}
         />
         <ScrollView contentContainerStyle={{alignItems: 'center'}} style={ styles.scrollContainer }>
               <View style={ styles.connectionsContainer }>
-                { !this.state.loading ? userArray : <ActivityIndicator size="large" color="#fff" /> }
+                { !loading ? userArray : <ActivityIndicator size="large" color="#fff" /> }
                 { 
-                  (!userArray.length && !this.state.loading) && 
+                  (!userArray.length && !loading) && 
                     <Text style={{color: '#fff'}}>No users were found.</Text> 
                 }
               </View>
