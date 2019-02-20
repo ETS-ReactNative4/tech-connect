@@ -81,10 +81,11 @@ const AppNavigator = createStackNavigator(
     Login: LoginScreen,
     NavBar: AppNavBar,
     EditProfile: ProfileScreen,
+    Messages: MessagesInbox
   },
   {
     headerMode: 'none',
-    initialRouteName: "Login"
+    initialRouteName: "Messages"
   }
 )
 
