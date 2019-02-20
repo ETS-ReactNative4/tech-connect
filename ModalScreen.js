@@ -34,8 +34,8 @@ export class ModalScreen extends Component {
     const { datetime_1, datetime_2, datetime_3, meeting_1, meeting_2, meeting_3 } = this.state.inputs
     const user = this.props.navigation.getParam('user')
     const note = `${user.name} will receive an email with your suggestions. Once confirmed you will receive a notification email.`
-
-    if (response.length) {
+    const error = response.length ? <Text style={{color: 'red'}}>{response}</Text> : null
+    if (response === 'Email Sent') {
       return (
         <View style={styles.container}>
           <View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
@@ -147,6 +147,7 @@ export class ModalScreen extends Component {
             containerStyle={styles.input} 
             inputContainerStyle={styles.inputContainer} 
           />
+          { error }
           <TouchableHighlight style={styles.btnContainer}>
             <Button 
               onPress={this.sendRequest}
