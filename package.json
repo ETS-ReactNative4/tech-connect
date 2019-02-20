@@ -50,7 +50,7 @@
       "/node_modules/"
     ],
     "transformIgnorePatterns": [
-      "node_modules/(?!react-native|expo-react-native-adapter|react-navigation-stack|@react-navigation|native-base|@expo|expo|expo-font)"
+      "node_modules/(?!react-native|expo-react-native-adapter|react-navigation-stack|@react-navigation|native-base|@expo|expo|expo-font|react-navigation-tabs)"
     ],
     "collectCoverageFrom": [
       "**/*.{js,jsx}",
@@ -58,7 +58,8 @@
       "!**/coverage/**",
       "!**/babel.config.js",
       "!**/reducers/index.js",
-      "!**/NavigationService.js"
+      "!**/NavigationService.js",
+      "!**/App.js"
     ]
   },
   "private": true
