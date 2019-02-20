@@ -11,8 +11,42 @@ exports[`LoginScreen renders the snapshot 1`] = `
     }
   }
 >
-  <Text>
-    Tech Connect
+  <Text
+    style={
+      Object {
+        "alignItems": "center",
+        "color": "#fff",
+        "fontFamily": "American Typewriter",
+        "fontSize": 90,
+        "height": 75,
+        "lineHeight": 90,
+        "marginBottom": 0,
+        "marginTop": 0,
+      }
+    }
+  >
+    Tech
+  </Text>
+  <Text
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "color": "#fff",
+          "fontFamily": "American Typewriter",
+          "fontSize": 90,
+          "height": 75,
+          "lineHeight": 90,
+          "marginBottom": 0,
+          "marginTop": 0,
+        },
+        Object {
+          "marginBottom": 50,
+        },
+      ]
+    }
+  >
+    Connect
   </Text>
   <View
     style={
