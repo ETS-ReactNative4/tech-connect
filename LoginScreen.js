@@ -61,7 +61,8 @@ export class LoginScreen extends React.Component {
 
     return (
       <View style={styles.container}>
-        <Text>Tech Connect</Text>
+        <Text style={styles.header}>Tech</Text>
+        <Text style={[styles.header, {marginBottom: 50}]}>Connect</Text>
         <Input
           leftIcon= {
             <LinearGradient
@@ -167,6 +168,16 @@ const styles = StyleSheet.create({
     backgroundColor: '#4AA9C5',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  header: {
+    height: 75,
+    alignItems: 'center',
+    color: '#fff',
+    marginTop: 0,
+    marginBottom: 0,
+    fontSize: 90,
+    fontFamily: 'American Typewriter',
+    lineHeight: 90,
   },
   gradient: {
     borderRadius: 300, 
