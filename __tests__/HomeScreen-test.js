@@ -3,6 +3,7 @@ import { HomeScreen, mapStateToProps } from '../HomeScreen';
 import { shallow } from 'enzyme'
 import SuggestedConnection from '../SuggestedConnection'
 import { getUserInfo } from '../apiCalls'
+import { Text } from 'react-native'
 
 jest.mock('../apiCalls')
 
@@ -33,6 +34,11 @@ describe('HomeScreen', () => {
   it('should render 0 suggested connections', () => {
 
     expect(wrapper.find(SuggestedConnection).length).toEqual(0)
+  })
+
+  it('should render a title', () => {
+
+    expect(wrapper.find(Text).at(1).contains('astronomer')).toBe(true)
   })
 
   it('should render 1 suggestion component', () => {
