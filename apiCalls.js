@@ -65,7 +65,6 @@ export const getUsersFilter = async (key, filter, name) => {
 }
 
 export const getUserInfo = async (id, apiKey) => {
-
   const url = `https://tech-connect-be.herokuapp.com/api/v1/users/${id}?api_key=${apiKey}`
   try {
     const response = await fetch(url)
@@ -81,3 +80,30 @@ export const getUserInfo = async (id, apiKey) => {
     console.log(err)
   }
 }
+
+export const sendConnectionRequest = async (key, id, inputs) => {
+  const url = `https://tech-connect-be.herokuapp.com/api/v1/mailers`
+  const body = {...inputs, api_key: key, connection_id: id}
+  try {
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(body)
+    })
+
+    if (!response.ok) {
+      const errorText = await response.json()
+      throw Error(errorText.error)
+    }
+
+    const result = await response.json()
+    return result.success
+  } catch(err) {
+    console.log(err)
+  }
+}
+
+
+
