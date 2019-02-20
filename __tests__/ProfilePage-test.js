@@ -1,7 +1,7 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 import { ProfilePage, mapStateToProps } from '../ProfilePage'
-import { TouchableHighlight, View } from 'react-native'
+import { TouchableHighlight, View, Button } from 'react-native'
 import Icon from 'react-native-vector-icons/Feather'
 import Connection from '../Connection'
 import { getUserInfo } from '../apiCalls'
@@ -93,6 +93,48 @@ describe('ProfilePage', () => {
     const wrapper = shallow(<ProfilePage user={ mockUser } navigation={ mockNavigation } />)
 
     expect(wrapper.find(Connection).length).toEqual(1)
+  })
+
+  it('should navigate to the modal screen', () => {
+    const mockUser = {
+      name: 'Howard',
+      position: {
+        job_title: 'Developer'
+      },
+      employer: {
+        name: 'Turing'
+      },
+      location: {
+        city: 'Denver'
+      },
+      connections: [],
+      phone_number: '303-333-3333',
+      email: 'thisemail@email.com'
+    }
+    const otherUser = {
+      name: 'Lenard',
+      position: {
+        job_title: 'Developer'
+      },
+      employer: {
+        name: 'Turing'
+      },
+      location: {
+        city: 'Chicago'
+      },
+      connections: [],
+      phone_number: '303-333-3333',
+      email: 'thisemail@email.com'
+    }
+    mockNavigation = {
+      navigate: jest.fn(),
+      getParam: () => otherUser,
+    }
+    wrapper = shallow(<ProfilePage user={ mockUser } navigation={ mockNavigation }/>)
+
+    wrapper.find(Button).simulate('press')
+
+    expect(wrapper.instance().props.navigation.navigate).toHaveBeenCalled()
   })
 
   describe('viewProfile', () => {
