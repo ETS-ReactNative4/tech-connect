@@ -118,7 +118,7 @@ export const getMessages = async (apiKey) => {
     const result = await response.json()
     return result.data
   } catch(err) {
-    console.log(err)
+    return 'Unable to get messages'
   }
 }
 
