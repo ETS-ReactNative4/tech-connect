@@ -27,26 +27,21 @@ describe('HomeScreen', () => {
   })
 
   it('should match the snapshot', () => {
-
     expect(wrapper).toMatchSnapshot()
   })
 
   it('should render 0 suggested connections', () => {
-
     expect(wrapper.find(SuggestedConnection).length).toEqual(0)
   })
 
   it('should render a title', () => {
-
     expect(wrapper.find(Text).at(1).contains('astronomer')).toBe(true)
   })
 
   it('should not render a title', () => {
     const mockUserWithoutTitle = {
       name: 'Howard',
-      position: {
-        job_title: null
-      }, 
+      position:  null,
       suggestions: [],
       api_key: 112345129372873,
     }
