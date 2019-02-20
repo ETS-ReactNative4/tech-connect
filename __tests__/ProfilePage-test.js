@@ -165,7 +165,7 @@ describe('ProfilePage', () => {
       const wrapper = shallow(<ProfilePage user={ mockUser } navigation={{navigate: jest.fn(), getParam: jest.fn()}} />)
       wrapper.instance().contactInfo(mockUser)
   
-      expect(wrapper.find(View).length).toEqual(10)
+      expect(wrapper.find(View).length).toEqual(12)
     })
 
     it('should not render a contact section', () => {
@@ -187,7 +187,7 @@ describe('ProfilePage', () => {
       const wrapper = shallow(<ProfilePage user={ mockUser } navigation={{navigate: jest.fn(), getParam: jest.fn()}} />)
       wrapper.instance().contactInfo(mockUser)
   
-      expect(wrapper.find(View).length).toEqual(8)
+      expect(wrapper.find(View).length).toEqual(9)
     })
   })
 

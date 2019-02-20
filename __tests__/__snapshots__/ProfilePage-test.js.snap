@@ -14,7 +14,6 @@ exports[`ProfilePage should match the snapshot 1`] = `
       Object {
         "alignItems": "stretch",
         "backgroundColor": "#4AA9C5",
-        "display": "flex",
         "flex": 1,
         "flexDirection": "column",
         "height": "100%",
@@ -28,7 +27,6 @@ exports[`ProfilePage should match the snapshot 1`] = `
       style={
         Object {
           "alignItems": "center",
-          "display": "flex",
           "height": 180,
           "justifyContent": "center",
           "marginBottom": 20,
@@ -75,8 +73,9 @@ exports[`ProfilePage should match the snapshot 1`] = `
     <Component
       style={
         Object {
-          "backgroundColor": "white",
+          "backgroundColor": "#fff",
           "flex": 1,
+          "height": "100%",
           "marginLeft": 20,
           "marginRight": 20,
           "marginTop": -100,
@@ -127,8 +126,9 @@ exports[`ProfilePage should match the snapshot 1`] = `
         <Component
           style={
             Object {
-              "display": "flex",
+              "alignItems": "center",
               "flexDirection": "row",
+              "justifyContent": "center",
             }
           }
         >
@@ -158,8 +158,9 @@ exports[`ProfilePage should match the snapshot 1`] = `
         <Component
           style={
             Object {
-              "display": "flex",
+              "alignItems": "center",
               "flexDirection": "row",
+              "justifyContent": "center",
             }
           }
         >
@@ -174,13 +175,20 @@ exports[`ProfilePage should match the snapshot 1`] = `
               }
             }
           />
-          <Component />
+          <Component
+            style={
+              Object {
+                "marginTop": 6,
+              }
+            }
+          />
         </Component>
         <Component
           style={
             Object {
-              "display": "flex",
+              "alignItems": "center",
               "flexDirection": "row",
+              "justifyContent": "center",
             }
           }
         >
@@ -195,7 +203,13 @@ exports[`ProfilePage should match the snapshot 1`] = `
               }
             }
           />
-          <Component />
+          <Component
+            style={
+              Object {
+                "marginTop": 6,
+              }
+            }
+          />
         </Component>
         <Component
           style={
@@ -204,33 +218,47 @@ exports[`ProfilePage should match the snapshot 1`] = `
               "marginLeft": 10,
               "marginRight": 10,
               "marginTop": 5,
+              "textAlign": "center",
             }
           }
         />
       </Component>
-      <Component
-        style={
-          Object {
-            "fontSize": 15,
-            "marginLeft": 20,
-            "marginTop": 15,
+      <Component>
+        <Component
+          style={
+            Object {
+              "fontSize": 15,
+              "marginLeft": 20,
+              "marginTop": 15,
+            }
           }
-        }
-      >
-        Connections
+        >
+          Connections
+        </Component>
+        <Component
+          style={
+            Object {
+              "backgroundColor": "#4AA9C5",
+              "borderRadius": 5,
+              "marginLeft": 20,
+              "marginRight": 20,
+              "marginTop": 5,
+              "padding": 10,
+            }
+          }
+        >
+          <Component
+            style={
+              Object {
+                "color": "#fff",
+                "fontSize": 16,
+              }
+            }
+          >
+            You have no connections.
+          </Component>
+        </Component>
       </Component>
-      <Component
-        style={
-          Object {
-            "backgroundColor": "#4AA9C5",
-            "borderRadius": 5,
-            "marginLeft": 20,
-            "marginRight": 20,
-            "marginTop": 5,
-            "padding": 10,
-          }
-        }
-      />
     </Component>
   </Component>
 </ScrollView>
