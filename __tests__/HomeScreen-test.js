@@ -41,6 +41,21 @@ describe('HomeScreen', () => {
     expect(wrapper.find(Text).at(1).contains('astronomer')).toBe(true)
   })
 
+  it('should not render a title', () => {
+    const mockUserWithoutTitle = {
+      name: 'Howard',
+      position: {
+        job_title: null
+      }, 
+      suggestions: [],
+      api_key: 112345129372873,
+    }
+
+    wrapper = shallow(<HomeScreen user={ mockUserWithoutTitle } navigation={ mockNavigation } />)
+
+    expect(wrapper.find(Text).at(1).contains('astronomer')).toBe(false)
+  })
+
   it('should render 1 suggestion component', () => {
     const mockUser = {
       name: 'Howard',
