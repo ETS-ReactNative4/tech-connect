@@ -27,10 +27,23 @@ export class ProfileScreen extends React.Component {
   }
 
   async componentDidMount() {
+    const { name, phone_number, location, position, employer, github, linkedin, bio } = this.props.user
     const locations = await getLocations()
     const positions = await getPositions()
     const employers = await getEmployers()
-    this.setState({ locations, employers, positions })
+    this.setState({
+      locations,
+      employers,
+      positions,
+      name,
+      phone_number: phone_number.toString(),
+      github,
+      linkedin,
+      bio,
+      location: location.city,
+      position: position.job_title,
+      employer: employer.name
+      })
   }
 
 
@@ -40,6 +53,7 @@ export class ProfileScreen extends React.Component {
   }
 
   render() {
+    const { name, phone_number, github, linkedin, bio, employer, position, location } = this.state
     return (
       <View style={styles.container} >
       <Text style={styles.title}>Update Profile</Text>
@@ -49,7 +63,7 @@ export class ProfileScreen extends React.Component {
           leftIconContainerStyle={styles.icon} 
           inputContainerStyle={styles.profileInput} 
           placeholder="Name"
-          value={this.state.name}
+          value={name}
           leftIcon={
             <Icon
               name='user'
@@ -64,7 +78,7 @@ export class ProfileScreen extends React.Component {
           leftIconContainerStyle={styles.icon} 
           inputContainerStyle={styles.profileInput} 
           placeholder="Phone Number"
-          value={this.state.phone_number}
+          value={phone_number}
           leftIcon={
             <Icon 
               name='phone'
@@ -77,7 +91,7 @@ export class ProfileScreen extends React.Component {
         <ModalSelector
           optionTextStyle={{color: '#4AA9C5', fontSize: 20}}
           data={this.state.locations}
-          initValue="Select something!"
+          initValue={"Select something!"}
           cancelButtonAccessibilityLabel={'Cancel Button'}
           onChange={(option)=>{ this.setState({location: option.label})}}>
           <Input
@@ -93,7 +107,7 @@ export class ProfileScreen extends React.Component {
             }
           editable={false}
           placeholder="Location"
-          value={this.state.location} />
+          value={location} />
         </ModalSelector>
 
         <ModalSelector
@@ -115,7 +129,7 @@ export class ProfileScreen extends React.Component {
             }
           editable={false}
           placeholder="Position"
-          value={this.state.position} />
+          value={position} />
         </ModalSelector>
 
         <ModalSelector
@@ -137,7 +151,7 @@ export class ProfileScreen extends React.Component {
             }
           editable={false}
           placeholder="Employer"
-          value={this.state.employer} />
+          value={employer} />
         </ModalSelector>
 
         <Input 
@@ -146,7 +160,7 @@ export class ProfileScreen extends React.Component {
           leftIconContainerStyle={styles.icon} 
           inputContainerStyle={styles.profileInput} 
           placeholder="GitHub"
-          value={this.state.github}
+          value={github}
           leftIcon={
             <Icon
               name='github'
@@ -161,7 +175,7 @@ export class ProfileScreen extends React.Component {
           leftIconContainerStyle={styles.icon} 
           inputContainerStyle={styles.profileInput} 
           placeholder="LinkedIn"
-          value={this.state.linkedin}
+          value={linkedin}
           leftIcon={
             <Icon
               name='linkedin'
@@ -176,7 +190,7 @@ export class ProfileScreen extends React.Component {
           leftIconContainerStyle={styles.icon} 
           inputContainerStyle={styles.profileInput} 
           placeholder="Bio"
-          value={this.state.bio}
+          value={bio}
           leftIcon={
             <Icon
               name='edit'

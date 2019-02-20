@@ -54,9 +54,10 @@ export class ProfilePage extends Component {
     const isConnection = this.props.user.connections.filter(connection => parseInt(user.id) === parseInt(connection.id))
     const connectionInfo = isConnection.length ? this.contactInfo(user) : null
     const editProfileSection = this.props.user.id !== user.id ? null : this.displayEditProfile(user)
+    const button = isConnection.length ? 'Message' : 'Connect'
     const connectBtn = this.props.user !== user && 
       <TouchableHighlight style={styles.connectBtn}>
-        <Button onPress={() => this.props.navigation.navigate('Modal', {user})} title='Connect' color='white' />
+        <Button onPress={() => this.props.navigation.navigate('Modal', {user})} title={button} color='white' />
       </TouchableHighlight>
     const connections = (user.id === this.props.user.id) ? this.displayConnections(user) : null
 
