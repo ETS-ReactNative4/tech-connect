@@ -28,6 +28,7 @@ export class ProfileScreen extends React.Component {
 
   async componentDidMount() {
     const { name, phone_number, location, position, employer, github, linkedin, bio } = this.props.user
+    const phoneNumber = phone_number === null ? '' : phone_number.toString()
     const locations = await getLocations()
     const positions = await getPositions()
     const employers = await getEmployers()
@@ -36,24 +37,44 @@ export class ProfileScreen extends React.Component {
       employers,
       positions,
       name,
-      phone_number: phone_number.toString(),
+      phone_number: phoneNumber,
       github,
       linkedin,
       bio,
       location: location.city,
       position: position.job_title,
-      employer: employer.name
+      employer: employer.name,
+      error: ''
       })
   }
 
 
   handleSave = async () => {
-    await this.props.updateUser({...this.state, api_key: this.props.user.api_key})
-    this.props.navigation.navigate('Home')
+    await this.checkInputs()
+    if(this.state.error === '') {
+      await this.props.updateUser({...this.state, api_key: this.props.user.api_key})
+      this.props.navigation.navigate('Home')
+    }
+  }
+
+  checkInputs = () => {
+    const inputs = ['name', 'phone_number', 'location', 'position', 'employer', 'github', 'linkedin', 'bio']
+    const emptyInput = inputs.filter(input => {
+      return this.state[input] === ''
+    })
+    if(emptyInput.length) {
+      this.setState({
+        error: 'You are missing a required field(s)'
+      })
+    } else {
+      this.setState({
+        error: ''
+      })
+    }
   }
 
   render() {
-    const { name, phone_number, github, linkedin, bio, employer, position, location } = this.state
+    const { name, phone_number, github, linkedin, bio, employer, position, location, error } = this.state
     return (
       <View style={styles.container} >
       <Text style={styles.title}>Update Profile</Text>
@@ -199,6 +220,7 @@ export class ProfileScreen extends React.Component {
             />
           }
         />
+        <Text>{ this.state.error }</Text>
         <TouchableHighlight style={styles.button}>
           <Button title="save" color='#E8FDFF' onPress={this.handleSave}/>
         </TouchableHighlight>
