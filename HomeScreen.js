@@ -20,7 +20,6 @@ export class HomeScreen extends React.Component {
   render() {
     const suggestions = this.props.user.suggestions
     const title = this.props.user.position ? this.props.user.position.job_title : null
-    console.log(this.props.user)
 
     return (
       <View style={styles.container}>
