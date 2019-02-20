@@ -7,20 +7,10 @@ exports[`MessagesInbox should match the snapshot 1`] = `
       "backgroundColor": "#4AA9C5",
       "flex": 1,
       "padding": 20,
+      "paddingTop": 40,
     }
   }
 >
-  <Component
-    style={
-      Object {
-        "fontSize": 30,
-        "marginBottom": 10,
-        "marginTop": 10,
-      }
-    }
-  >
-    Inbox
-  </Component>
   <Component
     style={
       Object {
@@ -28,6 +18,20 @@ exports[`MessagesInbox should match the snapshot 1`] = `
         "flex": 1,
       }
     }
-  />
+  >
+    <Component
+      style={
+        Object {
+          "color": "#4AA9C5",
+          "fontSize": 30,
+          "marginBottom": 10,
+          "marginLeft": 10,
+          "marginTop": 5,
+        }
+      }
+    >
+      Inbox
+    </Component>
+  </Component>
 </Component>
 `;

@@ -37,11 +37,9 @@ exports[`Connection should match the snapshot 1`] = `
       }
     }
   >
-    <TouchableHighlight
-      activeOpacity={0.85}
-      delayPressOut={100}
+    <TouchableOpacity
+      activeOpacity={0.2}
       onPress={[Function]}
-      underlayColor="black"
     >
       <Component
         style={
@@ -52,7 +50,7 @@ exports[`Connection should match the snapshot 1`] = `
       >
         Howard
       </Component>
-    </TouchableHighlight>
+    </TouchableOpacity>
     <Component
       style={
         Object {

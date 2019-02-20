@@ -21,7 +21,24 @@ describe('ProfileScreen', () => {
   beforeEach(() => {
     navigation = { navigate: jest.fn() };
     onPressEvent = jest.fn()
-    wrapper = shallow(<ProfileScreen user={{api_key: 1234}} updateUser={jest.fn()} navigation={navigation} />)
+    mockUser = {
+      api_key: 1234,
+      name: 'Howard',
+      phone_number: 2022222222,
+      location: {
+        city: 'Denver'
+      },
+      position: {
+        job_title: 'Astronomer'
+      },
+      employer: {
+        name: 'Turing'
+      },
+      github: 'www.github.com',
+      linkedin: 'www.linkedin.com',
+      bio: 'This is a bio'
+    }
+    wrapper = shallow(<ProfileScreen user={mockUser} updateUser={jest.fn()} navigation={navigation} />)
   })
 
   it('renders the snapshot', () => {
@@ -45,12 +62,28 @@ describe('ProfileScreen', () => {
     expect(spy).toHaveBeenCalled();
   })
 
-  it('should save the updated user info', () => {
-    wrapper.instance().handleSave()
+  it('should save the updated user info', async () => {
+    wrapper.setState({
+      error: '',
+      name: 'Howard',
+      phone_number: '39393383',
+      linkedin: 'www.linkedin.com',
+      github: 'www.github.com',
+      bio: 'This is howard'
+    })
+    await wrapper.instance().handleSave()
     expect(wrapper.instance().props.updateUser).toHaveBeenCalled()
   })
 
   it('should nagivate on save', async () => {
+    wrapper.setState({
+      error: '',
+      name: 'Howard',
+      phone_number: '39393383',
+      linkedin: 'www.linkedin.com',
+      github: 'www.github.com',
+      bio: 'This is howard'
+    })
     await wrapper.instance().handleSave()
     expect(wrapper.instance().props.navigation.navigate).toHaveBeenCalled()
   })

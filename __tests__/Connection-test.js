@@ -1,7 +1,7 @@
 import React from 'react'
 import { Connection, mapStateToProps } from '../Connection'
 import { shallow } from 'enzyme'
-import { TouchableHighlight } from 'react-native'
+import { TouchableOpacity } from 'react-native'
 
 const mockUser = {name: 'Howard'}
 
@@ -28,7 +28,7 @@ describe('Connection', () => {
   })
 
   it('should call viewProfile on press of the name', () => {
-    wrapper.find(TouchableHighlight).first().simulate('press')
+    wrapper.find(TouchableOpacity).first().simulate('press')
 
     expect(mockViewProfile).toHaveBeenCalled()
   })
