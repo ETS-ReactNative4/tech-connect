@@ -20,8 +20,10 @@ export class ProfilePage extends Component {
       <View>
         <Text style={ styles.connections }>Contact Information</Text>
         <View style={ styles.connectionsContainer }>
-          <Text>{ user.phone_number }</Text>
-          <Text>{ user.email }</Text>
+          <View style={{backgroundColor: '#fff', padding: 10}}>
+            <Text style={{color: '#000'}}>Phone: { user.phone_number }</Text>
+            <Text style={{color: '#000'}}>Email: { user.email }</Text>
+          </View>
         </View>
       </View>
     )
@@ -53,7 +55,7 @@ export class ProfilePage extends Component {
       <TouchableHighlight style={styles.connectBtn}>
         <Button onPress={() => this.props.navigation.navigate('Modal', {user})} title='Connect' color='white' />
       </TouchableHighlight>
-    const connections = user.connections && this.displayConnections(user)
+    const connections = user.connections ? this.displayConnections(user) : <Text style={styles.noConnections}>This user has no connections.</Text>
 
     return (
       <ScrollView style={ styles.scrollContainer }>
@@ -75,11 +77,11 @@ export class ProfilePage extends Component {
               </View>
               <View style={ styles.iconContainer }> 
                 <Icon name='linkedin' size={ 20 } color='#4AA9C5' style={ {marginRight: 5} }/>
-                <Text>{ user.linkedin }</Text>
+                <Text style={{marginTop: 6}}>{ user.linkedin }</Text>
               </View>
               <View style={ styles.iconContainer }>
                 <Icon name='github' size={ 20 } color='#4AA9C5' style={ {marginRight: 5} }/>
-                <Text>{ user.github }</Text>
+                <Text style={{marginTop: 6}}>{ user.github }</Text>
               </View>
               <Text style={ styles.bio }>{ user.bio }</Text>
               {
@@ -115,7 +117,6 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    display: 'flex',
     alignItems: 'flex-start',
     alignItems: 'stretch',
     flexDirection: 'column',
@@ -126,7 +127,6 @@ const styles = StyleSheet.create({
     paddingBottom: 20,
   },
   imageContainer: {
-    display: 'flex',
     height: 180,
     width: '100%',
     justifyContent: 'center',
@@ -147,11 +147,12 @@ const styles = StyleSheet.create({
   },
   profileContainer: {
     flex: 1,
-    backgroundColor: 'white',
+    backgroundColor: '#fff',
     marginRight: 20,
     marginLeft: 20,
     marginTop: -100,
     paddingBottom: 20,
+    height: '100%'
   },
   editIcon: {
     position: 'absolute',
@@ -178,8 +179,9 @@ const styles = StyleSheet.create({
     color: 'gray'
   },
   iconContainer: {
-    display: 'flex',
-    flexDirection: 'row'
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   location: {
     fontSize: 19,
@@ -202,6 +204,10 @@ const styles = StyleSheet.create({
     shadowColor: 'black',
     shadowOpacity: .5,
     marginTop: 10,
+  },
+  noConnections: {
+    color: '#fff',
+    fontSize: 16
   },
   connections: {
     marginLeft: 20,
