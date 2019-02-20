@@ -1,22 +1,34 @@
 import React, { Component } from 'react'
-import { StyleSheet, View, Image, Text } from 'react-native'
+import { StyleSheet, View, Image, Text, TouchableOpacity } from 'react-native'
 
 export default class Message extends Component {
+  constructor() {
+    super()
+    this.state = {
+      showMessage: false
+    }
+  }
+
   render() {
-    const date = new Date(this.props.message.meeting_date)
-    const splitDate = date.toUTCString().split(' ')
-    const newDate = splitDate.slice(0, 4).join(' ')
+    const sentDate = new Date(this.props.message.created_at).toUTCString().split(' ').slice(0, 4).join(' ')
+    const meetingDate = new Date(this.props.message.meeting_date).toUTCString().split(' ').slice(0, 4).join(' ')
+    const time = new Date(this.props.message.meeting_date).toUTCString().split(' ')[4]
     
     return (
       <View style={ styles.messageContainer }>
-        <View style={ styles.imageContainer }>
-          <Image source={ require('./profile-pic.jpeg') } style={ styles.userPic }/>
-        </View>
-        <Text style={ styles.date }>{ newDate }</Text>
-        <View style={ styles.messageInfo }>
-          <Text style={ styles.name }>{ this.props.message.receiver }</Text>
-          <Text style={ styles.message }>{ this.props.message.status }</Text>
-        </View>
+        <Text style={ styles.date }>{ sentDate }</Text>
+        <TouchableOpacity style={ styles.messageInfoContainer } onPress={() => this.setState({showMessage: !this.state.showMessage})}>
+          <View style={ styles.imageContainer }>
+            <Image source={ require('./profile-pic.jpeg') } style={ styles.userPic }/>
+          </View>
+          <View style={ styles.messageInfo }>
+            <Text style={ styles.name }>{ this.props.message.receiver }</Text>
+            <Text style={ styles.message }>{ this.props.message.status }</Text>
+            {
+              !this.state.showMessage ? null : <Text style={ styles.messageBody } >{ this.props.message.receiver } has confirmed a meeting with you at { this.props.message.meeting_location } on { meetingDate } at { time }</Text>
+            }
+          </View>
+        </TouchableOpacity>
       </View>
     )
   }
@@ -29,6 +41,12 @@ const styles = StyleSheet.create({
     padding: 20,
     borderBottomWidth: 0.5,
     borderBottomColor: 'gray',
+  },
+  messageInfoContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+    maxWidth: '100%',
+    marginRight: 10
   },
   imageContainer: {
     shadowOffset: {  width: 2,  height: 2 },
@@ -51,9 +69,14 @@ const styles = StyleSheet.create({
   },
   message: {
     marginTop: 5,
-    color: 'gray'
+    color: 'gray',
+  },
+  messageBody: {
+    marginRight: 10
   },
   messageInfo: {
-    marginLeft: 10
+    marginLeft: 10,
+    marginRight: 30,
+    marginTop: 5
   }
 })
