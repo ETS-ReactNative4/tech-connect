@@ -28,7 +28,12 @@ export class ProfileScreen extends React.Component {
 
   async componentDidMount() {
     const { name, phone_number, location, position, employer, github, linkedin, bio } = this.props.user
-    const phoneNumber = phone_number === null ? '' : phone_number.toString()
+    let phoneNumber = phone_number
+    if(phone_number === null) {
+      phoneNumber = ''
+    } else {
+      phoneNumber = phoneNumber.toString()
+    }
     const locations = await getLocations()
     const positions = await getPositions()
     const employers = await getEmployers()
