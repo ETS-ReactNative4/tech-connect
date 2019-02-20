@@ -40,10 +40,13 @@ export class ProfilePage extends Component {
   }
 
   displayConnections = (user) => {
-    const connections = user.connections.map((connection) => {
-      return <Connection connection={ connection } viewProfile={ this.viewProfile } key={connection.id}/>
-    })
-    return connections
+    if (user.connections.length) {
+      return user.connections.map((connection) => {
+        return <Connection connection={ connection } viewProfile={ this.viewProfile } key={connection.id}/>
+      })
+    } else {
+      return <Text style={styles.noConnections}>You have no connections.</Text>  
+    }
   }
 
   render() {
@@ -55,7 +58,9 @@ export class ProfilePage extends Component {
       <TouchableHighlight style={styles.connectBtn}>
         <Button onPress={() => this.props.navigation.navigate('Modal', {user})} title='Connect' color='white' />
       </TouchableHighlight>
-    const connections = user.connections ? this.displayConnections(user) : <Text style={styles.noConnections}>This user has no connections.</Text>
+    const connections = (user.id === this.props.user.id) ? this.displayConnections(user) : null
+
+
 
     return (
       <ScrollView style={ styles.scrollContainer }>
@@ -84,19 +89,18 @@ export class ProfilePage extends Component {
                 <Text style={{marginTop: 6}}>{ user.github }</Text>
               </View>
               <Text style={ styles.bio }>{ user.bio }</Text>
-              {
-                connectBtn
-              }
+              { connectBtn }
             </View>
+            { connectionInfo }
             {
-              connectionInfo
+              user.connections &&
+              <View>
+                <Text style={ styles.connections}>Connections</Text>
+                <View style={ styles.connectionsContainer }>
+                  { connections }
+                </View>
+              </View>
             }
-            <Text style={ styles.connections}>Connections</Text>
-            <View style={ styles.connectionsContainer }>
-              {
-                connections
-              }
-            </View>
           </View>
         </View>
       </ScrollView>
@@ -189,6 +193,7 @@ const styles = StyleSheet.create({
     color: 'gray'
   },
   bio: {
+    textAlign: 'center',
     fontWeight: '300',
     marginTop: 5,
     marginLeft: 10,
