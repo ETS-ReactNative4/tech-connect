@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View, Image, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
 import { LinearGradient } from 'expo'
 import { getUserInfo } from './apiCalls'
@@ -22,25 +22,27 @@ export class HomeScreen extends React.Component {
     const title = this.props.user.position ? this.props.user.position.job_title : null
 
     return (
-      <View style={styles.container}>
-        <Text style={styles.name}>{this.props.user.name}</Text>
-        <Text style={styles.position}>{title}</Text>
-        <View style={styles.imageContainer}>
-          <Image source={ {uri: this.props.user.photo} }style={styles.profilePic} />
+      <ScrollView>
+        <View style={styles.container}>
+          <Text style={styles.name}>{this.props.user.name}</Text>
+          <Text style={styles.position}>{title}</Text>
+          <View style={styles.imageContainer}>
+            <Image source={ {uri: this.props.user.photo} }style={styles.profilePic} />
+          </View>
+          <View style={styles.gradientContainer}>
+            <LinearGradient
+              colors={['#4AA9C5', '#6383C1', '#93548F']}
+              start={[ 0.4, 0.7 ]}
+              style={[styles.circle, { borderRadius: 300 }]} />
+          </View>
+          <View styles={styles.suggestedConnections}>
+            <Text style={styles.suggestedTitle}>Suggested Connections</Text>
+            { 
+              suggestions.map(suggestion => <SuggestedConnection suggestion={ suggestion } viewProfile={ this.viewProfile } key={ uuidv1() } />) 
+            }
+          </View>
         </View>
-        <View style={styles.gradientContainer}>
-          <LinearGradient
-            colors={['#4AA9C5', '#6383C1', '#93548F']}
-            start={[ 0.4, 0.7 ]}
-            style={[styles.circle, { borderRadius: 300 }]} />
-        </View>
-        <View styles={styles.suggestedConnections}>
-          <Text style={styles.suggestedTitle}>Suggested Connections</Text>
-          { 
-            suggestions.map(suggestion => <SuggestedConnection suggestion={ suggestion } viewProfile={ this.viewProfile } key={ uuidv1() } />) 
-          }
-        </View>
-      </View>
+      </ScrollView>
     )
   }
 }
@@ -52,6 +54,10 @@ export const mapStateToProps = (state) => ({
 export default connect(mapStateToProps)(HomeScreen)
 
 const styles = StyleSheet.create({
+  scrollContainer: {
+    flex: 1,
+    backgroundColor: '#FFFF',
+  },
   container: {
     flex: 1,
     display: 'flex',
