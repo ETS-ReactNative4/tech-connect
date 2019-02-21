@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import { StyleSheet, View, Image, Text, TouchableOpacity } from 'react-native'
+import { connect } from 'react-redux';
 
-export default class Message extends Component {
+
+export class Message extends Component {
   constructor() {
     super()
     this.state = {
@@ -10,9 +12,19 @@ export default class Message extends Component {
   }
 
   render() {
-    const sentDate = new Date(this.props.message.created_at).toUTCString().split(' ').slice(0, 4).join(' ')
-    const meetingDate = new Date(this.props.message.meeting_date).toUTCString().split(' ').slice(0, 4).join(' ')
-    const time = new Date(this.props.message.meeting_date).toUTCString().split(' ')[4]
+    const { message, user } = this.props
+    const connection = (user.name === message.receiver) ? message.sender :  message.receiver
+    const sentDate = new Date(message.created_at).toUTCString().split(' ').slice(0, 4).join(' ')
+    const meetingDate = new Date(message.meeting_date).toUTCString().split(' ').slice(0, 4).join(' ')
+    const time = new Date(message.meeting_date).toUTCString().split(' ')[4]
+    let messageText
+    let messageEnd = (message.meeting_location !== 'N/A') ? `at ${message.meeting_location} on ${meetingDate} at ${time}` : null
+
+    if (message.receiver === user.name) {
+      messageText = <Text style={ styles.messageBody } >You have { message.status } a meeting with { message.sender } { messageEnd }</Text>
+    } else {
+      messageText = <Text style={ styles.messageBody } >{ message.receiver } has { message.status } a meeting with you { messageEnd }</Text>
+    }
     
     return (
       <View style={ styles.messageContainer }>
@@ -22,10 +34,10 @@ export default class Message extends Component {
             <Image source={ require('./profile-pic.jpeg') } style={ styles.userPic }/>
           </View>
           <View style={ styles.messageInfo }>
-            <Text style={ styles.name }>{ this.props.message.receiver }</Text>
-            <Text style={ styles.message }>{ this.props.message.status }</Text>
+            <Text style={ styles.name }>{ connection }</Text>
+            <Text style={ styles.message }>{ message.status }</Text>
             {
-              !this.state.showMessage ? null : <Text style={ styles.messageBody } >{ this.props.message.receiver } has confirmed a meeting with you at { this.props.message.meeting_location } on { meetingDate } at { time }</Text>
+              !this.state.showMessage ? null : messageText
             }
           </View>
         </TouchableOpacity>
@@ -33,6 +45,13 @@ export default class Message extends Component {
     )
   }
 }
+
+export const mapStateToProps = (state) => ({
+  user: state.user
+})
+
+export default connect(mapStateToProps)(Message)
+
 
 const styles = StyleSheet.create({
   messageContainer: {
