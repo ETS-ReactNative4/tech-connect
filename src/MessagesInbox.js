@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 import Message from './Message'
-import { getMessages } from './apiCalls'
+import { getMessages } from '../apiCalls'
 import { connect } from 'react-redux';
 const uuidv1 = require('uuid/v1');
 
@@ -24,10 +24,10 @@ export class MessagesInbox extends Component {
     return (
       <View style={ styles.inboxContainer }>
         <View style={ styles.messageContainer }>
-        <Text style={ styles.inboxTitle }>Inbox</Text>
-        {
-          this.state.messages.length ? this.state.messages.map(message => <Message message={message.attributes} key={ uuidv1() } />) : null
-        }
+          <Text style={ styles.inboxTitle }>Inbox</Text>
+          {
+            this.state.messages.length ? this.state.messages.map(message => <Message message={message.attributes} key={ uuidv1() } />) : null
+          }
         </View>
       </View>
     )

@@ -1,5 +1,5 @@
 import React from 'react'
-import { LoginScreen, mapStateToProps, mapDispatchToProps } from '../LoginScreen'
+import { LoginScreen, mapStateToProps, mapDispatchToProps } from '../src/LoginScreen'
 import { Input } from 'react-native-elements';
 import { shallow } from 'enzyme'
 import { createUser } from '../thunks/createUser'
@@ -17,7 +17,6 @@ describe('LoginScreen', () => {
 
   beforeEach(() => {
     navigation = { navigate: jest.fn() };
-    onPressEvent = jest.fn()
     wrapper = shallow(<LoginScreen 
       loginUser={jest.fn} 
       createUser={jest.fn()} 
@@ -29,7 +28,7 @@ describe('LoginScreen', () => {
   it('renders the snapshot', () => {
     const tree = renderer.create(
       <LoginScreen />
-      ).toJSON();
+    ).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
@@ -47,14 +46,14 @@ describe('LoginScreen', () => {
 
   it('creates a new user account', () => {
     wrapper.setState({ register: true })
-    mockUser = {user: 'Kylie', password: 'hello', password_confirmation: 'hello' }
+    const mockUser = {user: 'Kylie', password: 'hello', password_confirmation: 'hello' }
     wrapper.instance().handleSubmit()
     expect(wrapper.instance().props.createUser(mockUser))
   })
 
   it('signs in a current user', () => {
     wrapper.setState({ register: false })
-    mockUser = {user: 'Kylie', password: 'hello' }
+    const mockUser = {user: 'Kylie', password: 'hello' }
     wrapper.instance().handleSubmit()
     expect(wrapper.instance().props.loginUser(mockUser))
   })

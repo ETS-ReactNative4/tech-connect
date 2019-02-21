@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import { Message, mapStateToProps } from '../Message'
+import { Message, mapStateToProps } from '../src/Message'
 import { TouchableOpacity, Text } from 'react-native'
 
 describe('Message', () => {
@@ -27,7 +27,7 @@ describe('Message', () => {
     expect(wrapper.find(Text).at(3).props().children.join('')).toEqual('Howard has Confirmed a meeting with you at Turing on Fri, 15 Feb 2019 at 23:11:40')
   })
 
-   it('should render a declined message when you are the receiver', () => {
+  it('should render a declined message when you are the receiver', () => {
     mockMessage = {
       receiver: 'Joe',
       meeting_location: 'N/A',
@@ -40,7 +40,7 @@ describe('Message', () => {
     expect(wrapper.find(Text).at(3).props().children.join('')).toEqual('You have Declined a meeting with Howard ')
   })
 
-   it('should render a decline message when you are the sender', () => {
+  it('should render a decline message when you are the sender', () => {
     mockMessage = {
       receiver: 'Howard',
       meeting_location: 'N/A',

@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, TouchableHighlight, Image, Button, ScrollView, 
 import Icon from 'react-native-vector-icons/Feather'
 import Connection from './Connection'
 import { connect } from 'react-redux'
-import { getUserInfo } from './apiCalls'
+import { getUserInfo } from '../apiCalls'
 
 export class ProfilePage extends Component {
   constructor(props) {
@@ -33,7 +33,7 @@ export class ProfilePage extends Component {
     this.props.navigation.navigate('EditProfile')
   }
 
-  displayEditProfile = (user) => {
+  displayEditProfile = () => {
     return (
       <Icon name='edit' size={20} color='#4AA9C5' style={ styles.editIcon } onPress={ this.editProfile } />
     )

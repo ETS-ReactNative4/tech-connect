@@ -3,9 +3,8 @@ import { StyleSheet, Text, TextInput, View, Button, TouchableHighlight, Image, S
 import { connect } from 'react-redux';
 import { ButtonGroup } from 'react-native-elements'
 import { LinearGradient } from 'expo'
-import SuggestedConnection from './SuggestedConnection.js' 
 import Connection from './Connection'
-import { getAllUsers, getUserInfo, getUsersFilter } from './apiCalls'
+import { getAllUsers, getUserInfo, getUsersFilter } from '../apiCalls'
 import Icon from 'react-native-vector-icons/Feather'
 
 const uuidv1 = require('uuid/v1');
@@ -45,7 +44,7 @@ export class SearchScreen extends React.Component {
 
   render() {
     const { allUsers, selectedIndex, search, loading } = this.state
-    const userArray = allUsers.map(user => <Connection connection={ user } viewProfile={this.viewProfile.bind(null,user.id)} key={ user.id }/>)
+    const userArray = allUsers.map(user => <Connection connection={ user } viewProfile={this.viewProfile.bind(null, user.id)} key={ user.id }/>)
     const buttons = ['Name', 'Location', 'Position', 'Employer']
 
     return (

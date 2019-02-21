@@ -7,21 +7,21 @@ import ModalScreen from './ModalScreen'
 import SearchScreen from './SearchScreen'
 import MessagesInbox from './MessagesInbox'
 import ScheduleScreen from './ScheduleScreen'
-import NavigationService from './NavigationService';
+import NavigationService from '../NavigationService';
 import Icon from 'react-native-vector-icons/Feather';
 import { createStackNavigator, createAppContainer, createBottomTabNavigator, createSwitchNavigator } from "react-navigation";
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'remote-redux-devtools';
 import thunk from 'redux-thunk';
-import rootReducer from './reducers'
+import rootReducer from '../reducers'
 
 const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)))
 
 const SecondaryHomeNav = createStackNavigator(
   {
     Home: HomeScreen,
-    ProfilePage: ProfilePage,
+    ProfilePage,
   },
   {
     headerMode: 'none',

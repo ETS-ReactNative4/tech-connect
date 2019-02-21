@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import NavigationService from './NavigationService.js';
+import NavigationService from '../NavigationService.js';
 import { StyleSheet, Text, View, Image, Button, TouchableHighlight, TouchableOpacity } from 'react-native'
 import Icon from 'react-native-vector-icons/Feather'
 
@@ -7,12 +7,12 @@ export default class SuggestedConnection extends Component {
   
   render() {
     const user = this.props.suggestion
-    const { id, name, job_title, city , photo } = this.props.suggestion
+    const { id, name, job_title, city, photo } = this.props.suggestion
     return (
       <View style={styles.container}>
-      <View style={styles.imageContainer}>
-        <Image source={ {uri: photo} } style={styles.picture} />
-      </View>
+        <View style={styles.imageContainer}>
+          <Image source={ {uri: photo} } style={styles.picture} />
+        </View>
         <TouchableOpacity onPress={() => this.props.viewProfile(id)}>
           <Text style={ styles.name }>{ name }</Text>
         </TouchableOpacity>

@@ -3,12 +3,19 @@ module.exports = {
       "browser": true,
       "commonjs": true,
       "es6": true,
-      "mocha": true
+      "jest":true
+    },
+    "globals": {
+        "_": false
     },
     "extends": "eslint:recommended",
+    "parser": "babel-eslint",
     "parserOptions": { "sourceType": "module" },
     "rules": {
       "eqeqeq": ["error", "always"],
+      "rules": {
+        "no-unused-vars": ["error", { "vars": "local", "args": "after-used", "ignoreRestSiblings": false }]
+      },
       "brace-style": "error",
       "comma-spacing": ["warn", { "before": false, "after": true }],
       "curly": "error",
@@ -17,7 +24,7 @@ module.exports = {
       "key-spacing": ["error", { "beforeColon": false, "afterColon": true }],
       "keyword-spacing": ["error", { "before": true, "after": true }],
       "linebreak-style": ["error", "unix"],
-      "max-len": ["warn", 80],
+      "max-len": ["warn", 150],
       "new-cap": ["error", { "newIsCap": true }],
       "object-shorthand": ["error", "always"],
       "space-before-blocks": ["error", { "functions": "always", "keywords": "always", "classes": "always" }],

@@ -3,7 +3,6 @@ import { isLoading, hasErrored, updateUserAction } from '../actions'
 
 
 describe('updateUser', () => {
-  let mockUrl
   let mockDispatch
   let mockUserFetch
   let mockUser
@@ -23,8 +22,8 @@ describe('updateUser', () => {
       email: 'email@email.com'
     }
 
-     mockUrl = 'https://tech-connect-be.herokuapp.com/api/v1/users'
-     mockDispatch = jest.fn()
+    mockUrl = 'https://tech-connect-be.herokuapp.com/api/v1/users'
+    mockDispatch = jest.fn()
   })
 
   it('should call dispatch with the isLoading action', () => {

@@ -1,9 +1,9 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import { ProfilePage, mapStateToProps } from '../ProfilePage'
+import { ProfilePage, mapStateToProps } from '../src/ProfilePage'
 import { TouchableHighlight, View, Button } from 'react-native'
 import Icon from 'react-native-vector-icons/Feather'
-import Connection from '../Connection'
+import Connection from '../src/Connection'
 import { getUserInfo } from '../apiCalls'
 
 jest.mock('../apiCalls')
@@ -29,7 +29,7 @@ describe('ProfilePage', () => {
       phone_number: '303-333-3333',
       email: 'thisemail@email.com'
     }
-    mockNavigation = {
+    const mockNavigation = {
       navigate: jest.fn(),
       getParam: () => mockUser,
     }
@@ -120,7 +120,7 @@ describe('ProfilePage', () => {
       phone_number: '303-333-3333',
       email: 'thisemail@email.com'
     }
-    mockNavigation = {
+    const mockNavigation = {
       navigate: jest.fn(),
       getParam: () => otherUser,
     }
@@ -137,7 +137,7 @@ describe('ProfilePage', () => {
   })
 
   it('should not call displayEditProfile if you are not the user', () => {
-    mockOtherUser = {
+    const mockOtherUser = {
       name: 'Howard',
       id: 45,
       position: {
@@ -153,7 +153,7 @@ describe('ProfilePage', () => {
       phone_number: '303-333-3333',
       email: 'thisemail@email.com'
     }
-    mockNavigation = {
+    const mockNavigation = {
       navigate: jest.fn(),
       getParam: () => mockOtherUser,
     }

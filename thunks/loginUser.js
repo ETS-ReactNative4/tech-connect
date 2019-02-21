@@ -25,10 +25,10 @@ export const loginUser = (user) => {
         id: currentUser.data.id,
         api_key: currentUser.data.attributes.api_key,
       }
-      const userObject = {...loggedInUser,...currentUser.data.attributes}
+      const userObject = {...loggedInUser, ...currentUser.data.attributes}
       dispatch(logInUser(userObject))
       dispatch(hasErrored(''))
-    } catch(err) {
+    } catch (err) {
       dispatch(hasErrored(err.message))
     }
   }
