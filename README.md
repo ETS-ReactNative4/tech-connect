@@ -31,3 +31,14 @@
 ## Contributors
 - [Kylie Stanley](https://github.com/KylieStanley)
 - [Kaylee Bunce](https://github.com/kayleenovak)
+
+## Contribution
+If you wish to contribute to Tech Connect please fork and clone down this repo. When making changes please follow the following guidelines:
+   - Checkout to a branch `git checkout -b <your-branch-name>
+     - The brnach name should be descrptive of what you plan on accomplishing
+   - Ensure that you have small, frequent, and descriptive commits
+   - Updated/add tests according to your work
+   - When you open a PR
+     - Include a concise description of the changes you made
+     - Screenshot of the passing test suite
+     - Include a screenshot of the passing test suite
