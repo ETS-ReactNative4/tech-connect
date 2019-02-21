@@ -12,7 +12,7 @@ export class ProfilePage extends Component {
 
   viewProfile = async (id) => {
     const user = await getUserInfo(id, this.props.user.api_key)
-    this.props.navigation.navigate('ProfilePage', {user})
+    this.props.navigation.navigate('ConnectionProfilePage', {user})
   }
 
   contactInfo = (user) => {
@@ -51,7 +51,6 @@ export class ProfilePage extends Component {
 
   render() {
     const user = this.props.navigation.getParam('user') ? this.props.navigation.getParam('user') : this.props.user
-    console.log(this.props.user)
     const isConnection = this.props.user.connections.filter(connection => parseInt(user.id) === parseInt(connection.id))
     const connectionInfo = isConnection.length ? this.contactInfo(user) : null
     const editProfileSection = this.props.user.id !== user.id ? null : this.displayEditProfile(user)

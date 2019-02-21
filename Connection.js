@@ -8,7 +8,7 @@ export class Connection extends Component {
   render() {
 
     const { connection } = this.props
-    console.log(connection)
+    
     return (
       <View style={ styles.container }>
         <Image source={ {uri: connection.photo} } style={styles.picture} />

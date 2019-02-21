@@ -9,7 +9,7 @@ import MessagesInbox from './MessagesInbox'
 import ScheduleScreen from './ScheduleScreen'
 import NavigationService from './NavigationService';
 import Icon from 'react-native-vector-icons/Feather';
-import { createStackNavigator, createAppContainer, createBottomTabNavigator } from "react-navigation";
+import { createStackNavigator, createAppContainer, createBottomTabNavigator, createSwitchNavigator } from "react-navigation";
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'remote-redux-devtools';
@@ -31,12 +31,18 @@ const SecondaryHomeNav = createStackNavigator(
 
 const SecondaryProfileNav = createStackNavigator(
   {
-    ProfilePage: ProfilePage,
+    UserProfilePage: {
+      screen: ProfilePage,
+      params: {
+        user: false
+      }
+    },
+    ConnectionProfilePage: ProfilePage,
     EditProfile: ProfileScreen,
   },
   {
     headerMode: 'none',
-    initialRouteName: "ProfilePage"
+    initialRouteName: "UserProfilePage"
   }
 )
 
