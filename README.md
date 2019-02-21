@@ -28,6 +28,9 @@
 
 ## Screenshots
 
+![](TechConnectLogin.gif)
+![](TechConnect.gif)
+
 ## Contributors
 - [Kylie Stanley](https://github.com/KylieStanley)
 - [Kaylee Bunce](https://github.com/kayleenovak)
