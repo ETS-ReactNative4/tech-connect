@@ -4,13 +4,13 @@
  
  ## Setup & Install
  
- `git clone https://github.com/KylieStanley/tech-connect.git`
- `cd tech-connect`
- `npm install`
- `npm start`
+ - `git clone https://github.com/KylieStanley/tech-connect.git`
+ - `cd tech-connect`
+ - `npm install`
+ - `npm start`
  
- To run test suite:
- `npm test`
+ - To run test suite:
+    - `npm test`
  
  ## Tech Stack
   - React Native
