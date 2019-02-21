@@ -14,7 +14,7 @@ export const updateUser = (user) => {
         body: JSON.stringify(user)
       })
 
-      if(!response.ok) {
+      if (!response.ok) {
         const errorText = await response.json()
         throw Error(errorText.error)
       }
@@ -23,7 +23,7 @@ export const updateUser = (user) => {
       const updatedUser = await response.json()
       dispatch(updateUserAction(updatedUser.data.attributes))
       dispatch(hasErrored(''))
-    } catch(err) {
+    } catch (err) {
       dispatch(hasErrored(err.message))
     }
   }

@@ -31,7 +31,7 @@ export class Message extends Component {
         <Text style={ styles.date }>{ sentDate }</Text>
         <TouchableOpacity style={ styles.messageInfoContainer } onPress={() => this.setState({showMessage: !this.state.showMessage})}>
           <View style={ styles.imageContainer }>
-            <Image source={ require('./profile-pic.jpeg') } style={ styles.userPic }/>
+            <Image source={ require('../profile-pic.jpeg') } style={ styles.userPic }/>
           </View>
           <View style={ styles.messageInfo }>
             <Text style={ styles.name }>{ connection }</Text>

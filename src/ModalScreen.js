@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, TextInput, Button, TouchableHighlight, Touchabl
 import { Input } from 'react-native-elements'
 import DatePicker from 'react-native-datepicker'
 import { connect } from 'react-redux'
-import { sendConnectionRequest } from './apiCalls'
+import { sendConnectionRequest } from '../apiCalls'
 import Icon from 'react-native-vector-icons/Feather'
 
 
@@ -83,9 +83,9 @@ export class ModalScreen extends Component {
                 borderWidth: 0
               }
             }}
-           onDateChange={date => this.setState({inputs: {...this.state.inputs, datetime_1: date}})}
-         />
-         <DatePicker
+            onDateChange={date => this.setState({inputs: {...this.state.inputs, datetime_1: date}})}
+          />
+          <DatePicker
             style={styles.date}
             date={datetime_2}
             mode='datetime'
@@ -106,9 +106,9 @@ export class ModalScreen extends Component {
                 borderWidth: 0
               }
             }}
-           onDateChange={date => this.setState({inputs: {...this.state.inputs,datetime_2: date}})}
-         />
-         <DatePicker
+            onDateChange={date => this.setState({inputs: {...this.state.inputs, datetime_2: date}})}
+          />
+          <DatePicker
             style={styles.date}
             date={datetime_3}
             mode='datetime'
@@ -129,7 +129,7 @@ export class ModalScreen extends Component {
                 borderWidth: 0
               }
             }}
-            onDateChange={date => this.setState({inputs: {...this.state.inputs,datetime_3: date}})}
+            onDateChange={date => this.setState({inputs: {...this.state.inputs, datetime_3: date}})}
           />
           <Text style={styles.suggest}>Suggest Three Locations:</Text>
           <Input 

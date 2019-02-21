@@ -1,5 +1,5 @@
 import React from 'react'
-import { ModalScreen, mapStateToProps } from '../ModalScreen'
+import { ModalScreen, mapStateToProps } from '../src/ModalScreen'
 import { shallow } from 'enzyme'
 import { sendConnectionRequest } from '../apiCalls'
 import { Input } from 'react-native-elements'
@@ -14,7 +14,6 @@ import renderer from 'react-test-renderer'
 
 describe('ModalScreen', () => {
   let wrapper
-  let onPressEvent
   let mockNavigation
   let mockUser
 

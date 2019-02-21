@@ -1,5 +1,5 @@
 import React from 'react'
-import { ProfileScreen, mapStateToProps, mapDispatchToProps } from '../ProfileScreen'
+import { ProfileScreen, mapStateToProps, mapDispatchToProps } from '../src/ProfileScreen'
 import { shallow } from 'enzyme'
 import { updateUser } from '../thunks/updateUser'
 import { getLocations, getPositions, getEmployers } from '../apiCalls'
@@ -15,13 +15,11 @@ import renderer from 'react-test-renderer'
 
 describe('ProfileScreen', () => {
   let wrapper
-  let onPressEvent
   let navigation
 
   beforeEach(() => {
     navigation = { navigate: jest.fn() };
-    onPressEvent = jest.fn()
-    mockUser = {
+    const mockUser = {
       api_key: 1234,
       name: 'Howard',
       phone_number: 2022222222,
@@ -44,11 +42,11 @@ describe('ProfileScreen', () => {
   it('renders the snapshot', () => {
     const tree = renderer.create(
       <ProfileScreen />
-      ).toJSON();
+    ).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
-   it('should get all locations, positions, employers on mount', async () => {
+  it('should get all locations, positions, employers on mount', async () => {
     await wrapper.instance().componentDidMount()
     expect(getLocations).toHaveBeenCalled()
     expect(getPositions).toHaveBeenCalled()
@@ -86,6 +84,41 @@ describe('ProfileScreen', () => {
     })
     await wrapper.instance().handleSave()
     expect(wrapper.instance().props.navigation.navigate).toHaveBeenCalled()
+  })
+
+  it('should not reset state if user has no name', async () => {
+    const mockState = {
+      name: '',
+      bio: '',
+      linkedin: '',
+      github: '',
+      phone_number: '',
+      location: 'Denver',
+      employer: 'Turing',
+      position: 'Unemployed',
+      locations: [],
+      employers: [],
+      position: []
+    }
+
+    mockUser = {
+        api_key: 1234,
+        phone_number: 2022222222,
+        location: {
+          city: 'Denver'
+        },
+        position: {
+          job_title: 'Astronomer'
+        },
+        employer: {
+          name: 'Turing'
+        },
+        github: 'www.github.com',
+        linkedin: 'www.linkedin.com',
+        bio: 'This is a bio'
+      }
+    wrapper = shallow(<ProfileScreen user={mockUser} updateUser={jest.fn()} navigation={navigation} />)
+    expect(wrapper.instance().state).toEqual(mockState)
   })
 
   it('should update the name on change of input', () => {

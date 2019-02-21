@@ -1,5 +1,5 @@
 import React from 'react'
-import SuggestedConnection from '../SuggestedConnection'
+import SuggestedConnection from '../src/SuggestedConnection.js'
 import NavigationService from '../NavigationService';
 import { TouchableOpacity, Button } from 'react-native'
 import { shallow } from 'enzyme'

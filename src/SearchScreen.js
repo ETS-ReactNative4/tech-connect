@@ -3,9 +3,8 @@ import { StyleSheet, Text, TextInput, View, Button, TouchableHighlight, Image, S
 import { connect } from 'react-redux';
 import { ButtonGroup } from 'react-native-elements'
 import { LinearGradient } from 'expo'
-import SuggestedConnection from './SuggestedConnection.js' 
 import Connection from './Connection'
-import { getAllUsers, getUserInfo, getUsersFilter } from './apiCalls'
+import { getAllUsers, getUserInfo, getUsersFilter } from '../apiCalls'
 import Icon from 'react-native-vector-icons/Feather'
 
 
@@ -171,7 +170,3 @@ const styles = StyleSheet.create({
     width: '100%'
   }
 })
-
-
-
-

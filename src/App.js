@@ -4,24 +4,23 @@ import ProfileScreen from './ProfileScreen'
 import ProfilePage from './ProfilePage'
 import HomeScreen from './HomeScreen'
 import ModalScreen from './ModalScreen'
-import SearchScreen from './SearchScreen'
 import MessagesInbox from './MessagesInbox'
-import ScheduleScreen from './ScheduleScreen'
-import NavigationService from './NavigationService';
+import SearchScreen from './SearchScreen'
+import NavigationService from '../NavigationService';
 import Icon from 'react-native-vector-icons/Feather';
-import { createStackNavigator, createAppContainer, createBottomTabNavigator } from "react-navigation";
+import { createStackNavigator, createAppContainer, createBottomTabNavigator, createSwitchNavigator } from "react-navigation";
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'remote-redux-devtools';
 import thunk from 'redux-thunk';
-import rootReducer from './reducers'
+import rootReducer from '../reducers'
 
 const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)))
 
 const SecondaryHomeNav = createStackNavigator(
   {
     Home: HomeScreen,
-    ProfilePage: ProfilePage,
+    ProfilePage,
   },
   {
     headerMode: 'none',
@@ -31,12 +30,18 @@ const SecondaryHomeNav = createStackNavigator(
 
 const SecondaryProfileNav = createStackNavigator(
   {
-    ProfilePage: ProfilePage,
+    UserProfilePage: {
+      screen: ProfilePage,
+      params: {
+        user: false
+      }
+    },
+    ConnectionProfilePage: ProfilePage,
     EditProfile: ProfileScreen,
   },
   {
     headerMode: 'none',
-    initialRouteName: "ProfilePage"
+    initialRouteName: "UserProfilePage"
   }
 )
 
@@ -45,7 +50,6 @@ const AppNavBar = createBottomTabNavigator(
     Home: SecondaryHomeNav,
     Profile: SecondaryProfileNav,
     Messages: MessagesInbox,
-    Schedule: ScheduleScreen,
     Search: SearchScreen
   },
   {

@@ -3,8 +3,8 @@ import { StyleSheet, Text, View, TextInput, Button, TouchableHighlight, Touchabl
 import { connect } from 'react-redux'
 import { LinearGradient } from 'expo'
 import { Input } from 'react-native-elements';
-import { createUser } from './thunks/createUser'
-import { loginUser } from './thunks/loginUser'
+import { createUser } from '../thunks/createUser'
+import { loginUser } from '../thunks/loginUser'
 import Icon from 'react-native-vector-icons/EvilIcons';
 
 
@@ -40,7 +40,7 @@ export class LoginScreen extends React.Component {
       this.handleUpdateProfile()
     }
 
-    if(this.props.error) {
+    if (this.props.error) {
       this.setState({ error: true })
     }
   }
@@ -66,9 +66,9 @@ export class LoginScreen extends React.Component {
         <Input
           leftIcon= {
             <LinearGradient
-                colors={['#4AA9C5', '#6364c1', '#93548F']}
-                start={0.4}
-                style={styles.gradient} >
+              colors={['#4AA9C5', '#6364c1', '#93548F']}
+              start={0.4}
+              style={styles.gradient} >
               <Icon
                 raised={true}
                 name='envelope'
@@ -76,7 +76,7 @@ export class LoginScreen extends React.Component {
                 color='#FFF'
               />
             </LinearGradient>
-            }
+          }
           leftIconContainerStyle={styles.icon} 
           inputContainerStyle={styles.inputContainer} 
           containerStyle={styles.input} 

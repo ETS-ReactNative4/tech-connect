@@ -1,10 +1,10 @@
 import React from 'react'
 import { StyleSheet, Text, TextInput, View, Button, TouchableHighlight } from 'react-native'
 import { Input } from 'react-native-elements'
-import { updateUser } from './thunks/updateUser'
+import { updateUser } from '../thunks/updateUser'
 import { connect } from 'react-redux'
 import ModalSelector from 'react-native-modal-selector'
-import { getLocations, getPositions, getEmployers } from './apiCalls'
+import { getLocations, getPositions, getEmployers } from '../apiCalls'
 import Icon from 'react-native-vector-icons/Feather'
 
 
@@ -22,7 +22,7 @@ export class ProfileScreen extends React.Component {
       position: 'Unemployed',
       locations: [],
       employers: [],
-      position: []
+      positions: []
     }
   }
 
@@ -35,11 +35,11 @@ export class ProfileScreen extends React.Component {
       locations,
       employers,
       positions
-      })
+    })
   }
 
   loadInputs = () => {
-    if(this.props.user.hasOwnProperty('name')) {
+    if (this.props.user.hasOwnProperty('name')) {
       const { name, phone_number, location, position, employer, github, linkedin, bio } = this.props.user
       let phoneNumber = phone_number
       this.setState({
@@ -59,7 +59,7 @@ export class ProfileScreen extends React.Component {
 
   handleSave = async () => {
     await this.checkInputs()
-    if(this.state.error === '') {
+    if (this.state.error === '') {
       await this.props.updateUser({...this.state, api_key: this.props.user.api_key})
       this.props.navigation.navigate('Home')
     }
@@ -70,7 +70,7 @@ export class ProfileScreen extends React.Component {
     const emptyInput = inputs.filter(input => {
       return this.state[input] === ''
     })
-    if(emptyInput.length) {
+    if (emptyInput.length) {
       this.setState({
         error: 'You are missing a required field(s)'
       })
@@ -84,8 +84,8 @@ export class ProfileScreen extends React.Component {
   render() {
     const { name, phone_number, github, linkedin, bio, employer, position, location, error } = this.state
     return (
-      <View style={styles.container} >
-      <Text style={styles.title}>Update Profile</Text>
+      <View style={styles.container}          >
+        <Text style={styles.title}>Update Profile</Text>
         <Input
           onChangeText={(text) => this.setState({name: text})} 
           containerStyle={styles.profileInputContainer} 
@@ -122,7 +122,7 @@ export class ProfileScreen extends React.Component {
           data={this.state.locations}
           initValue={"Select something!"}
           cancelButtonAccessibilityLabel={'Cancel Button'}
-          onChange={(option)=>{ this.setState({location: option.label})}}>
+          onChange={(option)=> this.setState({location: option.label})}>
           <Input
             containerStyle={styles.profileInputContainer} 
             leftIconContainerStyle={styles.icon} 
@@ -134,9 +134,9 @@ export class ProfileScreen extends React.Component {
                 color='#4AA9C5'
               />
             }
-          editable={false}
-          placeholder="Location"
-          value={location} />
+            editable={false}
+            placeholder="Location"
+            value={location} />
         </ModalSelector>
 
         <ModalSelector
@@ -144,7 +144,7 @@ export class ProfileScreen extends React.Component {
           data={this.state.positions}
           initValue="Select something!"
           cancelButtonAccessibilityLabel={'Cancel Button'}
-          onChange={(option)=>{ this.setState({position: option.label})}}>
+          onChange={(option)=> this.setState({position: option.label})}>
           <Input
             containerStyle={styles.profileInputContainer} 
             leftIconContainerStyle={styles.icon} 
@@ -156,9 +156,9 @@ export class ProfileScreen extends React.Component {
                 color='#4AA9C5'
               />
             }
-          editable={false}
-          placeholder="Position"
-          value={position} />
+            editable={false}
+            placeholder="Position"
+            value={position} />
         </ModalSelector>
 
         <ModalSelector
@@ -166,7 +166,7 @@ export class ProfileScreen extends React.Component {
           data={this.state.employers}
           initValue="Select something!"
           cancelButtonAccessibilityLabel={'Cancel Button'}
-          onChange={(option)=>{ this.setState({employer: option.label})}}>
+          onChange={(option)=> this.setState({employer: option.label})}>
           <Input
             containerStyle={styles.profileInputContainer} 
             leftIconContainerStyle={styles.icon} 
@@ -178,9 +178,9 @@ export class ProfileScreen extends React.Component {
                 color='#4AA9C5'
               />
             }
-          editable={false}
-          placeholder="Employer"
-          value={employer} />
+            editable={false}
+            placeholder="Employer"
+            value={employer} />
         </ModalSelector>
 
         <Input 

@@ -1,9 +1,8 @@
 import React from 'react'
-import { Connection, mapStateToProps } from '../Connection'
+import { Connection, mapStateToProps } from '../src/Connection'
 import { shallow } from 'enzyme'
 import { TouchableOpacity } from 'react-native'
 
-const mockUser = {name: 'Howard'}
 
 describe('Connection', () => {
   let wrapper
@@ -13,7 +12,7 @@ describe('Connection', () => {
   beforeEach(() => {
     mockViewProfile = jest.fn()
     mockApiKey - 123998347574354
-    mockConnection = {
+    const mockConnection = {
       id: 3,
       name: 'Howard',
       job_title: 'Astronomer',
