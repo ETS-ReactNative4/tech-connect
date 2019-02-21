@@ -34,7 +34,7 @@
 
 ## Contribution
 If you wish to contribute to Tech Connect please fork and clone down this repo. When making changes please follow the following guidelines:
-   - Checkout to a branch `git checkout -b <your-branch-name>
+   - Checkout to a branch `git checkout -b <your-branch-name>`
      - The brnach name should be descrptive of what you plan on accomplishing
    - Ensure that you have small, frequent, and descriptive commits
    - Updated/add tests according to your work
