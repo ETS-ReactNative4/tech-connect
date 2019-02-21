@@ -23,5 +23,5 @@
 ## Screenshots
 
 ## Contributors
-[Kylie Stanley](https://github.com/KylieStanley)
-[Kaylee Bunce](https://github.com/kayleenovak)
+- [Kylie Stanley](https://github.com/KylieStanley)
+- [Kaylee Bunce](https://github.com/kayleenovak)
