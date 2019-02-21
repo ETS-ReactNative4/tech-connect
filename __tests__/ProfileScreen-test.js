@@ -86,6 +86,41 @@ describe('ProfileScreen', () => {
     expect(wrapper.instance().props.navigation.navigate).toHaveBeenCalled()
   })
 
+  it('should not reset state if user has no name', async () => {
+    const mockState = {
+      name: '',
+      bio: '',
+      linkedin: '',
+      github: '',
+      phone_number: '',
+      location: 'Denver',
+      employer: 'Turing',
+      position: 'Unemployed',
+      locations: [],
+      employers: [],
+      position: []
+    }
+
+    mockUser = {
+        api_key: 1234,
+        phone_number: 2022222222,
+        location: {
+          city: 'Denver'
+        },
+        position: {
+          job_title: 'Astronomer'
+        },
+        employer: {
+          name: 'Turing'
+        },
+        github: 'www.github.com',
+        linkedin: 'www.linkedin.com',
+        bio: 'This is a bio'
+      }
+    wrapper = shallow(<ProfileScreen user={mockUser} updateUser={jest.fn()} navigation={navigation} />)
+    expect(wrapper.instance().state).toEqual(mockState)
+  })
+
   it('should update the name on change of input', () => {
     wrapper.find(Input).at(0).simulate('changeText', 'Kylie')
     expect(wrapper.instance().state.name).toEqual('Kylie')

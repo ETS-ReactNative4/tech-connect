@@ -136,6 +136,7 @@ describe('ProfilePage', () => {
     expect(spy).toHaveBeenCalled()
   })
 
+
   it('should not call displayEditProfile if you are not the user', () => {
     const mockOtherUser = {
       name: 'Howard',

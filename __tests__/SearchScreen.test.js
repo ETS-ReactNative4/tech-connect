@@ -1,12 +1,12 @@
 import React from 'react'
 import { SearchScreen, mapStateToProps } from '../src/SearchScreen'
 import { shallow } from 'enzyme'
+import { Input } from 'react-native-elements'
 import { ButtonGroup } from 'react-native-elements'
 import { getAllUsers, getUsersFilter } from '../apiCalls'
 import { ActivityIndicator, Text, TextInput } from 'react-native'
 import Icon from 'react-native-vector-icons/Feather'
-
-
+import { LinearGradient } from 'expo'
 
 const mockUsers = [{name: 'Kaylee'}, {name: 'Kylie'}]
 jest.mock('../apiCalls')
@@ -19,17 +19,19 @@ import renderer from 'react-test-renderer'
 
 describe('SearchScreen', () => {
   let wrapper
+  let onPressEvent
   let navigation
 
   beforeEach(() => {
     navigation = { navigate: jest.fn() };
+    onPressEvent = jest.fn()
     wrapper = shallow(<SearchScreen user={{api_key: 1234}} updateUser={jest.fn()} navigation={navigation} />)
   })
 
   it('renders the snapshot', () => {
     const tree = renderer.create(
       <SearchScreen />
-    ).toJSON();
+      ).toJSON();
     expect(tree).toMatchSnapshot();
   });
 

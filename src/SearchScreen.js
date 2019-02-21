@@ -7,7 +7,6 @@ import Connection from './Connection'
 import { getAllUsers, getUserInfo, getUsersFilter } from '../apiCalls'
 import Icon from 'react-native-vector-icons/Feather'
 
-const uuidv1 = require('uuid/v1');
 
 export class SearchScreen extends React.Component {
   constructor(props) {
@@ -44,7 +43,7 @@ export class SearchScreen extends React.Component {
 
   render() {
     const { allUsers, selectedIndex, search, loading } = this.state
-    const userArray = allUsers.map(user => <Connection connection={ user } viewProfile={this.viewProfile.bind(null, user.id)} key={ user.id }/>)
+    const userArray = allUsers.map(user => <Connection connection={ user } viewProfile={this.viewProfile.bind(null,user.id)} key={ user.id }/>)
     const buttons = ['Name', 'Location', 'Position', 'Employer']
 
     return (
@@ -171,7 +170,3 @@ const styles = StyleSheet.create({
     width: '100%'
   }
 })
-
-
-
-

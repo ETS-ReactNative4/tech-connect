@@ -63,7 +63,8 @@
       "!**/babel.config.js",
       "!**/reducers/index.js",
       "!**/NavigationService.js",
-      "!**/App.js"
+      "!**/App.js",
+      "!**/apiCalls.js"
     ]
   },
   "private": true

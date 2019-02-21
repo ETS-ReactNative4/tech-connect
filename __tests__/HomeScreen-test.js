@@ -1,7 +1,7 @@
 import React from 'react';
 import { HomeScreen, mapStateToProps } from '../src/HomeScreen';
 import { shallow } from 'enzyme'
-import SuggestedConnection from '../src/SuggestedConnection'
+import SuggestedConnection from '../src/SuggestedConnection.js'
 import { getUserInfo } from '../apiCalls'
 import { Text } from 'react-native'
 

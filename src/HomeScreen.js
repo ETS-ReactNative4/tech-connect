@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, Image, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
 import { LinearGradient } from 'expo'
 import { getUserInfo } from '../apiCalls'
-import SuggestedConnection from './SuggestedConnection.js/index.js' 
+import SuggestedConnection from '../src/SuggestedConnection' 
 const uuidv1 = require('uuid/v1');
 
 export class HomeScreen extends React.Component {

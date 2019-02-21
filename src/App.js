@@ -4,9 +4,8 @@ import ProfileScreen from './ProfileScreen'
 import ProfilePage from './ProfilePage'
 import HomeScreen from './HomeScreen'
 import ModalScreen from './ModalScreen'
-import SearchScreen from './SearchScreen'
 import MessagesInbox from './MessagesInbox'
-import ScheduleScreen from './ScheduleScreen'
+import SearchScreen from './SearchScreen'
 import NavigationService from '../NavigationService';
 import Icon from 'react-native-vector-icons/Feather';
 import { createStackNavigator, createAppContainer, createBottomTabNavigator, createSwitchNavigator } from "react-navigation";
@@ -51,7 +50,6 @@ const AppNavBar = createBottomTabNavigator(
     Home: SecondaryHomeNav,
     Profile: SecondaryProfileNav,
     Messages: MessagesInbox,
-    Schedule: ScheduleScreen,
     Search: SearchScreen
   },
   {
