@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Text, Image, StyleSheet, TouchableHighlight } from 'react-native'
+import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native'
 import Icon from 'react-native-vector-icons/Feather'
 import { connect } from 'react-redux'
 
@@ -13,9 +13,9 @@ export class Connection extends Component {
       <View style={ styles.container }>
         <Image source={ require('./profile-pic.jpeg')} style={styles.picture} />
         <View style={ styles.connectionContainer }>
-          <TouchableHighlight onPress={() => this.props.viewProfile(connection.id)}>
+          <TouchableOpacity onPress={() => this.props.viewProfile(connection.id)}>
             <Text style={styles.name}>{ connection.name }</Text>
-          </TouchableHighlight>
+          </TouchableOpacity>
           <Text style={ styles.position }>{ connection.job_title }</Text>
           <View style={ styles.locationContainer}>
             <Icon name='map-pin' size={18} color='#4AA9C5' style={{marginRight: 7}} />

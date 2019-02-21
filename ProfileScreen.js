@@ -30,16 +30,59 @@ export class ProfileScreen extends React.Component {
     const locations = await getLocations()
     const positions = await getPositions()
     const employers = await getEmployers()
-    this.setState({ locations, employers, positions })
+    this.loadInputs()
+    this.setState({
+      locations,
+      employers,
+      positions
+      })
+  }
+
+  loadInputs = () => {
+    if(this.props.user.hasOwnProperty('name')) {
+      const { name, phone_number, location, position, employer, github, linkedin, bio } = this.props.user
+      let phoneNumber = phone_number
+      this.setState({
+        name,
+        phone_number: phoneNumber.toString(),
+        github,
+        linkedin,
+        bio,
+        location: location.city,
+        position: position.job_title,
+        employer: employer.name,
+        error: ''
+      })
+    }
   }
 
 
   handleSave = async () => {
-    await this.props.updateUser({...this.state, api_key: this.props.user.api_key})
-    this.props.navigation.navigate('Home')
+    await this.checkInputs()
+    if(this.state.error === '') {
+      await this.props.updateUser({...this.state, api_key: this.props.user.api_key})
+      this.props.navigation.navigate('Home')
+    }
+  }
+
+  checkInputs = () => {
+    const inputs = ['name', 'phone_number', 'location', 'position', 'employer', 'github', 'linkedin', 'bio']
+    const emptyInput = inputs.filter(input => {
+      return this.state[input] === ''
+    })
+    if(emptyInput.length) {
+      this.setState({
+        error: 'You are missing a required field(s)'
+      })
+    } else {
+      this.setState({
+        error: ''
+      })
+    }
   }
 
   render() {
+    const { name, phone_number, github, linkedin, bio, employer, position, location, error } = this.state
     return (
       <View style={styles.container} >
       <Text style={styles.title}>Update Profile</Text>
@@ -49,7 +92,7 @@ export class ProfileScreen extends React.Component {
           leftIconContainerStyle={styles.icon} 
           inputContainerStyle={styles.profileInput} 
           placeholder="Name"
-          value={this.state.name}
+          value={name}
           leftIcon={
             <Icon
               name='user'
@@ -64,7 +107,7 @@ export class ProfileScreen extends React.Component {
           leftIconContainerStyle={styles.icon} 
           inputContainerStyle={styles.profileInput} 
           placeholder="Phone Number"
-          value={this.state.phone_number}
+          value={phone_number}
           leftIcon={
             <Icon 
               name='phone'
@@ -77,7 +120,7 @@ export class ProfileScreen extends React.Component {
         <ModalSelector
           optionTextStyle={{color: '#4AA9C5', fontSize: 20}}
           data={this.state.locations}
-          initValue="Select something!"
+          initValue={"Select something!"}
           cancelButtonAccessibilityLabel={'Cancel Button'}
           onChange={(option)=>{ this.setState({location: option.label})}}>
           <Input
@@ -93,7 +136,7 @@ export class ProfileScreen extends React.Component {
             }
           editable={false}
           placeholder="Location"
-          value={this.state.location} />
+          value={location} />
         </ModalSelector>
 
         <ModalSelector
@@ -115,7 +158,7 @@ export class ProfileScreen extends React.Component {
             }
           editable={false}
           placeholder="Position"
-          value={this.state.position} />
+          value={position} />
         </ModalSelector>
 
         <ModalSelector
@@ -137,7 +180,7 @@ export class ProfileScreen extends React.Component {
             }
           editable={false}
           placeholder="Employer"
-          value={this.state.employer} />
+          value={employer} />
         </ModalSelector>
 
         <Input 
@@ -146,7 +189,7 @@ export class ProfileScreen extends React.Component {
           leftIconContainerStyle={styles.icon} 
           inputContainerStyle={styles.profileInput} 
           placeholder="GitHub"
-          value={this.state.github}
+          value={github}
           leftIcon={
             <Icon
               name='github'
@@ -161,7 +204,7 @@ export class ProfileScreen extends React.Component {
           leftIconContainerStyle={styles.icon} 
           inputContainerStyle={styles.profileInput} 
           placeholder="LinkedIn"
-          value={this.state.linkedin}
+          value={linkedin}
           leftIcon={
             <Icon
               name='linkedin'
@@ -176,7 +219,7 @@ export class ProfileScreen extends React.Component {
           leftIconContainerStyle={styles.icon} 
           inputContainerStyle={styles.profileInput} 
           placeholder="Bio"
-          value={this.state.bio}
+          value={bio}
           leftIcon={
             <Icon
               name='edit'
@@ -185,6 +228,7 @@ export class ProfileScreen extends React.Component {
             />
           }
         />
+        <Text style={ styles.error }>{ error }</Text>
         <TouchableHighlight style={styles.button}>
           <Button title="save" color='#E8FDFF' onPress={this.handleSave}/>
         </TouchableHighlight>
@@ -235,5 +279,9 @@ const styles = StyleSheet.create({
     borderRadius: 25,
     height: 40,
     width: 140
+  },
+  error: {
+    color: 'red',
+    marginBottom: 15
   }
 })

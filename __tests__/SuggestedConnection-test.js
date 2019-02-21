@@ -1,7 +1,7 @@
 import React from 'react'
 import SuggestedConnection from '../SuggestedConnection'
 import NavigationService from '../NavigationService';
-import { TouchableHighlight, Button } from 'react-native'
+import { TouchableOpacity, Button } from 'react-native'
 import { shallow } from 'enzyme'
 
 jest.mock('../NavigationService')
@@ -31,7 +31,7 @@ describe('SuggestedConnection', () => {
   })
 
   it('should fire viewProfile on press of the name', () => {
-    wrapper.find(TouchableHighlight).first().simulate('press')
+    wrapper.find(TouchableOpacity).first().simulate('press')
 
     expect(mockViewProfile).toHaveBeenCalled()
   })

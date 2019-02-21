@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import NavigationService from './NavigationService.js';
-import { StyleSheet, Text, View, Image, Button, TouchableHighlight } from 'react-native'
+import { StyleSheet, Text, View, Image, Button, TouchableHighlight, TouchableOpacity } from 'react-native'
 import Icon from 'react-native-vector-icons/Feather'
 
 export default class SuggestedConnection extends Component {
@@ -13,9 +13,9 @@ export default class SuggestedConnection extends Component {
       <View style={styles.imageContainer}>
         <Image source={require('./profile-pic.jpeg')} style={styles.picture} />
       </View>
-        <TouchableHighlight onPress={() => this.props.viewProfile(id)}>
+        <TouchableOpacity onPress={() => this.props.viewProfile(id)}>
           <Text style={ styles.name }>{ name }</Text>
-        </TouchableHighlight>
+        </TouchableOpacity>
         <Text style={ styles.position }>{ job_title }</Text>
         <View style={ styles.iconContainer }>
           <Icon name='map-pin' size={17} color='#93548F' style={ {marginRight: 2} } />

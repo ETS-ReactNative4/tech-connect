@@ -22,8 +22,8 @@ export class MessagesInbox extends Component {
   render() {
     return (
       <View style={ styles.inboxContainer }>
-        <Text style={ styles.inboxTitle }>Inbox</Text>
         <View style={ styles.messageContainer }>
+        <Text style={ styles.inboxTitle }>Inbox</Text>
         {
           this.state.messages.length ? this.state.messages.map(message => <Message message={message.attributes} />) : null
         }
@@ -43,12 +43,15 @@ const styles = StyleSheet.create({
   inboxContainer: {
     flex: 1,
     backgroundColor: '#4AA9C5',
-    padding: 20
+    padding: 20,
+    paddingTop: 40
   },
   inboxTitle: {
     fontSize: 30,
-    marginTop: 10,
-    marginBottom: 10
+    marginTop: 5,
+    marginBottom: 10,
+    color: '#4AA9C5',
+    marginLeft: 10
   },
   messageContainer: {
     backgroundColor: '#FFFFFF',
