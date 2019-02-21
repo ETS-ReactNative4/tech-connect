@@ -1,4 +1,7 @@
 # tech-connect
+
+[![Build Status](https://travis-ci.org/KylieStanley/tech-connect.svg?branch=master)](https://travis-ci.org/KylieStanley/tech-connect)
+
  ## About
  Tech-Connect is a front-end React Native application that communicated with a Rails backend by the same name (https://github.com/Isaac-Falkenstine/tech-connect-BE). The combined applications provide a Cold Outreach service for the Denver tech population looking for an opportunity to network with industry professionals. The application streamlines the emailing and scheduling process for the user in order to set up a coffee meeting with potential connection. The application provides ease of use for both the user requesting the coffee meeting and the user accepting the request.
  
