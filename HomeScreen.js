@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { LinearGradient } from 'expo'
 import { getUserInfo } from './apiCalls'
 import SuggestedConnection from './SuggestedConnection.js' 
-
+const uuidv1 = require('uuid/v1');
 
 export class HomeScreen extends React.Component {
   constructor(props) {
@@ -37,7 +37,7 @@ export class HomeScreen extends React.Component {
         <View styles={styles.suggestedConnections}>
           <Text style={styles.suggestedTitle}>Suggested Connections</Text>
           { 
-            suggestions.map(suggestion => <SuggestedConnection suggestion={ suggestion } viewProfile={ this.viewProfile } />) 
+            suggestions.map(suggestion => <SuggestedConnection suggestion={ suggestion } viewProfile={ this.viewProfile } key={ uuidv1() } />) 
           }
         </View>
       </View>
