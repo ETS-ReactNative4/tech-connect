@@ -98,7 +98,7 @@ describe('ProfileScreen', () => {
       position: 'Unemployed',
       locations: [],
       employers: [],
-      position: []
+      positions: []
     }
 
     mockUser = {
