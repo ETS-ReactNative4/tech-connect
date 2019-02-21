@@ -414,288 +414,62 @@ exports[`SearchScreen renders the snapshot 1`] = `
     <View
       style={
         Object {
+          "alignItems": "center",
           "backgroundColor": "#ffffff00",
-          "borderBottomColor": "#e1e1e1",
-          "borderBottomWidth": 0,
-          "borderTopColor": "#e1e1e1",
-          "borderTopWidth": 0,
-          "marginBottom": 10,
-          "padding": 8,
-          "width": "100%",
-        }
-      }
-    >
-      <View
-        style={
-          Object {
-            "paddingHorizontal": 0,
-            "width": "100%",
-          }
-        }
-      >
-        <View
-          style={
-            Object {
-              "alignItems": "center",
-              "backgroundColor": "#fff",
-              "borderBottomWidth": 2,
-              "borderColor": "#4AA9C5",
-              "borderRadius": 30,
-              "borderWidth": 2,
-              "flexDirection": "row",
-              "minHeight": 30,
-              "overflow": "hidden",
-              "transform": Array [
-                Object {
-                  "translateX": 0,
-                },
-              ],
-            }
-          }
-        >
-          <View
-            style={
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "#4AA9C5",
-                "borderRadius": 50,
-                "height": 36,
-                "justifyContent": "center",
-                "marginLeft": 3,
-                "marginRight": 5,
-                "width": 36,
-              }
-            }
-          >
-            <View>
-              <View
-                style={
-                  Object {
-                    "alignItems": "center",
-                    "backgroundColor": "transparent",
-                    "justifyContent": "center",
-                  }
-                }
-                theme={
-                  Object {
-                    "colors": Object {
-                      "disabled": "hsl(208, 8%, 90%)",
-                      "divider": "#bcbbc1",
-                      "error": "#ff190c",
-                      "grey0": "#393e42",
-                      "grey1": "#43484d",
-                      "grey2": "#5e6977",
-                      "grey3": "#86939e",
-                      "grey4": "#bdc6cf",
-                      "grey5": "#e1e8ee",
-                      "greyOutline": "#bbb",
-                      "platform": Object {
-                        "android": Object {
-                          "error": "#f44336",
-                          "primary": "#2196f3",
-                          "secondary": "#9C27B0",
-                          "success": "#4caf50",
-                          "warning": "#ffeb3b",
-                        },
-                        "ios": Object {
-                          "error": "#ff3b30",
-                          "primary": "#007aff",
-                          "secondary": "#5856d6",
-                          "success": "#4cd964",
-                          "warning": "#ffcc00",
-                        },
-                      },
-                      "primary": "#2089dc",
-                      "searchBg": "#303337",
-                      "secondary": "#8F0CE8",
-                      "success": "#52c41a",
-                      "warning": "#faad14",
-                    },
-                  }
-                }
-                underlayColor="white"
-              >
-                <Text />
-              </View>
-            </View>
-          </View>
-          <TextInput
-            allowFontScaling={true}
-            onBlur={[Function]}
-            onChangeText={[Function]}
-            onClear={[Function]}
-            onFocus={[Function]}
-            onSubmitEditing={[Function]}
-            placeholder="Type Here..."
-            placeholderTextColor="#86939e"
-            platform="default"
-            style={
-              Object {
-                "alignSelf": "center",
-                "color": "#86939e",
-                "flex": 1,
-                "fontSize": 18,
-                "marginLeft": 10,
-                "minHeight": 40,
-              }
-            }
-            testID="searchInput"
-            underlineColorAndroid="transparent"
-            value=""
-          />
-          <View
-            style={
-              Object {
-                "alignItems": "center",
-                "height": 40,
-                "justifyContent": "center",
-                "marginLeft": 15,
-                "marginRight": 8,
-              }
-            }
-          >
-            <View
-              style={
-                Object {
-                  "flexDirection": "row",
-                }
-              }
-            />
-          </View>
-        </View>
-      </View>
-    </View>
-  </View>
-</View>
-`;
-
-exports[`SearchScreen should match the snapshot 1`] = `
-<Component
-  style={
-    Object {
-      "alignItems": "stretch",
-      "backgroundColor": "#4AA9C5",
-      "flex": 1,
-      "height": "100%",
-      "justifyContent": "center",
-      "paddingTop": 20,
-      "width": "100%",
-    }
-  }
->
-  <Component
-    style={
-      Object {
-        "alignItems": "stretch",
-        "backgroundColor": "#fff",
-        "borderRadius": 5,
-        "flex": 1,
-        "justifyContent": "center",
-        "marginLeft": 20,
-        "marginRight": 20,
-        "marginTop": 25,
-        "padding": 15,
-      }
-    }
-  >
-    <Component
-      style={
-        Object {
-          "fontSize": 20,
-          "marginLeft": 10,
-          "marginTop": 10,
-        }
-      }
-    >
-      Search by:
-    </Component>
-    <Themed.ButtonGroup
-      buttons={
-        Array [
-          "Name",
-          "Location",
-          "Position",
-          "Employer",
-        ]
-      }
-      containerStyle={
-        Object {
-          "height": 30,
-        }
-      }
-      onPress={[Function]}
-      selectedButtonStyle={
-        Object {
-          "backgroundColor": "#4AA9C5",
-        }
-      }
-      selectedIndex={0}
-    />
-    <ForwardRef(Themed.SearchBar)
-      containerStyle={
-        Object {
-          "backgroundColor": "#ffffff00",
-          "borderBottomWidth": 0,
-          "borderTopWidth": 0,
-          "marginBottom": 10,
-          "width": "100%",
-        }
-      }
-      inputContainerStyle={
-        Object {
-          "backgroundColor": "#fff",
           "borderBottomWidth": 2,
           "borderColor": "#4AA9C5",
           "borderRadius": 30,
           "borderWidth": 2,
-        }
-      }
-      leftIconContainerStyle={
-        Object {
-          "backgroundColor": "#4AA9C5",
-          "borderRadius": 50,
-          "height": 36,
-          "marginLeft": 3,
-          "marginRight": 5,
-          "width": 36,
-        }
-      }
-      lightTheme={true}
-      onChangeText={[Function]}
-      onSubmitEditing={[Function]}
-      placeholder="Type Here..."
-      value=""
-    />
-    <ScrollView
-      contentContainerStyle={
-        Object {
-          "alignItems": "center",
-        }
-      }
-      style={
-        Object {
-          "flex": 1,
+          "flexDirection": "row",
+          "marginBottom": 10,
         }
       }
     >
-      <Component
+      <ExponentLinearGradient
+        colors={
+          Array [
+            4283083205,
+            4284703937,
+            4287845519,
+          ]
+        }
+        startPoint={
+          Array [
+            undefined,
+            undefined,
+          ]
+        }
         style={
           Object {
-            "backgroundColor": "#4AA9C5",
-            "borderRadius": 5,
-            "padding": 10,
-            "width": "100%",
+            "alignItems": "center",
+            "borderRadius": 300,
+            "height": 37,
+            "justifyContent": "center",
+            "marginLeft": 4,
+            "width": 37,
           }
         }
       >
-        <Component
-          animating={true}
-          color="#fff"
-          hidesWhenStopped={true}
-          size="large"
-        />
-      </Component>
-    </ScrollView>
-  </Component>
-</Component>
+        <Text />
+      </ExponentLinearGradient>
+      <TextInput
+        allowFontScaling={true}
+        onChangeText={[Function]}
+        placeholder="Search here..."
+        style={
+          Object {
+            "backgroundColor": "transparent",
+            "flex": 1,
+            "fontSize": 16,
+            "paddingBottom": 12,
+            "paddingLeft": 10,
+            "paddingTop": 12,
+          }
+        }
+        underlineColorAndroid="transparent"
+        value=""
+      />
+    </View>
+  </View>
+</View>
 `;

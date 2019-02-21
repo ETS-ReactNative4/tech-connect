@@ -1,10 +1,10 @@
 import React from 'react'
 import { SearchScreen, mapStateToProps } from '../SearchScreen'
-import { shallow, mount } from 'enzyme'
+import { shallow } from 'enzyme'
 import { Input } from 'react-native-elements'
-import { SearchBar, ButtonGroup } from 'react-native-elements'
+import { ButtonGroup } from 'react-native-elements'
 import { getAllUsers, getUsersFilter } from '../apiCalls'
-import { ActivityIndicator, Text } from 'react-native'
+import { ActivityIndicator, Text, TextInput } from 'react-native'
 import Icon from 'react-native-vector-icons/Feather'
 import { LinearGradient } from 'expo'
 
@@ -30,10 +30,6 @@ describe('SearchScreen', () => {
     wrapper = shallow(<SearchScreen user={{api_key: 1234}} updateUser={jest.fn()} navigation={navigation} />)
   })
 
-  it('should match the snapshot', () => {
-    expect(wrapper).toMatchSnapshot()
-  })
-
   it('renders the snapshot', () => {
     const tree = renderer.create(
       <SearchScreen />
@@ -47,7 +43,7 @@ describe('SearchScreen', () => {
   })
 
 
-  it('should set state of allUSers', async () => {
+  it('should set state of allUsers', async () => {
     await wrapper.instance().componentDidMount()
     expect(wrapper.instance().state.allUsers).toEqual(mockUsers)
     expect(wrapper.instance().state.loading).toEqual(false)
@@ -61,13 +57,14 @@ describe('SearchScreen', () => {
   })
 
   it('should set the search string in state on change of the input', () => {
-    wrapper.find(SearchBar).simulate('changeText', 'Backend')
+    wrapper.find(TextInput).simulate('changeText', 'Backend')
     wrapper.instance().forceUpdate()
     expect(wrapper.instance().state.search).toEqual('Backend')
   })
 
   it('should display the activity indicator if the results are loading', () => {
-    expect(wrapper.find(ActivityIndicator).length).toBe(1)
+    wrapper.instance().setState({loading: true})
+    expect(wrapper.find(ActivityIndicator).length).toEqual(1)
   })
 
   it('should get the user info when viewProfile is called', () => {
@@ -111,31 +108,18 @@ describe('SearchScreen', () => {
     expect(wrapper.find(Text).at(1).props().children).toEqual('No users were found.')
   })
 
-  it('should display no users found if there are no users', () => {
+  it('should display users found if there are users', () => {
     wrapper.instance().setState({ loading: false, allUsers: mockUsers})
+    expect(wrapper.find(ActivityIndicator).length).toEqual(0)
     expect(wrapper.find(Text).length).toEqual(1)
   })
 
-  it('should update the selected index when a button in the group is pressed', () => {
+  it('should call handleSave on press of the save button', () => {
     const spy = jest.spyOn(wrapper.instance(), 'getFilteredUsers')
     wrapper.instance().forceUpdate()
-    wrapper = mount(<SearchScreen user={{api_key: 1234}} updateUser={jest.fn()} navigation={navigation} />)
-    console.log(wrapper)
-    // const Search = wrapper.find(SearchBar)
-    // console.log(Search.prop('searchIcon'))
-    // console.log(wrapper.find(SearchBar).props().searchIcon)
-    // Search.prop('searchIcon')).find(Icon)
-    // wrapper.find(SearchBar).props().searchIcon
-    expect(spy).toHaveBeenCalled()
+    wrapper.find(Icon).simulate('press')
+    expect(spy).toHaveBeenCalled();
   })
-
-   // it('should call the search function on press of the icon', () => {
-   //  // wrapper.find(SearchBar.props().searchIcon).simulate('press')
-   //  const spy = jest.spyOn(wrapper.instance(), 'getFilteredUsers')
-   //  wrapper.instance().forceUpdate()
-   //  wrapper.find(Icon).simulate('press')
-   //  expect(spy).toHaveBeenCalled()
-   // })
 
   describe('mapStateToProps', () => {
     it('should return a user object', () => {
