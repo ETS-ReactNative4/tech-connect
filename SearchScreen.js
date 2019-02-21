@@ -45,7 +45,6 @@ export class SearchScreen extends React.Component {
   render() {
     const { allUsers, selectedIndex, search, loading } = this.state
     const userArray = allUsers.map(user => <Connection connection={ user } viewProfile={(() => this.viewProfile(user.id)) } key={ user.id }/>)
-
     const buttons = ['Name', 'Location', 'Position', 'Employer']
 
     return (
@@ -60,6 +59,7 @@ export class SearchScreen extends React.Component {
           containerStyle={{height: 30}}
         />
         <SearchBar
+          onSubmitEditing={ this.getFilteredUsers }
           searchIcon= {
             <LinearGradient
               colors={['#4AA9C5', '#6364c1', '#93548F']}

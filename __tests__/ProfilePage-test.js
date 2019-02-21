@@ -269,8 +269,8 @@ describe('ProfilePage', () => {
       }
       wrapper = shallow(<ProfilePage user={ mockUser } navigation={{navigate: jest.fn(), getParam: jest.fn()}} />)
     })
+    
     it('should render an edit icon', () => {
-  
       expect(wrapper.find(Icon).length).toEqual(4)
     })
   })
