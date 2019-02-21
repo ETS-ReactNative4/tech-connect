@@ -19,6 +19,12 @@
   - Jest/Enzyme
   
 ## Wire Frames
+![image](https://user-images.githubusercontent.com/39439089/53143978-96cdb000-3557-11e9-91f4-b6f0f185717a.png)
+![image](https://user-images.githubusercontent.com/39439089/53143984-99c8a080-3557-11e9-9658-573dc67751c0.png)
+<br />
+![image](https://user-images.githubusercontent.com/39439089/53143987-9c2afa80-3557-11e9-8b28-e997f826bcde.png)
+![image](https://user-images.githubusercontent.com/39439089/53143991-9f25eb00-3557-11e9-9dd5-1ff31a9cc555.png)
+
 
 ## Screenshots
 
