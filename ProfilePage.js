@@ -51,6 +51,7 @@ export class ProfilePage extends Component {
 
   render() {
     const user = this.props.navigation.getParam('user') ? this.props.navigation.getParam('user') : this.props.user
+    console.log(this.props.user)
     const isConnection = this.props.user.connections.filter(connection => parseInt(user.id) === parseInt(connection.id))
     const connectionInfo = isConnection.length ? this.contactInfo(user) : null
     const editProfileSection = this.props.user.id !== user.id ? null : this.displayEditProfile(user)
@@ -67,7 +68,7 @@ export class ProfilePage extends Component {
       <ScrollView style={ styles.scrollContainer }>
         <View style={ styles.container }>
           <View style={ styles.imageContainer }>
-            <Image style={ styles.profilePicture } source={ require('./profile-pic.jpeg') } />
+            <Image style={ styles.profilePicture } source={ {uri: user.photo} } />
             {
               editProfileSection
             }

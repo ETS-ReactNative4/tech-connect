@@ -8,10 +8,10 @@ export class Connection extends Component {
   render() {
 
     const { connection } = this.props
-
+    console.log(connection)
     return (
       <View style={ styles.container }>
-        <Image source={ require('./profile-pic.jpeg')} style={styles.picture} />
+        <Image source={ {uri: connection.photo} } style={styles.picture} />
         <View style={ styles.connectionContainer }>
           <TouchableOpacity onPress={() => this.props.viewProfile(connection.id)}>
             <Text style={styles.name}>{ connection.name }</Text>

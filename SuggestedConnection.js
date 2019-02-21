@@ -7,11 +7,11 @@ export default class SuggestedConnection extends Component {
   
   render() {
     const user = this.props.suggestion
-    const { id, name, job_title, city } = this.props.suggestion
+    const { id, name, job_title, city , photo } = this.props.suggestion
     return (
       <View style={styles.container}>
       <View style={styles.imageContainer}>
-        <Image source={require('./profile-pic.jpeg')} style={styles.picture} />
+        <Image source={ {uri: photo} } style={styles.picture} />
       </View>
         <TouchableOpacity onPress={() => this.props.viewProfile(id)}>
           <Text style={ styles.name }>{ name }</Text>
