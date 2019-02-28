@@ -28,7 +28,7 @@ export class HomeScreen extends React.Component {
           <Text style={styles.name}>{this.props.user.name}</Text>
           <Text style={styles.position}>{title}</Text>
           <View style={styles.imageContainer}>
-            <Image source={ {uri: this.props.user.photo} }style={styles.profilePic} />
+            <Image source={ {uri: this.props.user.photo} } style={styles.profilePic} />
           </View>
           <View style={styles.gradientContainer}>
             <LinearGradient
