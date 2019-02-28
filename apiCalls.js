@@ -1,11 +1,11 @@
 export const getLocations = async () => {
-    const url = 'https://tech-connect-be.herokuapp.com/api/v1/locations'
-    const response = await fetch(url)
-    const locationData = await response.json()
-    return locationData.data.map(location => {
-      return {label: location.attributes.city}
-    })
-  }
+  const url = 'https://tech-connect-be.herokuapp.com/api/v1/locations'
+  const response = await fetch(url)
+  const locationData = await response.json()
+  return locationData.data.map(location => {
+    return {label: location.attributes.city}
+  })
+}
 
 export const getEmployers = async () => {
   const url = 'https://tech-connect-be.herokuapp.com/api/v1/employers'
@@ -31,12 +31,13 @@ export const getAllUsers = async (key) => {
   const response = await fetch(url)
   const userData = await response.json()
   return userData.data.map(user => {
-    const { name, github, linkedin, bio, position, location, employer } = user.attributes
+    const { name, github, linkedin, bio, position, location, employer, photo } = user.attributes
     return {
       name,
       github,
       linkedin,
       bio,
+      photo,
       id: user.id, 
       job_title: position ? position.job_title : null, 
       city: location ? location.city : null,
@@ -50,13 +51,14 @@ export const getUsersFilter = async (key, filter, name) => {
   const response = await fetch(url)
   const userData = await response.json()
   return userData.data.map(user => {
-    const { name, github, linkedin, bio, position, location, employer } = user.attributes
+    const { name, github, linkedin, bio, position, location, employer, photo } = user.attributes
     return {
       name,
       github,
       linkedin,
       bio,
-      id: user.id, 
+      id: user.id,
+      photo, 
       job_title: position ? position.job_title : null, 
       city: location ? location.city : null,
       employer: employer ? employer : null
@@ -76,7 +78,7 @@ export const getUserInfo = async (id, apiKey) => {
     const userInfo = await response.json()
     const cleanedUser = {id: userInfo.data.id, ...userInfo.data.attributes}
     return cleanedUser
-  } catch(err) {
+  } catch (err) {
     console.log(err)
   }
 }
@@ -100,7 +102,7 @@ export const sendConnectionRequest = async (key, id, inputs) => {
 
     const result = await response.json()
     return result.success
-  } catch(err) {
+  } catch (err) {
     return 'Please fill out all the fields'
   }
 }
@@ -117,7 +119,7 @@ export const getMessages = async (apiKey) => {
 
     const result = await response.json()
     return result.data
-  } catch(err) {
+  } catch (err) {
     return 'Unable to get messages'
   }
 }

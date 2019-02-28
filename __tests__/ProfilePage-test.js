@@ -1,9 +1,9 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import { ProfilePage, mapStateToProps } from '../ProfilePage'
+import { ProfilePage, mapStateToProps } from '../src/ProfilePage'
 import { TouchableHighlight, View, Button } from 'react-native'
 import Icon from 'react-native-vector-icons/Feather'
-import Connection from '../Connection'
+import Connection from '../src/Connection'
 import { getUserInfo } from '../apiCalls'
 
 jest.mock('../apiCalls')
@@ -15,6 +15,7 @@ describe('ProfilePage', () => {
   beforeEach(() => {
     mockUser = {
       name: 'Howard',
+      id: 10,
       position: {
         job_title: 'Developer'
       },
@@ -28,7 +29,7 @@ describe('ProfilePage', () => {
       phone_number: '303-333-3333',
       email: 'thisemail@email.com'
     }
-    mockNavigation = {
+    const mockNavigation = {
       navigate: jest.fn(),
       getParam: () => mockUser,
     }
@@ -36,12 +37,10 @@ describe('ProfilePage', () => {
   })
   
   it('should match the snapshot', () => {
-
     expect(wrapper).toMatchSnapshot()
   })
 
   it('should not render a TouchableHighlight', () => {
-
     expect(wrapper.find(TouchableHighlight).length).toEqual(0)
   })
 
@@ -69,7 +68,6 @@ describe('ProfilePage', () => {
   })
 
   it('should render 0 connections', () => {
-
     expect(wrapper.find(Connection).length).toEqual(0)
   })
 
@@ -122,15 +120,49 @@ describe('ProfilePage', () => {
       phone_number: '303-333-3333',
       email: 'thisemail@email.com'
     }
-    mockNavigation = {
+    const mockNavigation = {
       navigate: jest.fn(),
       getParam: () => otherUser,
     }
     wrapper = shallow(<ProfilePage user={ mockUser } navigation={ mockNavigation }/>)
 
     wrapper.find(Button).simulate('press')
-
     expect(wrapper.instance().props.navigation.navigate).toHaveBeenCalled()
+  })
+
+  it('should call displayEditProfile if you are the user', () => {
+    const spy = jest.spyOn(wrapper.instance(), 'displayEditProfile')
+    wrapper.instance().forceUpdate()
+    expect(spy).toHaveBeenCalled()
+  })
+
+
+  it('should not call displayEditProfile if you are not the user', () => {
+    const mockOtherUser = {
+      name: 'Howard',
+      id: 45,
+      position: {
+        job_title: 'Developer'
+      },
+      employer: {
+        name: 'Turing'
+      },
+      location: {
+        city: 'Denver'
+      },
+      connections: [],
+      phone_number: '303-333-3333',
+      email: 'thisemail@email.com'
+    }
+    const mockNavigation = {
+      navigate: jest.fn(),
+      getParam: () => mockOtherUser,
+    }
+    wrapper = shallow(<ProfilePage user={ mockUser } navigation={ mockNavigation }/>)
+    
+    const spy = jest.spyOn(wrapper.instance(), 'displayEditProfile')
+    wrapper.instance().forceUpdate()
+    expect(spy).not.toHaveBeenCalled()
   })
 
   describe('viewProfile', () => {
@@ -238,8 +270,8 @@ describe('ProfilePage', () => {
       }
       wrapper = shallow(<ProfilePage user={ mockUser } navigation={{navigate: jest.fn(), getParam: jest.fn()}} />)
     })
+    
     it('should render an edit icon', () => {
-  
       expect(wrapper.find(Icon).length).toEqual(4)
     })
   })

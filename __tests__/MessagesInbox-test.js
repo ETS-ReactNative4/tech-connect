@@ -1,7 +1,7 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import { MessagesInbox, mapStateToProps } from '../MessagesInbox'
-import Message from '../Message'
+import { MessagesInbox, mapStateToProps } from '../src/MessagesInbox'
+import Message from '../src/Message'
 
 describe('MessagesInbox', () => {
   let wrapper

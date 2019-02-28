@@ -28,7 +28,7 @@ export const createUser = (user) => {
       }
       dispatch(logInUser(loggedInUser))
       dispatch(hasErrored(''))
-    } catch(err) {
+    } catch (err) {
       dispatch(hasErrored(err.message))
     }
   }

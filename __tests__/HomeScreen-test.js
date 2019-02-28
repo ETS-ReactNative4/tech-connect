@@ -1,7 +1,7 @@
 import React from 'react';
-import { HomeScreen, mapStateToProps } from '../HomeScreen';
+import { HomeScreen, mapStateToProps } from '../src/HomeScreen';
 import { shallow } from 'enzyme'
-import SuggestedConnection from '../SuggestedConnection'
+import SuggestedConnection from '../src/SuggestedConnection.js'
 import { getUserInfo } from '../apiCalls'
 import { Text } from 'react-native'
 
@@ -10,6 +10,7 @@ jest.mock('../apiCalls')
 describe('HomeScreen', () => {
   let wrapper
   let mockUser
+  let mockNavigation
 
   beforeEach(() => {
     mockUser = {
@@ -27,26 +28,21 @@ describe('HomeScreen', () => {
   })
 
   it('should match the snapshot', () => {
-
     expect(wrapper).toMatchSnapshot()
   })
 
   it('should render 0 suggested connections', () => {
-
     expect(wrapper.find(SuggestedConnection).length).toEqual(0)
   })
 
   it('should render a title', () => {
-
     expect(wrapper.find(Text).at(1).contains('astronomer')).toBe(true)
   })
 
   it('should not render a title', () => {
     const mockUserWithoutTitle = {
       name: 'Howard',
-      position: {
-        job_title: null
-      }, 
+      position: null,
       suggestions: [],
       api_key: 112345129372873,
     }

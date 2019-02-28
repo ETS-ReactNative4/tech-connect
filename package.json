@@ -2,10 +2,12 @@
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
     "start": "expo start",
+    "build": "expo build",
     "android": "expo start --android",
     "ios": "expo start --ios",
     "eject": "expo eject",
-    "test": "node_modules/.bin/jest"
+    "test": "node_modules/.bin/jest",
+    "eslint": "./node_modules/.bin/eslint"
   },
   "dependencies": {
     "enzyme": "^3.8.0",
@@ -32,6 +34,9 @@
     "babel-jest": "^24.1.0",
     "babel-preset-expo": "^5.0.0",
     "babel-preset-react-native": "^4.0.1",
+    "eslint": "^5.14.1",
+    "eslint-plugin-react": "^7.12.4",
+    "expo-cli": "^2.11.1",
     "jest": "^24.1.0",
     "jest-expo": "^32.0.0",
     "react-dom": "^16.8.2",
@@ -51,7 +56,7 @@
       "/node_modules/"
     ],
     "transformIgnorePatterns": [
-      "node_modules/(?!react-native|expo-react-native-adapter|react-navigation-stack|@react-navigation|native-base|@expo|expo|expo-font)"
+      "node_modules/(?!react-native|expo-react-native-adapter|react-navigation-stack|@react-navigation|native-base|@expo|expo|expo-font|react-navigation-tabs)"
     ],
     "collectCoverageFrom": [
       "**/*.{js,jsx}",
@@ -59,7 +64,9 @@
       "!**/coverage/**",
       "!**/babel.config.js",
       "!**/reducers/index.js",
-      "!**/NavigationService.js"
+      "!**/NavigationService.js",
+      "!**/App.js",
+      "!**/apiCalls.js"
     ]
   },
   "private": true

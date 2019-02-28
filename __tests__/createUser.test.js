@@ -3,10 +3,10 @@ import { isLoading, hasErrored, logInUser } from '../actions'
 
 
 describe('createUser', () => {
-  let mockUrl
   let mockDispatch
   let mockUserFetch
   let mockUser
+  let mockUrl
 
   beforeEach(() => {
     mockUserFetch = {
@@ -22,8 +22,8 @@ describe('createUser', () => {
       email: 'email@email.com'
     }
 
-     mockUrl = 'https://tech-connect-be.herokuapp.com/api/v1/users'
-     mockDispatch = jest.fn()
+    mockUrl = 'https://tech-connect-be.herokuapp.com/api/v1/users'
+    mockDispatch = jest.fn()
   })
 
   it('should call dispatch with the isLoading action', () => {
