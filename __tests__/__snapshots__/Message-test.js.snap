@@ -49,7 +49,11 @@ exports[`Message should match the snapshot 1`] = `
       }
     >
       <Component
-        source={1}
+        source={
+          Object {
+            "uri": undefined,
+          }
+        }
         style={
           Object {
             "borderRadius": 25,

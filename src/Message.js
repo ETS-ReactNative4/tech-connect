@@ -93,7 +93,8 @@ const styles = StyleSheet.create({
     color: 'gray',
   },
   messageBody: {
-    marginRight: 10
+    marginRight: 10,
+    marginTop: 6
   },
   messageInfo: {
     marginLeft: 10,

@@ -247,6 +247,7 @@ exports[`LoginScreen renders the snapshot 1`] = `
         "borderRadius": 25,
         "height": 44,
         "justifyContent": "center",
+        "marginBottom": 13,
         "shadowColor": "black",
         "shadowOffset": Object {
           "height": 2,

@@ -36,8 +36,7 @@ const SecondaryProfileNav = createStackNavigator(
         user: false
       }
     },
-    ConnectionProfilePage: ProfilePage,
-    EditProfile: ProfileScreen,
+    ConnectionProfilePage: ProfilePage
   },
   {
     headerMode: 'none',
