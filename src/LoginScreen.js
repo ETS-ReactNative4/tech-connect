@@ -221,7 +221,8 @@ const styles = StyleSheet.create({
     shadowOffset: {  width: 2,  height: 2},
     shadowRadius: 5,
     shadowColor: 'black',
-    shadowOpacity: .2
+    shadowOpacity: .2,
+    marginBottom: 13
   },
   textContainer: {
     display: 'flex',

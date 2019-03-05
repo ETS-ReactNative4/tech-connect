@@ -9,9 +9,13 @@ describe('Message', () => {
 
   beforeEach(() => {
     mockMessage = {
-      receiver: 'Howard',
+      receiver: {
+        name: 'Howard'
+      },
       meeting_location: 'Turing',
-      sender: 'Howard',
+      sender: {
+        name: 'Howard'
+      },
       status: 'Confirmed',
       meeting_date: '2019-02-15T23:11:40.016Z'
     }
@@ -29,9 +33,13 @@ describe('Message', () => {
 
   it('should render a declined message when you are the receiver', () => {
     mockMessage = {
-      receiver: 'Joe',
+      receiver: {
+        name: 'Joe'
+      },
       meeting_location: 'N/A',
-      sender: 'Howard',
+      sender: {
+        name: 'Howard'
+      },
       status: 'Declined',
       meeting_date: '2019-02-15T23:11:40.016Z'
     }
@@ -42,9 +50,13 @@ describe('Message', () => {
 
   it('should render a decline message when you are the sender', () => {
     mockMessage = {
-      receiver: 'Howard',
+      receiver: {
+        name: 'Howard'
+      },
       meeting_location: 'N/A',
-      sender: 'Joe',
+      sender: {
+        name: 'Joe'
+      },
       status: 'Declined',
       meeting_date: '2019-02-15T23:11:40.016Z'
     }
@@ -55,9 +67,13 @@ describe('Message', () => {
 
   it('should render a confirmed message when you are the receiver', () => {
     mockMessage = {
-      receiver: 'Joe',
+      receiver: {
+        name: 'Joe'
+      },
       meeting_location: 'Turing',
-      sender: 'Howard',
+      sender: {
+        name: 'Howard'
+      },
       status: 'Confirmed',
       meeting_date: '2019-02-15T23:11:40.016Z'
     }

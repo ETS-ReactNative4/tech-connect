@@ -84,7 +84,7 @@ export class ProfileScreen extends React.Component {
   render() {
     const { name, phone_number, github, linkedin, bio, employer, position, location, error } = this.state
     return (
-      <View style={styles.container}          >
+      <View style={styles.container}>
         <Text style={styles.title}>Update Profile</Text>
         <Input
           onChangeText={(text) => this.setState({name: text})} 

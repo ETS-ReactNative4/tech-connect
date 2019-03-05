@@ -13,25 +13,27 @@ export class Message extends Component {
 
   render() {
     const { message, user } = this.props
-    const connection = (user.name === message.receiver) ? message.sender :  message.receiver
+    const connection = (user.name === message.receiver.name) ? message.sender.name :  message.receiver.name
     const sentDate = new Date(message.created_at).toUTCString().split(' ').slice(0, 4).join(' ')
     const meetingDate = new Date(message.meeting_date).toUTCString().split(' ').slice(0, 4).join(' ')
     const time = new Date(message.meeting_date).toUTCString().split(' ')[4]
     let messageText
+    let messagePhoto
     let messageEnd = (message.meeting_location !== 'N/A') ? `at ${message.meeting_location} on ${meetingDate} at ${time}` : null
 
-    if (message.receiver === user.name) {
-      messageText = <Text style={ styles.messageBody } >You have { message.status } a meeting with { message.sender } { messageEnd }</Text>
+    if (message.receiver.name === user.name) {
+      messageText = <Text style={ styles.messageBody } >You have { message.status } a meeting with { message.sender.name } { messageEnd }</Text>
+      messagePhoto = message.sender.photo
     } else {
-      messageText = <Text style={ styles.messageBody } >{ message.receiver } has { message.status } a meeting with you { messageEnd }</Text>
+      messageText = <Text style={ styles.messageBody } >{ message.receiver.name } has { message.status } a meeting with you { messageEnd }</Text>
+      messagePhoto = message.receiver.photo
     }
-    
     return (
       <View style={ styles.messageContainer }>
         <Text style={ styles.date }>{ sentDate }</Text>
         <TouchableOpacity style={ styles.messageInfoContainer } onPress={() => this.setState({showMessage: !this.state.showMessage})}>
           <View style={ styles.imageContainer }>
-            <Image source={ require('../profile-pic.jpeg') } style={ styles.userPic }/>
+            <Image source={ {uri: messagePhoto} } style={ styles.userPic }/>
           </View>
           <View style={ styles.messageInfo }>
             <Text style={ styles.name }>{ connection }</Text>
@@ -91,7 +93,8 @@ const styles = StyleSheet.create({
     color: 'gray',
   },
   messageBody: {
-    marginRight: 10
+    marginRight: 10,
+    marginTop: 6
   },
   messageInfo: {
     marginLeft: 10,

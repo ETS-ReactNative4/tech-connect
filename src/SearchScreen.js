@@ -7,6 +7,7 @@ import Connection from './Connection'
 import { getAllUsers, getUserInfo, getUsersFilter } from '../apiCalls'
 import Icon from 'react-native-vector-icons/Feather'
 
+const uuidv1 = require('uuid/v1');
 
 export class SearchScreen extends React.Component {
   constructor(props) {
