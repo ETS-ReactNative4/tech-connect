@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import LoginScreen from './LoginScreen'
 import ProfileScreen from './ProfileScreen'
 import ProfilePage from './ProfilePage'
@@ -14,6 +14,7 @@ import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'remote-redux-devtools';
 import thunk from 'redux-thunk';
 import rootReducer from '../reducers'
+import { MenuProvider } from 'react-native-popup-menu'
 
 const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)))
 
@@ -109,16 +110,18 @@ const RootStack = createStackNavigator(
 
 const AppContainer = createAppContainer(RootStack)
 
-export default class App extends React.Component {
+export default class App extends Component {
     
   render() {
     return (
       <Provider store={ store }>
-        <AppContainer 
-          ref={navigatorRef => {
-            NavigationService.setTopLevelNavigator(navigatorRef);
-          }}
-        />
+        <MenuProvider>
+          <AppContainer 
+            ref={navigatorRef => {
+              NavigationService.setTopLevelNavigator(navigatorRef);
+            }}
+          />
+        </MenuProvider>
       </Provider>
     );
   }
