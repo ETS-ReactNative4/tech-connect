@@ -4,6 +4,9 @@ import Icon from 'react-native-vector-icons/Feather'
 import Connection from './Connection'
 import { connect } from 'react-redux'
 import { getUserInfo } from '../apiCalls'
+import { Menu, MenuOptions, MenuOption, MenuTrigger } from 'react-native-popup-menu'
+import { logoutUser } from '../actions'
+
 
 export class ProfilePage extends Component {
   constructor(props) {
@@ -33,9 +36,23 @@ export class ProfilePage extends Component {
     this.props.navigation.navigate('EditProfile')
   }
 
-  displayEditProfile = () => {
+  logOut = () => {
+    this.props.navigation.navigate('Login')
+    setTimeout(this.props.logoutUser, 1000)
+  }
+
+  displaySettingsMenu = () => {
     return (
-      <Icon name='edit' size={20} color='#4AA9C5' style={ styles.editIcon } onPress={ this.editProfile } />
+      <Menu style={ styles.menuIcon }>
+      <MenuTrigger>
+        <Icon name='settings' size={20} color='#4AA9C5' />
+      </MenuTrigger>
+        <MenuOptions customStyles={{optionsContainer: {width: 116}}} >
+          <MenuOption text="Edit Profile" onSelect={ this.editProfile } />
+          <MenuOption text="Upload Picture"/>
+          <MenuOption text="Logout" onSelect={this.logOut} />
+        </MenuOptions>
+      </Menu>
     )
   }
 
@@ -53,7 +70,7 @@ export class ProfilePage extends Component {
     const user = this.props.navigation.getParam('user') ? this.props.navigation.getParam('user') : this.props.user
     const isConnection = this.props.user.connections.filter(connection => parseInt(user.id) === parseInt(connection.id))
     const connectionInfo = isConnection.length ? this.contactInfo(user) : null
-    const editProfileSection = this.props.user.id !== user.id ? null : this.displayEditProfile(user)
+    const editProfileSection = this.props.user.id !== user.id ? null : this.displaySettingsMenu(user)
     const button = isConnection.length ? 'Message' : 'Connect'
     const connectBtn = this.props.user !== user && 
       <TouchableHighlight style={styles.connectBtn}>
@@ -113,7 +130,11 @@ export const mapStateToProps = (state) => ({
   user: state.user
 })
 
-export default connect(mapStateToProps)(ProfilePage)
+export const mapDispatchToProps = (dispatch) => ({
+  logoutUser: () => dispatch(logoutUser()),
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProfilePage)
 
 const styles = StyleSheet.create({
   scrollContainer: {
@@ -159,7 +180,7 @@ const styles = StyleSheet.create({
     paddingBottom: 20,
     height: '100%'
   },
-  editIcon: {
+  menuIcon: {
     position: 'absolute',
     right: 30,
     top: 110,
