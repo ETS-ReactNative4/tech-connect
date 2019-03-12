@@ -114,15 +114,15 @@ export default class App extends Component {
     
   render() {
     return (
-      <Provider store={ store }>
         <MenuProvider>
+      <Provider store={ store }>
           <AppContainer 
             ref={navigatorRef => {
               NavigationService.setTopLevelNavigator(navigatorRef);
             }}
           />
-        </MenuProvider>
       </Provider>
+        </MenuProvider>
     );
   }
 }
