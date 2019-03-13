@@ -45,11 +45,10 @@ export class ProfilePage extends Component {
     return (
       <Menu style={ styles.menuIcon }>
       <MenuTrigger>
-        <Icon name='settings' size={20} color='#4AA9C5' />
+        <Icon name='settings' size={24} color='#4AA9C5' />
       </MenuTrigger>
-        <MenuOptions customStyles={{optionsContainer: {width: 116}}} >
+        <MenuOptions customStyles={ menuStyles } >
           <MenuOption text="Edit Profile" onSelect={ this.editProfile } />
-          <MenuOption text="Upload Picture"/>
           <MenuOption text="Logout" onSelect={this.logOut} />
         </MenuOptions>
       </Menu>
@@ -252,5 +251,27 @@ const styles = StyleSheet.create({
   language: {
     color: 'white',
     fontSize: 15,
-  }
+  },
+  optionsContainer: {}
 })
+
+const menuStyles = {
+  optionsContainer: {
+    width: 100
+  }, 
+  optionWrapper: {
+    display: 'flex', 
+    justifyContent: 'center', 
+    alignItems: 'center', 
+    height: 40, 
+    borderColor: '#eaeaea',
+    borderWidth: 1
+  }, 
+  optionText: {
+    fontSize: 16
+  },
+  optionTouchable: {
+    underlayColor: '#93548F', 
+    activeOpacity: 80
+  }
+}
