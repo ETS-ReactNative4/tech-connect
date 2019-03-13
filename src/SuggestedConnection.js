@@ -69,7 +69,8 @@ const styles = StyleSheet.create({
     marginLeft: 60,
     marginTop: 2,
     fontSize: 17,
-    color: 'white'
+    color: 'white',
+    width: 180
   },
   connectBtn: {
     position: 'absolute',
