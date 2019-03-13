@@ -58,12 +58,13 @@ exports[`ProfilePage should match the snapshot 1`] = `
           }
         }
       />
-      <Icon
-        allowFontScaling={false}
-        color="#4AA9C5"
-        name="edit"
-        onPress={[Function]}
-        size={20}
+      <ForwardRef(enhanceContext-Context.Consumer(Menu))
+        onBackdropPress={[Function]}
+        onClose={[Function]}
+        onOpen={[Function]}
+        onSelect={[Function]}
+        renderer={[Function]}
+        rendererProps={Object {}}
         style={
           Object {
             "position": "absolute",
@@ -72,7 +73,58 @@ exports[`ProfilePage should match the snapshot 1`] = `
             "zIndex": 100000000005,
           }
         }
-      />
+      >
+        <ForwardRef(enhanceContext-Context.Consumer(MenuTrigger))
+          customStyles={Object {}}
+          disabled={false}
+        >
+          <Icon
+            allowFontScaling={false}
+            color="#4AA9C5"
+            name="settings"
+            size={24}
+          />
+        </ForwardRef(enhanceContext-Context.Consumer(MenuTrigger))>
+        <ForwardRef(enhanceContext-Context.Consumer(MenuOptions))
+          customStyles={
+            Object {
+              "optionText": Object {
+                "fontSize": 16,
+              },
+              "optionTouchable": Object {
+                "activeOpacity": 80,
+                "underlayColor": "#93548F",
+              },
+              "optionWrapper": Object {
+                "alignItems": "center",
+                "borderColor": "#eaeaea",
+                "borderWidth": 1,
+                "display": "flex",
+                "height": 40,
+                "justifyContent": "center",
+              },
+              "optionsContainer": Object {
+                "width": 100,
+              },
+            }
+          }
+        >
+          <ForwardRef(enhanceContext-Context.Consumer(MenuOption))
+            customStyles={Object {}}
+            disableTouchable={false}
+            disabled={false}
+            onSelect={[Function]}
+            text="Edit Profile"
+          />
+          <ForwardRef(enhanceContext-Context.Consumer(MenuOption))
+            customStyles={Object {}}
+            disableTouchable={false}
+            disabled={false}
+            onSelect={[Function]}
+            text="Logout"
+          />
+        </ForwardRef(enhanceContext-Context.Consumer(MenuOptions))>
+      </ForwardRef(enhanceContext-Context.Consumer(Menu))>
     </Component>
     <Component
       style={

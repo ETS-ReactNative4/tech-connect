@@ -1,12 +1,15 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import { ProfilePage, mapStateToProps } from '../src/ProfilePage'
+import { ProfilePage, mapStateToProps, mapDispatchToProps } from '../src/ProfilePage'
 import { TouchableHighlight, View, Button } from 'react-native'
 import Icon from 'react-native-vector-icons/Feather'
 import Connection from '../src/Connection'
 import { getUserInfo } from '../apiCalls'
+import { logoutUser } from '../actions'
+
 
 jest.mock('../apiCalls')
+jest.useFakeTimers()
 
 describe('ProfilePage', () => {
   let wrapper
@@ -33,7 +36,7 @@ describe('ProfilePage', () => {
       navigate: jest.fn(),
       getParam: () => mockUser,
     }
-    wrapper = shallow(<ProfilePage user={ mockUser } navigation={ mockNavigation }/>)
+    wrapper = shallow(<ProfilePage user={ mockUser } navigation={ mockNavigation } logoutUser={ jest.fn() }/>)
   })
   
   it('should match the snapshot', () => {
@@ -130,14 +133,14 @@ describe('ProfilePage', () => {
     expect(wrapper.instance().props.navigation.navigate).toHaveBeenCalled()
   })
 
-  it('should call displayEditProfile if you are the user', () => {
-    const spy = jest.spyOn(wrapper.instance(), 'displayEditProfile')
+  it('should call displaySettingsMenu if you are the user', () => {
+    const spy = jest.spyOn(wrapper.instance(), 'displaySettingsMenu')
     wrapper.instance().forceUpdate()
     expect(spy).toHaveBeenCalled()
   })
 
 
-  it('should not call displayEditProfile if you are not the user', () => {
+  it('should not call displaySettingsMenu if you are not the user', () => {
     const mockOtherUser = {
       name: 'Howard',
       id: 45,
@@ -160,7 +163,7 @@ describe('ProfilePage', () => {
     }
     wrapper = shallow(<ProfilePage user={ mockUser } navigation={ mockNavigation }/>)
     
-    const spy = jest.spyOn(wrapper.instance(), 'displayEditProfile')
+    const spy = jest.spyOn(wrapper.instance(), 'displaySettingsMenu')
     wrapper.instance().forceUpdate()
     expect(spy).not.toHaveBeenCalled()
   })
@@ -223,6 +226,13 @@ describe('ProfilePage', () => {
     })
   })
 
+
+  it('should log the user out and return to the login screen', () => {
+    wrapper.instance().logOut()
+    expect(wrapper.instance().props.navigation.navigate).toHaveBeenCalled()
+    expect(setTimeout).toHaveBeenCalled()
+  })
+
   describe('editProfile', () => {
     it('should navigate to the EditProfile page', () => {
       const mockUser = {
@@ -247,7 +257,7 @@ describe('ProfilePage', () => {
     })
   })
 
-  describe('displayEditProfile', () => {
+  describe('displaySettingsMenu', () => {
     let mockUser
     let wrapper
 
@@ -293,4 +303,15 @@ describe('ProfilePage', () => {
     })
   })
 
+  describe('mapDispatchToProps', () => {
+    it('should call dispatch with the correct params for logoutUser', () => {
+      const mockDispatch = jest.fn()
+      const actionToDispatch = logoutUser()
+      const result = mapDispatchToProps(mockDispatch)
+
+      result.logoutUser()
+
+      expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch)
+    })
+  })
 })

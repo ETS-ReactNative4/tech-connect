@@ -42,6 +42,8 @@ export class LoginScreen extends React.Component {
 
     if (this.props.error) {
       this.setState({ error: true })
+    } else {
+      this.setState({ email: '', password: '', password_confirmation: '' })
     }
   }
   
@@ -82,6 +84,7 @@ export class LoginScreen extends React.Component {
           containerStyle={styles.input} 
           placeholder="Email" style={styles.input} 
           name='email' 
+          value={ this.state.email }
           onChangeText={(text) => this.setState({email: text})} 
         />
         <Input 
@@ -105,6 +108,7 @@ export class LoginScreen extends React.Component {
           secureTextEntry={true} 
           name='password' 
           placeholder="Password" 
+          value={ this.state.password }
           onChangeText={(text) => this.setState({password: text})} 
         /> 
         {
@@ -128,6 +132,7 @@ export class LoginScreen extends React.Component {
               containerStyle={styles.input} 
               secureTextEntry={true} 
               placeholder="Confirm Password" 
+              value={ this.state.password_confirmation }
               onChangeText={(text) => this.setState({password_confirmation: text})}
             /> 
         }
