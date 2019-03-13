@@ -132,6 +132,7 @@ exports[`LoginScreen renders the snapshot 1`] = `
         }
         testID="RNE__Input__text-input"
         underlineColorAndroid="transparent"
+        value=""
       />
     </View>
   </View>
@@ -220,6 +221,7 @@ exports[`LoginScreen renders the snapshot 1`] = `
         }
         testID="RNE__Input__text-input"
         underlineColorAndroid="transparent"
+        value=""
       />
     </View>
   </View>
