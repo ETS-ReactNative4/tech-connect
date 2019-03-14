@@ -31,8 +31,8 @@
 
 ## Screenshots
 
-![](TechConnectLogin.gif)
-![](TechConnect.gif)
+![](assets/TechConnectLogin.gif)
+![](assets/TechConnect.gif)
 
 ## Contributors
 - [Kylie Stanley](https://github.com/KylieStanley)
